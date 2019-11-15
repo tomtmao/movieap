@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
-import val from './val'
+import Recent from './Recent'
 
 
 export default combineReducers({
-    val
+    Recent
 })
