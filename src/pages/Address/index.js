@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import detailStyle from './Address.module.css'
 import Location from './Location'
+import HotCities from './HotCities';
 console.log(detailStyle);
 
 class Address extends Component {
@@ -21,7 +22,8 @@ class Address extends Component {
                 </div>
                 <div>
                     <p className={detailStyle.title}>热门城市</p> 
-                    <Location />
+                    
+                    <HotCities />
                 </div>  
 
 
