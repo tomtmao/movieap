@@ -1,6 +1,6 @@
 import React from 'react';
-import { HashRouter as Router } from 'react-router-dom'
 import Main from "./component/Main"
+import { HashRouter as Router, Route } from 'react-router-dom'
 
 class App extends React.Component {
   render() {
@@ -8,10 +8,8 @@ class App extends React.Component {
       <Router>
         <Main></Main>
       </Router>
-
     );
   }
 }
-
 
 export default App;
