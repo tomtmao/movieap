@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
-import val from './val'
 import ci from './ci'
+import HotArr from './HotArr'
+import Recent from './Recent'
 
 export default combineReducers({
-    val,
-    ci
+    ci,
+    HotArr,
+    Recent
 })
