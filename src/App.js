@@ -1,13 +1,15 @@
 import React from 'react';
-import './app.css'
-import { HashRouter as Router } from 'react-router-dom'
+import { HashRouter as Router ,Route} from 'react-router-dom'
+import Address from './pages/Address';
+
+
 
 class App extends React.Component {
   render() {
     return (
       <Router>
         <div className="App">
-          hello world
+          <Route path='/address' component={Address}/>
         </div>
       </Router>
       
