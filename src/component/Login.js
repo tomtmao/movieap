@@ -1,28 +1,27 @@
 import React, { Component } from "react"
 import '../assets/styles/login.css'
-import { InputItem, WhiteSpace, Button } from 'antd-mobile';
+import { InputItem, WhiteSpace, Button,} from 'antd-mobile';
 import { Tabs, Badge } from 'antd-mobile';
-
 const tabs = [
   { title: <Badge>美团账号登录</Badge> },
   { title: <Badge >手机验证登录</Badge> },
 ];
 
 
-
 class Login extends Component {
   constructor() {
     super()
-    this.state = {
-      tintColor: "pink"
-    }
+  }
+  jump=()=>{
+    let {history}=this.props;
+    console.log(history,1111);
+    history.push('/')
   }
   render() {
-
     return (
       <div>
         <div className='movie' >
-          <img className='login-icon' src=''></img>
+          <button className='row' onClick={this.jump}>&lt;</button>
           猫眼电影
         </div>
         <Tabs tabs={tabs}
@@ -39,13 +38,12 @@ class Login extends Component {
                 disabled
               ></InputItem>
               <InputItem
-                // {...getFieldProps('password')}
                 type="password"
                 placeholder="请输入您的密码"
               ></InputItem>
               <div style={{ height: '45px', padding: '10px', width: '100%' }}>
                 <Button type="submit" style={{
-                  backgroundColor: '#d00', height: '30px', color: '#fff', fontSize: '14px',
+                  backgroundColor: '#e54847', height: '30px', color: 'white', fontSize: '16px',
                   lineHeight: '30px', width: '100%'
                 }}>登录</Button>
               </div>
@@ -59,19 +57,16 @@ class Login extends Component {
             </div>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#fff' }}>
+          <div style={{ display: 'flex', textAlign: 'left', backgroundColor: '#fff' }}>
             <div style={{ width: '100%' }}>
-              <InputItem
+               <InputItem
                 value=""
                 placeholder="请输入手机号"
-              > </InputItem>
+              ></InputItem>
               <InputItem
-                // {...getFieldProps('password')}
                 type="password"
                 placeholder="请输入短信验证码"
-                style={{ backgroundColor: "#ccc" }}
               ></InputItem>
-
               <div style={{ height: '45px', padding: '10px', width: '100%' }}>
                 <Button type="submit" style={{
                   backgroundColor: "#ccc", height: '30px', color: '#fff', fontSize: '14px',
