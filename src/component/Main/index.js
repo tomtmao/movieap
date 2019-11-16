@@ -2,6 +2,7 @@ import React, { Fragment } from "react"
 import { TabBar } from 'antd-mobile';
 import {Route,Redirect,withRouter} from "react-router-dom"
 import "../../assets/styles/Main.css"
+import  Container from "../../pages/Home-container"
 import Top from "./Top"
 import tu11 from "../../assets/imgs/tu11.png"
 import tu12 from "../../assets/imgs/tu12.png"
@@ -10,7 +11,9 @@ import tu22 from "../../assets/imgs/tu22.png"
 import tu31 from "../../assets/imgs/tu31.png"
 import tu32 from "../../assets/imgs/tu32.png"
 
-const A= ()=> <h1>A</h1>
+
+
+
 class AA extends React.Component{
   render(){
     // console.log(this.props)
@@ -20,6 +23,9 @@ class AA extends React.Component{
   }
 }
 const AAA= ()=> <h1>AAA</h1>
+
+
+
 
 @withRouter
 class Main extends React.Component {
@@ -70,8 +76,9 @@ class Main extends React.Component {
               data-seed="logId"
             >
               <Top>猫眼电影</Top>
-              <Route path="/home" component={A}></Route>
-              <Redirect from="/" to="/home" ></Redirect>
+              <Route path="/home" component={Container}></Route>
+              <Redirect from="/" to="/home/hot" ></Redirect>
+              <Redirect from="/home" to="/home/hot" ></Redirect>
             </TabBar.Item>
             <TabBar.Item
               icon={
