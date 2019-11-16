@@ -1,6 +1,8 @@
 import React from "react"
-import { imgLists } from "../../store/actionCreator"
+import { imgLists ,imgComingLists } from "../../store/actionCreator"
 import { connect } from "react-redux"
+import Banner from "./Banner"
+import MovieListView from "./MovieListView"
 
 const mapStateToProps = state => {
     return {
@@ -9,13 +11,14 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
-    // console.log(dispatch)
     return {
         getImgList() {
             dispatch(imgLists())
+            dispatch(imgComingLists())
         }
     }
 }
+
 
 @connect(mapStateToProps, mapDispatchToProps)
 class Recent extends React.Component {
@@ -23,11 +26,12 @@ class Recent extends React.Component {
         this.props.getImgList()
     }
     render() {
-        // console.log(props)
+        console.log(this.props)
 
         return (
             <div>
-                <h1>9999</h1>
+                <Banner />
+                <MovieListView />
             </div>
         )
     }

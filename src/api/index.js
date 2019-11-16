@@ -18,10 +18,14 @@ export const mostExpected = () => axios({
 })
 
 // 即将上映的电影
-// export const comingList = () => axios({
-//     method:'get',
-//     url:"http://m.maoyan.com/ajax/comingList"
-// })
+export const comingList = () => axios({
+    method:'get',
+    url:"/api/ajax/comingList",
+    params:{
+        ci:1,
+        token:""
+    }
+})
 
 
 

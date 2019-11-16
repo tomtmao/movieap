@@ -1,0 +1,37 @@
+.space-carousel {
+    padding: 16px;
+    background: #DEF1E5;
+    overflow: hidden;
+  }
+.imgList{
+    width: 100%;
+    height:384px;
+}
+.am-wingblank{
+    width:580px;
+    height:384px;
+    padding:24px 0 24px 30px;
+    margin-bottom:20px;
+}
+
+.title{
+    font-size:28px;
+    color:#333;
+    margin-bottom:24px;
+    height:24px;
+    width:580px;
+}
+
+.am-carousel .slider-frame{
+    height:322px;
+}
+
+.slider-list{
+    width:100%;
+    height:100%;
+}
+.slider-slide{
+    width:170px;
+    height:314px;
+}
+
