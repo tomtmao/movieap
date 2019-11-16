@@ -10,7 +10,7 @@ class Location extends Component {
     render() { 
         return ( 
             <div  className={detailStyle.box}>
-                <Button style={{width:'175px',height:'30px',font:'12px/30px ""'}}>定位失败，请点击重试</Button>
+                <Button style={{width:'175px',height:'30px',font:'12px/30px ""',marginLeft: '10px'}}>定位失败，请点击重试</Button>
             </div>
          );
     }

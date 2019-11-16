@@ -1,5 +1,11 @@
 let defaultState = 1
 
 export default (state=defaultState,action)=>{
-    return state
+    switch(action.type){
+        case "CHANGE_CI":
+            return action.payload
+        default:
+            return state
+    }
+    
 }
