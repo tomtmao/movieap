@@ -3,7 +3,9 @@ import { TabBar } from 'antd-mobile';
 import {Route,Redirect,withRouter} from "react-router-dom"
 import "../../assets/styles/Main.css"
 import  Container from "../../pages/Home-container"
+import Login from "../Login"
 import Top from "./Top"
+import Cinema from '../../pages/Cinema'
 import tu11 from "../../assets/imgs/tu11.png"
 import tu12 from "../../assets/imgs/tu12.png"
 import tu21 from "../../assets/imgs/tu21.png"
@@ -22,7 +24,6 @@ class AA extends React.Component{
     )
   }
 }
-const AAA= ()=> <h1>AAA</h1>
 
 
 
@@ -32,15 +33,19 @@ class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedTab: '/home',
+      selectedTab: 'home',
       hidden: false,
       fullScreen: true,
     };
   }
 
   componentWillReceiveProps(nextprops){
+    const pathname =nextprops.location.pathname
+    let arr=pathname.split("/")
+    let qie=arr[1]
     this.setState({
-      selectedTab:nextprops.location.pathname
+      selectedTab:qie,
+      hidden:qie=="my" ? true :false
     })
   }
   render() {
@@ -66,11 +71,11 @@ class Main extends React.Component {
                   <img src={tu12} alt="" className="tupian" />
                 </div>
               }
-              selected={this.state.selectedTab === '/home'}
+              selected={this.state.selectedTab === 'home'}
               onPress={() => {
-                this.props.history.push("/home")
+                this.props.history.push("/home/hot")
                 this.setState({
-                  selectedTab: '/home',
+                  selectedTab: 'home',
                 });
               }}
               data-seed="logId"
@@ -93,17 +98,17 @@ class Main extends React.Component {
               }
               title="影院"
               key="Koubei"
-              selected={this.state.selectedTab === '/movie'}
+              selected={this.state.selectedTab === 'cinema'}
               onPress={() => {
-                this.props.history.push("/movie")
+                this.props.history.push("/cinema")
                 this.setState({
-                  selectedTab: '/movie',
+                  selectedTab: 'cinema',
                 });
               }}
               data-seed="logId1"
             >
               <Top>影院</Top>
-              <Route path="/movie" component={AA}></Route>
+              <Route path="/cinema" component={Cinema}></Route>
             </TabBar.Item>
             <TabBar.Item
               icon={
@@ -118,16 +123,15 @@ class Main extends React.Component {
               }
               title="我的"
               key="Friend"
-              selected={this.state.selectedTab === '/my'}
+              selected={this.state.selectedTab === 'my'}
               onPress={() => {
                 this.props.history.push("/my")
                 this.setState({
-                  selectedTab: '/my',
-                  hidden:true
+                  selectedTab: 'my',
                 });
               }}
             >
-              <Route path="/my" component={AAA}></Route>
+              <Route path="/my" component={Login}></Route>
             </TabBar.Item>
           </TabBar>
         </div>

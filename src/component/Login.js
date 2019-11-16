@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import './css/login.css'
+import '../assets/styles/login.css'
 import { InputItem, WhiteSpace, Button } from 'antd-mobile';
 import { Tabs, Badge } from 'antd-mobile';
 

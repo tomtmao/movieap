@@ -1,12 +1,17 @@
 import React from 'react';
 import Main from "./component/Main"
-import { HashRouter as Router} from 'react-router-dom'
+import { HashRouter as Router, Route, Switch } from 'react-router-dom'
+import Address from './pages/Address'
 
 class App extends React.Component {
   render() {
     return (
       <Router>
-        <Main></Main>
+        <Switch>
+          <Route path="/address" component={Address}></Route>
+          <Route path="/" exac component={Main}></Route> 
+          
+        </Switch>
       </Router>
     );
   }
