@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import detailStyle from '../../assets/styles/Address.module.css'
+import detailStyle from '../../assets/styles/Address/Address.module.css'
 import { Button } from 'antd-mobile'
 import Citylist from '../../utils/city.json'
 
@@ -23,26 +23,30 @@ class HotCities extends Component {
         let arr = JSON.parse(localStorage.getItem('RecentCity'))
         
         let obj = {
-            ci:id,
+            id:id,
             nm:city
         }
         let flag = true
             //判断数组是否有这个记录
         for(let item of arr){
-            if(item.ci == obj.ci){
+            if(item.id == obj.id){
                 flag=false;
                 //return
             }
-        }
-        console.log(11);
+        };
         
         if(flag){
             arr.unshift(obj)
+            
+            if (arr.length > 5) {
+                arr = arr.slice(0, 5)
+            }
+
             localStorage.setItem('RecentCity',JSON.stringify(arr))
         }
 
         //跳转首页
-        history.push('/recent')
+        history.push('/')
     }
     render() {
         let list = this.state.cts.map(item => 

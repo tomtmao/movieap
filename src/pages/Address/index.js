@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import detailStyle from '../../assets/styles/Address.module.css'
+import detailStyle from '../../assets/styles/Address/Address.module.css'
 import Location from './Location'
 import HotCities from './HotCities';
 import CityList from './CityList';
@@ -27,7 +27,7 @@ class Address extends Component {
                 </div>
                 <div>
                     <p className={detailStyle.title} >最近访问城市</p>
-                    <RecentCity/>
+                    <RecentCity props={this.props}/>
                 </div>
                 <div>
                     <p className={detailStyle.title} >热门城市</p>

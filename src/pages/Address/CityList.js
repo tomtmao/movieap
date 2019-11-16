@@ -1,6 +1,6 @@
 import React, { Component,Fragment } from 'react';
 import cities from '../../utils/city.json'
-import './CityList.css'
+import '../../assets/styles/Address/CityList.css'
 import IndexCity from './IndexCity.js';
 
 //对城市列表进行排序
@@ -31,25 +31,30 @@ class City extends Component {
         let arr = JSON.parse(localStorage.getItem('RecentCity'))
         
         let obj = {
-            ci:id,
+            id:id,
             nm:city
         }
         let flag = true
             //判断数组是否有这个记录
         for(let item of arr){
-            if(item.ci == obj.ci){
+            if(item.id == obj.id){
                 flag=false;
                 //return
             }
         }
         if(flag){
             arr.unshift(obj)
+
+            if (arr.length > 5) {
+                arr = arr.slice(0, 5)
+            }
+
             localStorage.setItem('RecentCity',JSON.stringify(arr))
         }
 
 
         //跳转首页
-        history.push('/recent')
+        history.push('/')
     }
     render() {
         let { item } = this.props;

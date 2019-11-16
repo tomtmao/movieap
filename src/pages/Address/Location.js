@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import detailStyle from '../../assets/styles/Address.module.css'
+import detailStyle from '../../assets/styles/Address/Address.module.css'
 import {Button} from 'antd-mobile'
 
 class Location extends Component {
