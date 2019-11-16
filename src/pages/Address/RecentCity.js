@@ -21,7 +21,10 @@ class RecentCity extends Component {
         let { dispatch, history } = this.props.props
 
         //修改state
-        dispatch(actionCreate('CHANGE_CI', id))
+        dispatch(actionCreate('CHANGE_CI', {
+            ci:id,
+            nm:city
+        }))
 
         //将点击记录保存在本地储存上
         let arr = JSON.parse(localStorage.getItem('RecentCity'))
