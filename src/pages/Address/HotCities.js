@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import detailStyle from './Address.module.css'
+import detailStyle from '../../assets/styles/Address.module.css'
 import { Button } from 'antd-mobile'
 import Citylist from '../../utils/city.json'
 
