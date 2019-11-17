@@ -81,8 +81,12 @@ class Demo extends React.Component {
      console.log(store.getState())
     setTimeout(() => {
       genData();
+      console.log(sectionIDs.length == rowIDs.length);
       this.setState({
-        dataSource: this.state.dataSource.cloneWithRowsAndSections(dataBlobs, sectionIDs, rowIDs),
+        dataSource: this.state.dataSource.cloneWithRowsAndSections(
+          dataBlobs, 
+          sectionIDs, 
+          rowIDs),
         isLoading: false,
       });
     }, 600);
