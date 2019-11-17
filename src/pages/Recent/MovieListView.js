@@ -1,8 +1,6 @@
 import React from "react"
 import ReactDOM from 'react-dom';
 import store from "../../store"
-import ReBanner from "../../assets/styles/RecentBanner.css"
-/* eslint no-dupe-keys: 0, no-mixed-operators: 0 */
 import { ListView } from 'antd-mobile';
 
 function MyBody(props) {
@@ -14,24 +12,7 @@ function MyBody(props) {
   );
 }
 
-
-const data = [
-  {
-    img: 'https://zos.alipayobjects.com/rmsportal/dKbkpPXKfvZzWCM.png',
-    title: 'Meet hotel',
-    des: '不是所有的兼职汪都需要风吹日晒',
-  },
-  {
-    img: 'https://zos.alipayobjects.com/rmsportal/XmwCzSeJiqpkuMB.png',
-    title: 'McDonald\'s invites you',
-    des: '不是所有的兼职汪都需要风吹日晒',
-  },
-  {
-    img: 'https://zos.alipayobjects.com/rmsportal/hfVtzEhPzTUewPm.png',
-    title: 'Eat the week',
-    des: '不是所有的兼职汪都需要风吹日晒',
-  },
-];
+let data = []
 const NUM_SECTIONS = 5;
 const NUM_ROWS_PER_SECTION = 5;
 let pageIndex = 0;
@@ -43,6 +24,8 @@ function genData(pIndex = 0) {
   for (let i = 0; i < NUM_SECTIONS; i++) {
     const ii = (pIndex * NUM_SECTIONS) + i;
     const sectionName = `Section ${ii}`;
+    console.log(sectionName); ///Section 1
+    
     sectionIDs.push(sectionName);
     dataBlobs[sectionName] = sectionName;
     rowIDs[ii] = [];
@@ -54,6 +37,8 @@ function genData(pIndex = 0) {
     }
   }
   sectionIDs = [...sectionIDs];
+  console.log(sectionIDs);
+  
   rowIDs = [...rowIDs];
 }
 
@@ -73,20 +58,17 @@ class MovieListView extends React.Component {
     this.state = {
       dataSource,
       isLoading: true,
-      height: document.documentElement.clientHeight * 3 / 4,
+      height: document.documentElement.clientHeight * 1,
     };
   }
 
   componentDidMount() {
-    // you can scroll to the specified position
-    // setTimeout(() => this.lv.scrollTo(0, 120), 800);
-
     const hei = document.documentElement.clientHeight - ReactDOM.findDOMNode(this.lv).parentNode.offsetTop;
-    // simulate initial Ajax
     setTimeout(() => {
       genData();
       this.setState({
-        dataSource: this.state.dataSource.cloneWithRowsAndSections(dataBlobs, sectionIDs, rowIDs),
+        dataSource: this.state.dataSource.cloneWithRowsAndSections(
+          dataBlobs, sectionIDs, rowIDs),
         isLoading: false,
         height: hei,
       });
@@ -95,10 +77,16 @@ class MovieListView extends React.Component {
 
   // If you use redux, the data maybe at props, you need use `componentWillReceiveProps`
   // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.dataSource !== this.props.dataSource) {
+  //   console.log(nextProps,'1111111111111111111111');
+    
+  //   if (nextProps.imgComingLists !== this.props.imgComingLists) {
+  //     console.log(nextProps.imgComingLists,1111111);
+      
   //     this.setState({
-  //       dataSource: this.state.dataSource.cloneWithRowsAndSections(nextProps.dataSource),
+  //       dataSource: this.state.dataSource.cloneWithRowsAndSections(nextProps.imgComingLists),
   //     });
+  //     console.log(this.state.dataSource,2222222);
+      
   //   }
   // }
 
@@ -131,6 +119,8 @@ class MovieListView extends React.Component {
         }}
       />
     );
+    data = [...store.getState().RecentList]
+    console.log(data,"1111")
     let index = data.length - 1;
     const row = (rowData, sectionID, rowID) => {
       if (index < 0) {
@@ -185,5 +175,7 @@ class MovieListView extends React.Component {
     );
   }
 }
+
+
 
 export default MovieListView

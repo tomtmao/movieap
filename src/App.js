@@ -10,7 +10,6 @@ class App extends React.Component {
         <Switch>
           <Route path="/address" component={Address}></Route>
           <Route path="/" exac component={Main}></Route> 
-          
         </Switch>
       </Router>
     );
