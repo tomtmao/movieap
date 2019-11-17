@@ -1,17 +1,31 @@
-import React,{Fragment} from "react"
-import {Route,NavLink,Link} from "react-router-dom"
+import React, { Fragment } from "react"
+import { Route, NavLink, Link } from "react-router-dom"
 import defaultStyle from "../assets/styles/main-container.module.css"
+import '../assets/styles/Cinema/Cinema.css'
+import { Icon } from 'antd-mobile'
 
+import { connect } from "react-redux"
 
+const mapStateToProps = state => {
+    return {
+        city: state.city
+    }
+}
 
-class Cinema extends React.Component{
-    render(){
-        return(
+@connect(mapStateToProps)
+
+class Cinema extends React.Component {
+    render() {
+        console.log(this.props);
+
+        return (
             <Fragment>
                 <div className={defaultStyle.container}>
-                    <Link to="/address" style={{color: '#777'}}>北京▽</Link>
+                    <Link to="/address" style={{ color: '#777' }}>{this.props.city.nm}▽</Link>
                     <Link to="/cinemasearch">
-                        <input type="text" value='搜索影院'/>
+                        <div className='searchbox'>
+                            <Icon className='icon-search' type="search" /> <span style={{ color: '#777' }}>  搜索影院</span>
+                        </div>
                     </Link>
                 </div>
             </Fragment>

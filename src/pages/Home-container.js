@@ -5,6 +5,7 @@ import defaultStyle from "../assets/styles/main-container.module.css"
 import Hot from "../pages/Hot"
 import Recent from "../pages/Recent"
 import Address from "../pages/Address"
+import App111 from "./测试Antd"
 
 
 const Search=()=><h1>555</h1>
@@ -35,8 +36,10 @@ class Container extends React.Component{
                     <Link to="/home/serach"><img src={tu} alt="" className={defaultStyle.tu}/></Link>
                 </div>
                 <Route path="/home/hot" component={Hot}></Route>
-                <Route path="/home/recent" component={Recent}></Route>
+                {/* <Route path="/home/recent" component={Recent}></Route> */}
+                <Route path="/home/recent" component={App111}></Route>
                 <Route path="/home/serach" component={Search}></Route>
+
             </Fragment>
         )
     }
