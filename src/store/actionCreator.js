@@ -27,17 +27,16 @@ export const imgLists = params => dispatch => {
 
 //即将上映电影
 export const imgComingLists = params => dispatch => {
-    comingList()//调用api下面的方法开始发送请求
+    comingList(params)//调用api下面的方法开始发送请求
         .then(res => {
-            console.log(res)
-            // res.data.coming = res.data.coming.map(item => {
-            //     item.img=item.img.replace('w.h', '300.240')
-            //     return item
-            // })
-            dispatch(actionCreator("MOST_EXPECTED", res.data.coming))
+            res.data.coming = res.data.coming.map(item => {
+                item.img=item.img.replace('w.h', '300.240')
+                return item
+            })
+            dispatch(actionCreator("MOST_EXPECTED_LIST", res.data.coming))
         })
         .catch(err=>{
-            console.log(err)
+            // console.log(err)
         })
 }
 
