@@ -16,8 +16,6 @@ const mapStateToProps = state => {
 
 class Cinema extends React.Component {
     render() {
-        console.log(this.props);
-
         return (
             <Fragment>
                 <div className={defaultStyle.container}>
