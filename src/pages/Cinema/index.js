@@ -83,7 +83,7 @@ class Cinema extends React.Component {
                         </div>
                     </Link>
                 </div>
-                <CinemaMenu areaArr={areaArr} CinemaShowList={this.props.CinemaShowList}/>
+                <CinemaMenu areaArr={areaArr} history={this.props.history} CinemaShowList={this.props.CinemaShowList}/>
 
             </Fragment>
         )

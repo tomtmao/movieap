@@ -35,6 +35,14 @@ class CinemaMenu extends Component {
             contents[0].style.display = 'none' :
             contents[0].style.display = "block"
     }
+    handleCinemaClick(cinemaId){
+        console.log('cinemaId=',cinemaId);
+        //跳转影院详情页面
+        let {history} = this.props
+        history.push(`/cinemaDetails?cinemaId=${cinemaId}`)
+        
+
+    }
     render() {
         let list = this.props.CinemaShowList
         if (this.state.tag !== '地区选择') {
@@ -68,22 +76,50 @@ class CinemaMenu extends Component {
                 </div>
                 <hr />
                 <div>
-                    {list.map(item => <div className={CinemaMenuStyle.context} key={item.id}>
-                        <div className={CinemaMenuStyle.left}>
-                            <div className={CinemaMenuStyle.title}>
-                                {item.nm}
-                            </div>
-                            <br />
-                            <p style={{ color: "gray" }}>{item.addr}</p>
-                            <br />
-                            <p style={{ color: 'red' }}>
-                                <span style={{}}>卡</span>
-                                {item.promotion.cardPromotionTag}
-                            </p>
-                        </div>
+                    {list.map(item => <div onClick={this.handleCinemaClick.bind(this,item.id)} className={CinemaMenuStyle.context} key={item.id}>
+                            <div className={CinemaMenuStyle.left}>
+                                <div className={CinemaMenuStyle.title}>
+                                    {item.nm}
+                                </div>
+                                <br />
+                                <p style={{ color: "gray",marginLeft:'15px' }}>{item.addr}</p>
+                                <br />
+                                 {/* 特色 */}
+                                <div>
+                                    {item.tag.vipTag?<span style={{display:'inline-block',color:'orange',border:"1px solid orange",borderRadius:'1px',margin:'0 5px 0 0'}}>折扣卡</span>:''}
+                                    {item.tag.snack?<span style={{display:'inline-block',color:'orange',border:"1px solid orange",borderRadius:'1px',margin:'0 5px 0 0'}}>小吃</span>:''}
 
+                                    {item.tag.hallType?item.tag.hallType.map((item2,index)=><span style={{display:'inline-block',color:'rgb(13, 162, 231)',border:"1px solid rgb(13, 162, 231)",borderRadius:'1px',margin:'0 5px 0 0'}} key={index}>{item2}</span>):''}
+                                    
+                                    {item.tag.allowRefund?<span style={{display:'inline-block',color:'rgb(13, 162, 231)',border:"1px solid rgb(13, 162, 231)",borderRadius:'1px',margin:'0 5px 0 0'}}>允许改签</span>:''}
+
+                                    
+                                </div>
+                                <br/>
+                                {item.promotion.cardPromotionTag?
+                                    (<p style={{ color: 'red' }}>
+                                        <span style={{
+                                            color:'white',
+                                            background:'rgb(13, 162, 231)',
+                                            display:'inline-block',
+                                            width:'16px',
+                                            height:'16px',
+                                            font:'14px/16px ""',
+                                            borderRadius:'3px'
+                                            }}>卡</span> 
+                                        &nbsp;
+                            
+                                        {item.promotion.cardPromotionTag}
+                                    </p>)
+                                    :
+                                    ''
+                                }
+                                
+                            </div>
+                           
+                            {/* 位置展示 */}
                             <div className={CinemaMenuStyle.right}>
-                                {item.distance}
+                                    {item.distance}
                             </div>
                         </div>)}
                 </div>
