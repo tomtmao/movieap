@@ -3,10 +3,16 @@ import { mostExpected ,comingList} from "../api/index"
 
 const actionCreator = (type, payload) => ({ type, payload })
 
+//正在热映
 export const addHot = params => dispatch => {
-      getHot()
+      getHot(params)
         .then(res => {
-            dispatch(actionCreator("addHot", res.stids))
+            console.log(params,"sakdxk")
+            res.data.movieList = res.data.movieList.map(item => {
+                item.img=item.img.replace('w.h', '300.240')
+                return item
+            })
+            dispatch(actionCreator("addHot", res.data.movieList))
         })
 }
 
