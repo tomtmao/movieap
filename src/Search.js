@@ -1,5 +1,5 @@
 import React from 'react'
-
+import List2 from './LiShow2'
 import Demo from './ListShow'
 import { SearchBar,  WingBlank } from 'antd-mobile';
 // import JSONP from 'jsonp'
@@ -28,14 +28,14 @@ class SearchBarExample extends React.Component {
     
     // let {s}=await jsonp("http://m.maoyan.com/ajax/search?kw=vds&cityId=55&stype=-1"+this.state.val,{param:'cb'})
     // let URL= "http://m.maoyan.com/ajax/search?kw=vds&cityId=55&stype=-1"
-    let URL= "http://catfront.dianping.com/batch?v=1&sdk=1.7.20"
+    let URL= "http://59.110.231.183:3001/search"
     this.setState( {arr:URL} )
   }
   // 回车键触发
   handleKeyDown=(e)=>{
     if(e.keyCode===13){
       // window.open("http://m.maoyan.com/ajax/search?kw=vds&cityId=55&stype=-1"+this.state.val,'_blank')
-      window.open("http://catfront.dianping.com/batch?v=1&sdk=1.7.20"+this.state.val,'_blank')
+      window.open("http://59.110.231.183:3001/search"+this.state.val,'_blank')
       
       // this.refs.input.focus()
     }
@@ -71,12 +71,12 @@ class SearchBarExample extends React.Component {
         onClear={value => console.log(value, 'onClear')}
         onFocus={() => console.log('onFocus')}
         onBlur={() => 
-          window.open("http://catfront.dianping.com/batch?v=1&sdk=1.7.20"+this.state.val,'_blank'),
+          window.open("http://59.110.231.183:3001/search"+this.state.val,'_blank'),
           console.log('onBlur')}
         // onCancel={() => console.log('onCancel')}
         showCancelButton
         onChange={this.onChange}
-      /> <Demo/>
+      /><List2/> <Demo/>
     </div>
   }
 }

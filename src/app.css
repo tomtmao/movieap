@@ -38,3 +38,6 @@ padding: 34px 0 34px 0;
 .am-search-input .am-search-synthetic-ph-placeholder{
     font-size: 30px!important;
 }
+#liShow{
+    height: auto;width: auto;border: orange 1px solid;
+}

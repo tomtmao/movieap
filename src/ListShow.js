@@ -31,7 +31,7 @@ const data = [
     img: 'https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=984c7e8c9f3df8dcb23087c3ac7819ee/8b13632762d0f703790ce5a708fa513d2697c50b.jpg',
     // img:"../public/imgs/gg.jpg",
     title: '一切面向百度',
-    des: '程序员都轻松啊',
+    des: '程序员都很轻松啊',
   },
 ];
 const NUM_SECTIONS = 4;
