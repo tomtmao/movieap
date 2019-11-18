@@ -42,6 +42,16 @@ export const getComment = (movieId) => axios({
     }
 })
 
+//查询
+export const searchMsg = (params) => axios({
+    method:'get',
+    url:'http://59.110.231.183:3001/search',
+    params:{
+        kw:params.kw,
+        cityId:params.cityId,
+        stype:-1
+    }
+})
 
 
 
