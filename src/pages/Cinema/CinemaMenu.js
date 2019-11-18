@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Tabs, Badge, Button } from 'antd-mobile';
-
+import CinemaMenuStyle from "../../assets/styles/Cinema/CinemaMenu.module.css"
 
 
 
@@ -66,29 +66,49 @@ class CinemaMenu extends Component {
                         </div>
                     </div>
                 </div>
-                <div>{list.map(item => <div key={item.id}>{item.nm}</div>)}</div>
-            </div>
-        );
-    }
-}
+                <hr />
+                <div>
+                    {list.map(item => <div className={CinemaMenuStyle.context} key={item.id}>
+                        <div className={CinemaMenuStyle.left}>
+                            <div className={CinemaMenuStyle.title}>
+                                {item.nm}
+                            </div>
+                            <br />
+                            <p style={{ color: "gray" }}>{item.addr}</p>
+                            <br />
+                            <p style={{ color: 'red' }}>
+                                <span style={{}}>卡</span>
+                                {item.promotion.cardPromotionTag}
+                            </p>
+                        </div>
 
-export default CinemaMenu;
-// 0:
-// addr: "朝阳区朝阳公园路6号蓝色港湾国际商区SA-42（朝阳公园西北角）"
-// distance: "904.7km"
-// id: 132
-// mark: 0
-// nm: "珠影耳东传奇影城"
+                            <div className={CinemaMenuStyle.right}>
+                                {item.distance}
+                            </div>
+                        </div>)}
+                </div>
+            </div>
+                );
+            }
+        }
+        
+        export default CinemaMenu;
+        // 0:
+        // addr: "朝阳区朝阳公园路6号蓝色港湾国际商区SA-42（朝阳公园西北角）"
+        // distance: "904.7km"
+        // id: 132
+        // mark: 0
+        // nm: "珠影耳东传奇影城"
 // promotion: {cardPromotionTag: "开卡特惠，首单2张最高立减4元"}
-// sellPrice: "4"
-// tag:
-// allowRefund: 0
-// buyout: 0
-// cityCardTag: 0
-// deal: 0
-// endorse: 1
-// hallType: (2) ["4K厅", "巨幕厅"]
+                // sellPrice: "4"
+                // tag:
+                // allowRefund: 0
+                // buyout: 0
+                // cityCardTag: 0
+                // deal: 0
+                // endorse: 1
+                // hallType: (2) ["4K厅", "巨幕厅"]
 // hallTypeVOList: (2) [{…}, {…}]
-// sell: 1
-// snack: 1
+                // sell: 1
+                // snack: 1
 // vipTag: "折扣卡"
