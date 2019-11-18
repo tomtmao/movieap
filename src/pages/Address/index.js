@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import detailStyle from '../../assets/styles/Address.module.css'
 import Location from './Location'
 import HotCities from './HotCities';
-console.log(detailStyle);
 
 class Address extends Component {
     constructor(props) {

@@ -1,5 +1,4 @@
-import { getHot} from "../api"
-import { mostExpected } from "../api/index"
+import { getHot ,mostExpected,getMoveDay} from "../api"
 
 const actionCreator = (type, payload) => ({ type, payload })
 
@@ -11,7 +10,6 @@ export const addHot = params => dispatch => {
 }
 
 export const imgLists = params => dispatch => {
-    console.log(999)
     mostExpected()//调用api下面的方法开始发送请求
         .then(res => {
             console.log(res)
@@ -22,3 +20,10 @@ export const imgLists = params => dispatch => {
         })
 }
 
+export const gtMovieDay=params=>dispatch=>{
+    getMoveDay(params)
+    .then(res=>{
+        // console.log(res)
+        dispatch(actionCreator("MovieDay",res.data))
+    })
+}
