@@ -9,10 +9,15 @@ class App111 extends React.Component {
             items: this.props.list.cinemas
         }
     }
-    componentWillReceiveProps(nextprops){
-        this.setState({
-            item:nextprops.list.cinemas
-        })
+    // componentWillReceiveProps(nextprops){
+    //     this.setState({
+    //         item:nextprops.list.cinemas
+    //     })
+    // }
+    jump(item){
+        console.log("跳转")
+        console.log("电影id "+this.props.list.movieId)
+        console.log("电影院id "+item.id)
     }
     render() {
         return (
@@ -26,7 +31,7 @@ class App111 extends React.Component {
                             style={{background: "#fff"}}
                         >
                             {this.state.items.map((item, index) => (
-                                <div className={s.box} key={index}>
+                                <div className={s.box} key={index} onClick={this.jump.bind(this,item)}>
                                     <div className={s.price}>
                                         <span className={s.span1}>{item.nm + " "}</span>
                                         <span className={s.span2}>{item.sellPrice}</span>
