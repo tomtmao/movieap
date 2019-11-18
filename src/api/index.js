@@ -24,13 +24,10 @@ export const mostExpected = () => axios({
 })
 
 // 即将上映的电影
-export const comingList = () => axios({
+export const comingList = (params) => axios({
     method:'get',
     url:"/api/ajax/comingList",
-    params:{
-        ci:1,
-        token:""
-    }
+    params
 })
 
 //评论
