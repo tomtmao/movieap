@@ -5,6 +5,7 @@ import Recent from './Recent'
 import MovieDay from "./MovieDay"
 import RecentList from './RecentList'
 import CinemaList from './cinemaList'
+import CinemaShowList from './cinemaShowList'
 import MovieCheck from './movie'
 
 export default combineReducers({
@@ -14,5 +15,6 @@ export default combineReducers({
     MovieDay,
     RecentList,
     CinemaList,
+    CinemaShowList,
     MovieCheck
 })

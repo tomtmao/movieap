@@ -3,12 +3,12 @@ import Top from '../component/Main/Top';
 import { Icon } from 'antd-mobile'
 import "../assets/styles/Cinema/CinemaSearch.css"
 import { connect } from 'react-redux'
-import { SearchBar, Button, WhiteSpace, WingBlank } from 'antd-mobile';
+import { SearchBar } from 'antd-mobile';
 import { searchCinema } from '../store/actionCreator'
 
 import { List } from 'antd-mobile';
 const Item = List.Item;
-const Brief = Item.Brief;
+
 
 const createAction = (type, payload) => ({ type, payload })
 
@@ -34,9 +34,9 @@ class CinemaSearch extends Component {
     state = {
         value: '',
     };
-    componentDidMount() {
-        this.props.getCinemaList('七', 1)
-    }
+    // componentDidMount() {
+    //     this.props.getCinemaList('七', 1)
+    // }
     handleClick() {
         this.props.history.push('/cinema')
     }

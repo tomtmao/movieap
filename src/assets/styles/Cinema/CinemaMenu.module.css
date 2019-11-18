@@ -1,0 +1,19 @@
+.context{
+    background: white;
+    border-bottom: 1px solid gainsboro;
+    padding: 25px 25px 5px 25px;
+    display: flex;
+}
+.title{
+    font:bold 28px/40px "";
+    height: 40px;
+}
+.left{
+    flex:6
+}
+.right{
+    flex:2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
