@@ -1,0 +1,14 @@
+.searchbox {
+    background: white;
+    height: 50px;
+    text-align: center;
+    width: 500px;
+    font: 26px/50px "";
+    border-radius: 5px;
+    border: 1px solid gainsboro;
+}
+svg.icon-search{
+   color:gray;
+   padding-top: 10px;
+   height: 30px;
+}

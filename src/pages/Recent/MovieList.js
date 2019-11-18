@@ -1,9 +1,89 @@
-import React from "react"
-import store from "../../store"
-import "../../assets/styles/Recent/ReactMovieList.css"
-class MoviesDate extends React.Component {
-    // 传入一个数组
-    // 按照某个条件进行分类后整合成新的数组
+import React from 'react';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import { connect } from 'react-redux'
+import { imgComingLists } from "../../store/actionCreator"
+
+const style = {
+    height: 115,
+    display: "flex",
+    margin: 0,
+    paddingLeft: '15px',
+    fontSize: '13px',
+    color: "#666",
+};
+
+// 想看
+const sell = <div style={{
+    width: "47px", lineHeight: "27px", textAlign: "center", boxSizing: "border-box",
+    backgroundColor: "#faaf00", color: "#fff", bordeRadius: "4px", whiteSpace: "nowrap", fontSize: "12px",
+    cursor: "pointer", position: "absolute", left: "226px", top: "45px", borderRadius: "8px"
+}}><span>想看</span></div>
+
+//  预售
+const presell = <div style={{
+    width: "47px", lineHeight: "27px", textAlign: "center", boxSizing: "border-box",
+    backgroundColor: "#3c9fe6", color: "#fff", bordeRadius: "4px", whiteSpace: "nowrap", fontSize: "12px",
+    cursor: "pointer", position: "absolute", left: "226px", top: "45px", borderRadius: "8px"
+}}><span>预售</span></div>
+
+//控制预先展示的条数
+let fetchIndex = 7
+//控制componentWillReceiveProps只在最开始解决一次
+let propsUpdate = false
+
+const stateProps = state => {
+    return {
+        items: state.RecentList
+    }
+}
+
+const dispatchProps = dispatch => {
+    return {
+        comingList(a) {
+            dispatch(imgComingLists(a))
+        }
+    }
+}
+@connect(stateProps, dispatchProps)
+
+class MovieList extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            items: []
+        }
+    }
+    fetchMoreData = () => {
+        setTimeout(() => {
+            this.setState({
+                items: this.state.items.concat(this.props.items.slice(fetchIndex - 1, fetchIndex)), //后续加载
+            });
+        }, 1500);
+        fetchIndex = fetchIndex + 1
+    };
+    componentDidMount() {
+        let obj = {
+            ci: 1,
+            token: ""
+        }
+        this.props.comingList(obj)
+    }
+    componentWillReceiveProps(props) {
+        if (!propsUpdate) {
+            this.setState({
+                items: props.items.slice(0, fetchIndex)
+            })
+            setTimeout(() => {
+                propsUpdate = true
+            }, 1000);
+        }
+    }
+    componentWillUnmount() {
+        propsUpdate = false
+    }
+
+    //处理数据的函数
+    // 调用方法：传入一个数组按照某个条件进行分类后整合成新的数组
     sortArr(arr, str) {
         var _arr = [],
             _t = [],
@@ -22,6 +102,7 @@ class MoviesDate extends React.Component {
         }
         // console.log( arr );
         // 将相同类别的对象添加到统一个数组
+        let arrdayset = new Set()
         for (var i in arr) {
             // console.log(_tmp);
             if (arr[i][str] === _tmp) {
@@ -32,81 +113,77 @@ class MoviesDate extends React.Component {
                 _arr.push(_t);
                 _t = [arr[i]];
             }
+            arrdayset.add(_tmp)
+        }
+        this.arrday = []
+        for (let item of arrdayset) {
+            this.arrday.push(item)
         }
         // 将最后的内容推出新数组
         _arr.push(_t);
         return _arr;
     }
-
+    //实现跳转
+    jump(_id){   // 调转路由
+        // let {url}=this.props.match
+        // this.props.history.push(`${url}?${_id}`)
+      }
+    componentDidUpdate() {
+        this.RecentList = this.props.items
+        // console.log(this.RecentList)
+        this.RecentListDate = this.sortArr(this.RecentList, 'comingTitle');
+        // console.log(this.RecentListDate)
+    }
     render() {
-        let { RecentList } = store.getState()
-        //获取到按照日期排列的数组
-        let RecentListDate = this.sortArr(RecentList, 'rt');
-        //为当前分好类后的数组
-        let lists = RecentListDate.map(item => {
-            let list = item.map(e => {
-                return { ...e }
-            })
-            return { ...item, list }
-            // return {...item, list}
-        })
-        console.log(lists)
+        if (this.RecentListDate) {
+         return (
+            <div >
+                <div id="scrollableDiv" style={{ height: 800, overflow: "auto",backgroundColor:"#fff" }}>
+                    <InfiniteScroll
+                        dataLength={this.state.items.length}
+                        next={this.fetchMoreData}
+                        hasMore={true}
+                        loader={<h4>Loading...</h4>}
+                        scrollableTarget="scrollableDiv"
+                    >
 
-
-        //一共有几组
-        //item为放有同一时期对象的数组;index为数组下标
-        //每组中展示多少数据
-        let movieListDom = lists.map((val, index) => {
-            return (
-                <div className="movie-block">
-                    <p className="group-date">上映日期</p>
-                    {/*  */}
-                    <div className="img-block">
-                        <div className="img-bg">
-                            <img src="../../assets/imgs/tu11.png"></img>
-                        </div>
-                        <div className="img-conter">
-                            <div className="conter-left">内容左边</div>
-                            <div className="content-button">
-                                <div className="btn">
-                                    <span>按钮</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            )
-        })
-
-
-        return (
-            //整个即将上映的电影板块
-            <div className="coming-list">
-                {/* 有几个日期渲染几条date-list */}
-                <div className="date-list">
-                    {/* 同一天的电影展示块 */}
-                    <p className="group-date">上映日期</p>
-                    {/* <movieListDom /> */}
-                    <div className="movie-block">
-
-                        <div className="img-block">
-                            <div className="img-bg">
-                                <img src="../../assets/imgs/tu11.png"></img>
-                            </div>
-                            <div className="img-conter">
-                                <div className="conter-left">内容左边</div>
-                                <div className="content-button">
-                                    <div className="btn">
-                                        <span>按钮</span>
+            {
+                this.RecentListDate.map((item, index) => {
+                    return (
+                        <div key={index}>
+                            <p style={{ padding: "12px 15px 0" }}>
+                                <span style={{ fontSize: "14px" }}>{this.arrday[index]}</span></p>
+                            {item.map((val, i) => {
+                                return (
+                                    <div style={style} key={val.id} onClick={this.jump.bind(this, val.id)}>
+                                        <div style={{ marginTop: "12px" }}><img src={val.img} style={{ width: "64px", height: "90px" }} /></div>
+                                        <div style={{ marginLeft: "9px", padding: "12px 0", position: "relative", borderBottom: "1px solid #DDD", width: "270px" }}>
+                                            <div style={{ marginBottom: '7px', fontSize: '17px', fontWeight: 'bold', color: "#333" }}>{val.nm}</div>
+                                            {/* 多少人想看 */}
+                                            <div>
+                                            <span style={{ color: "#faaf00", fontSize: "17px" }}>{val.wish}</span><span>人想看</span>
+                                            </div>
+                                            <div style={{ color: "#777", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", marginTop: "6px", width: "219px" }}>主演:{val.star}</div>
+                                            <div style={{ color: "#777", marginTop: "6px" }}>{val.rt}<span>上映</span></div>
+                                            {val.preShow ? sell : presell}
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
+                                )
+                            })}
+
                         </div>
-                    </div>
-                </div>
+                    )
+                })
+            }
+        </InfiniteScroll>
+    </div>
             </div>
-        )
+            );
+        } else {
+            return null
+        }
+
     }
 }
 
-export default MoviesDate
+export default MovieList
