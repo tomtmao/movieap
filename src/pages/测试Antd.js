@@ -1,7 +1,7 @@
 import React from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { connect } from 'react-redux'
-
+import Main from '../component/Main';
 
 const createAction = (type, payload) => ({ type, payload })
 const style = {
@@ -13,8 +13,8 @@ const style = {
 };
 
 //控制预先展示的条数
-let fetchIndex = 7
-//控制componentWillReceiveProps只在最开始解决一次
+let fetchIndex = 8
+//控制componentWillReceive只在最开始解决一次
 let propsUpdate = false
 
 const stateProps = state => {
@@ -64,9 +64,7 @@ class App111 extends React.Component {
       }, 1000);
     }
   }
-componentWillUnmount(){
-  propsUpdate = false
-}
+
   render() {
     return (
       <div >
