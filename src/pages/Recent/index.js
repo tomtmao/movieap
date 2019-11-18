@@ -1,10 +1,8 @@
 import React from "react"
 import { imgLists ,imgComingLists } from "../../store/actionCreator"
 import { connect } from "react-redux"
-import Banner from "./Banner"
-// import MovieListTest from "./MovieListTest"
 import MovieList from "./MovieList"
-
+import Swiper from "./Swiper"
 const mapStateToProps = state => {
     return {
         imglists: state.Recent,
@@ -34,9 +32,8 @@ class Recent extends React.Component {
     render() {
         // console.log(this.props)
         return (
-            <div>
-                <Banner />
-                {/* <MovieListTest imgComingLists={this.props.imgComingLists}/> */}
+            <div style={{backgroundColor:"#f5f5f5" ,width:"716px"}}>
+                <Swiper />
                 <MovieList />
             </div>
         )
