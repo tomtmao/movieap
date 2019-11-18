@@ -1,7 +1,14 @@
 import { combineReducers } from 'redux'
-import val from './val'
-
+import city from './city'
+import HotArr from './HotArr'
+import Recent from './Recent'
+import CinemaList from './cinemaList'
+import MovieCheck from './movie'
 
 export default combineReducers({
-    val
+    city,
+    HotArr,
+    Recent,
+    CinemaList,
+    MovieCheck
 })
