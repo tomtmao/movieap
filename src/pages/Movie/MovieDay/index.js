@@ -23,6 +23,7 @@ const mapDispatchToProps = dispatch => {
 class MovieDay extends React.Component {
     constructor(props) {
         super(props);
+        console.log(this.props)
         this.state = {
             arrday: "",
             option: {

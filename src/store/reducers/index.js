@@ -1,12 +1,18 @@
 import { combineReducers } from 'redux'
-import ci from './ci'
+import city from './city'
 import HotArr from './HotArr'
 import Recent from './Recent'
 import MovieDay from "./MovieDay"
+import RecentList from './RecentList'
+import CinemaList from './cinemaList'
+import MovieCheck from './movie'
 
 export default combineReducers({
-    ci,
+    city,
     HotArr,
     Recent,
-    MovieDay
+    MovieDay,
+    RecentList,
+    CinemaList,
+    MovieCheck
 })
