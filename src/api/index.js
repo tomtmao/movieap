@@ -53,5 +53,9 @@ export const searchMsg = (params) => axios({
     }
 })
 
-
-
+//查询地区影院列表
+export const getCinemaByCityId = (params) => axios({
+    method:'get',
+    url:'/api/ajax/cinemaList',
+    params
+})

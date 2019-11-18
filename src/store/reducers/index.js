@@ -3,6 +3,7 @@ import city from './city'
 import HotArr from './HotArr'
 import Recent from './Recent'
 import CinemaList from './cinemaList'
+import CinemaShowList from './cinemaShowList'
 import MovieCheck from './movie'
 
 export default combineReducers({
@@ -10,5 +11,6 @@ export default combineReducers({
     HotArr,
     Recent,
     CinemaList,
+    CinemaShowList,
     MovieCheck
 })
