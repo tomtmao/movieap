@@ -82,7 +82,7 @@ class CinemaMenu extends Component {
                                     {item.nm}
                                 </div>
                                 <br />
-                                <p style={{ color: "gray",marginLeft:'15px' }}>{item.addr}</p>
+                                <p style={{ color: "gray",marginLeft:'5px' }}>{item.addr}</p>
                                 <br />
                                  {/* 特色 */}
                                 <div>
