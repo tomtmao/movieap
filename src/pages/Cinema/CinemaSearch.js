@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Top from '../component/Main/Top';
+import Top from '@/component/Main/Top';
 import { Icon } from 'antd-mobile'
-import "../assets/styles/Cinema/CinemaSearch.css"
+import "@/assets/styles/Cinema/CinemaSearch.css"
 import { connect } from 'react-redux'
 import { SearchBar } from 'antd-mobile';
-import { searchCinema } from '../store/actionCreator'
+import { searchCinema } from '@/store/actionCreator'
 
 import { List } from 'antd-mobile';
 const Item = List.Item;
