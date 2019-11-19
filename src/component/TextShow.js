@@ -19,8 +19,6 @@ class Type extends React.Component {
     }
 }
 
-
-
 class ListExample extends React.Component {
     state = {
         flag:true
@@ -41,9 +39,7 @@ class ListExample extends React.Component {
                             点击切换
                         </button>
                     </div>
-
                 </List>
-
             </div>);
     }
 }

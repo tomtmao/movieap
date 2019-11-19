@@ -2,7 +2,7 @@ import React from 'react';
 import Main from "./component/Main"
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import Address from './pages/Address'
-import CinemaSearch from './pages/CinemaSearch'
+import CinemaSearch from './pages/Cinema/CinemaSearch'
 import MoveDay from "./pages/Movie/MovieDay"
 //评论组件
 import Comment from "./pages/Comment"
