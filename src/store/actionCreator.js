@@ -1,4 +1,4 @@
-import { getHot ,mostExpected,getMoveDay, comingList, searchMsg,getCinemaByCityId} from "../api"
+import { getHot ,mostExpected,getMoveDay, comingList, searchMsg,getCinemaByCityId,getMovieMsg} from "../api"
 
 
 const actionCreator = (type, payload) => ({ type, payload })
@@ -30,7 +30,7 @@ export const imgLists = params => dispatch => {
             console.log(err)
         })
 }
-
+//影院列表
 export const gtMovieDay=params=>dispatch=>{
     getMoveDay(params)
     .then(res=>{
@@ -69,4 +69,13 @@ export const fetchCinemaShowList = (params) => dispatch => {
             dispatch(actionCreator('GET_CINEMAS_SHOW_LIST',val.data.cinemas))
         }   
     )
+}
+
+//单个电影详情
+export const getMovie =params=>dispatch=>{
+    getMovieMsg(params)
+    .then(res=>{
+        // console.log(res.data.detailMovie)
+        dispatch(actionCreator("movieMsg",res.data.detailMovie))
+    })
 }

@@ -3,6 +3,7 @@ import { connect } from "react-redux"
 import { gtMovieDay } from "../../../store/actionCreator"
 import List from "./List"
 import { Tabs } from 'antd-mobile';
+import Show from "./Show"
 import dS from "../../../assets/styles/MovieDay.module.css"
 
 const mapStateToProps = state => {
@@ -23,14 +24,13 @@ const mapDispatchToProps = dispatch => {
 class MovieDay extends React.Component {
     constructor(props) {
         super(props);
-        console.log(this.props)
         this.state = {
             arrday: "",
             option: {
-                movieId: 1292,
+                movieId: this.props.match.params.id,
                 cityId: 1,
                 day: this.getTime(0)
-            }
+            },
         }
     }
     componentDidMount() {
@@ -78,11 +78,11 @@ class MovieDay extends React.Component {
             console.log(obj)
             return (
                 <Fragment>
-                    <div className={dS.movie}>5555</div>
+                    <Show id={this.state.option.movieId}></Show>
                     <div className={dS.title}>
                         {this.Title()}
                     </div>
-                    <List list={obj} key={Math.random()}></List>
+                    <List {...obj} ></List>
                 </Fragment>
             )
         } else {

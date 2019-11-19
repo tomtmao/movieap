@@ -65,3 +65,10 @@ export const getCinemaByCityId = (params) => axios({
     url:'/api/ajax/cinemaList',
     params
 })
+//单个电影详情
+export const getMovieMsg = (id) => axios({
+    url:'/api/ajax/detailmovie',
+    params:{
+        movieId:id
+    }
+})

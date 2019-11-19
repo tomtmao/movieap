@@ -7,6 +7,7 @@ import RecentList from './RecentList'
 import CinemaList from './cinemaList'
 import CinemaShowList from './cinemaShowList'
 import MovieCheck from './movie'
+import MovieMsg from "./MovieMsg"
 
 export default combineReducers({
     city,
@@ -16,5 +17,6 @@ export default combineReducers({
     RecentList,
     CinemaList,
     CinemaShowList,
-    MovieCheck
+    MovieCheck,
+    MovieMsg
 })
