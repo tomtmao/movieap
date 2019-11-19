@@ -1,5 +1,5 @@
 import React, { Fragment } from "react"
-import { Route, NavLink, Link } from "react-router-dom"
+import { Route, NavLink, Link,Switch } from "react-router-dom"
 import tu from "../assets/imgs/tutong.png"
 import defaultStyle from "../assets/styles/main-container.module.css"
 import Hot from "./Hot"
@@ -17,9 +17,15 @@ class Container extends React.Component {
                     <NavLink to="/home/recent" activeStyle={{ color: '#ef4238', height: "100%", borderBottom: "2px solid #ef4238" }} className={defaultStyle.bbb}>即将上映</NavLink>
                     <Link to="/home/search"><img src={tu} alt="" className={defaultStyle.tu} /></Link>
                 </div>
-                <Route path="/home/hot"  component={Hot}></Route>
-                <Route path="/home/recent" component={Recent}></Route>
-                <Route path="/home/search" component={Search}></Route>
+                <Switch>
+                    <Route path="/home/search" component={Search}></Route>
+                    <Route path="/home/recent" component={Recent}></Route>
+                    <Route path="/home/hot"  component={Hot}></Route>
+                    <Route path="/home"  component={Hot}></Route>
+                    <Route path="/"  component={Hot}></Route>
+                </Switch>
+
+                
             </Fragment>
         )
     }
