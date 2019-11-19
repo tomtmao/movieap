@@ -1,6 +1,6 @@
 import React, { Component,Fragment } from 'react';
-import cities from '../../utils/city.json'
-import '../../assets/styles/Address/CityList.css'
+import cities from '@/utils/city.json'
+import '@/assets/styles/Address/CityList.css'
 import IndexCity from './IndexCity.js';
 
 //对城市列表进行排序
@@ -40,7 +40,7 @@ class City extends Component {
         let flag = true
             //判断数组是否有这个记录
         for(let item of arr){
-            if(item.id == obj.id){
+            if(item.id === obj.id){
                 flag=false;
                 //return
             }

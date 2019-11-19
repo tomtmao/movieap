@@ -53,25 +53,22 @@ class Cinema extends React.Component {
         let areaArr = []
         try {
             let list = this.props.CinemaShowList
-
             //获取所有地区
-            
-
             for (let item of list) {
                 let strArr = item.addr.split('')
                 let newStr = ''
                 for (let index in strArr) {
-                    if (strArr[index] == '区') {
+                    if (strArr[index] === '区') {
                         newStr = item.addr.slice(0, index)
-                        strArr=''
-                        areaArr.push(newStr+'区')
+                        if (newStr.indexOf("购物") === -1 && newStr.indexOf("广场") === -1 && newStr.indexOf("商业") === -1) {
+                            areaArr.push(newStr + '区')
+                        }
+                        strArr = ''
                     }
                 }
             }
             areaArr = [...new Set(areaArr)]
         } catch (e) { }
-
-
 
         return (
             <Fragment>
@@ -83,8 +80,7 @@ class Cinema extends React.Component {
                         </div>
                     </Link>
                 </div>
-                <CinemaMenu areaArr={areaArr} history={this.props.history} CinemaShowList={this.props.CinemaShowList}/>
-
+                <CinemaMenu areaArr={areaArr} history={this.props.history} CinemaShowList={this.props.CinemaShowList} />
             </Fragment>
         )
     }

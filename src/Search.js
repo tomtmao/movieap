@@ -56,7 +56,7 @@ class SearchShow extends React.Component {
             <Item wrap key={item.id} onClick={this.handleUserEnter.bind(this,item.id)}>
                 <div style={{ display: 'flex' }}>
                     <div className="left" style={{ flex: '1' ,display:'flex',alignItems:'center'}}>
-                        <img style={{ width: '64px', height: "90px",display:'block' }} src={item.img} />
+                        <img style={{ width: '64px', height: "90px",display:'block' }} src={item.img} alt='' />
                     </div>
                     <div className="right" style={{ flex: '4' }}>
                         <div style={{ color: "black", font: 'bold 16px/24px ""' }}>{item.nm}</div>

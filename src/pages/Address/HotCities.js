@@ -32,7 +32,7 @@ class HotCities extends Component {
         let flag = true
             //判断数组是否有这个记录
         for(let item of arr){
-            if(item.id == obj.id){
+            if(item.id === obj.id){
                 flag=false;
                 //return
             }
