@@ -49,7 +49,6 @@ class CinemaMenu extends Component {
             list = list.filter(item => item.addr.includes(this.state.tag))
 
         }
-        console.log(list);
 
         return (
             <div >
@@ -82,7 +81,7 @@ class CinemaMenu extends Component {
                                     {item.nm}
                                 </div>
                                 <br />
-                                <p style={{ color: "gray",marginLeft:'15px' }}>{item.addr}</p>
+                                <p style={{ color: "gray",marginLeft:'5px' }}>{item.addr}</p>
                                 <br />
                                  {/* 特色 */}
                                 <div>
