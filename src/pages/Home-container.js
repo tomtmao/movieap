@@ -24,8 +24,6 @@ class Container extends React.Component {
                     <Route path="/home"  component={Hot}></Route>
                     <Route path="/"  component={Hot}></Route>
                 </Switch>
-
-                
             </Fragment>
         )
     }
