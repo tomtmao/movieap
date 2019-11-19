@@ -59,9 +59,8 @@ export const searchCinema = (params) => dispatch => {
 export const movieRoom = (params) => dispatch => {
     mvRooms(params).then(val=>{
         // console.log(val)
-        let mvlists = val.data 
         let mvshow = {...val.data.showData}
-        console.log(mvshow)
+        // console.log(mvshow)
         dispatch(actionCreator('GET_MVROOM_LIST',mvshow))
     })
 }
