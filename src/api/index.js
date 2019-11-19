@@ -37,6 +37,16 @@ export const searchMsg = (params) => axios({
         stype:-1
     }
 })
+//电影查询
+export const searchMovie = (params) => axios({
+    method:'get',
+    url:'http://m.maoyan.com/ajax/search?kw=&cityId=55&stype=-1',
+    params:{
+        kw:params.kw,
+        cityId:55,
+        stype:-1
+    }
+})
 
 
 

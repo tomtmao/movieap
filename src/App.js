@@ -2,7 +2,6 @@ import React from 'react';
 import Main from "./component/Main"
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import Address from './pages/Address'
-import Search from './Search'
 import CinemaSearch from './pages/CinemaSearch'
 
 //antd测试组件，暂时别删
@@ -13,7 +12,6 @@ class App extends React.Component {
     return (
       <Router>
         <Switch>
-          <Route path='/moviesearch' commponent={Search}></Route>
           <Route path="/cinemasearch" component={CinemaSearch}></Route>
           <Route path="/address" component={Address}></Route>
           <Route path="/test"  component={Test}></Route> 

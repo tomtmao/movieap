@@ -2,15 +2,8 @@
 .am-search {
 border-bottom: 1px solid #ddd;
 }
-.am-wingblank{
-    margin: 0!important;background-color: rgb(226, 31, 31);width: 100%!important;
-}
-.sub-title {
-color:wheat;
-font-size: 38px;
-text-align: center;
-padding: 34px 0 34px 0;
-}
+
+
 .am-search{
     height: 100px!important;
     margin-top: 10px;
@@ -37,7 +30,4 @@ padding: 34px 0 34px 0;
 }
 .am-search-input .am-search-synthetic-ph-placeholder{
     font-size: 30px!important;
-}
-#liShow{
-    height: auto;width: auto;border: orange 1px solid;
 }
