@@ -49,7 +49,6 @@ class CinemaMenu extends Component {
             list = list.filter(item => item.addr.includes(this.state.tag))
 
         }
-        console.log(list);
 
         return (
             <div >

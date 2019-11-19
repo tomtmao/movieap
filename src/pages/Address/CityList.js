@@ -61,8 +61,6 @@ class City extends Component {
     }
     render() {
         let { item } = this.props;
-        console.log(item,'标题');
-        
         //匹配标题和城市列表
         let newCityArr =cityArr.filter(i=>i.py[0] === item)
         let lis = newCityArr.map(item => <li 

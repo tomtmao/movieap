@@ -61,7 +61,7 @@ class RecentCity extends Component {
             list = JSON.parse(localStorage.getItem('RecentCity')).map(item =>
                 <Button
                     style={{ width: '90px', font: '14px/30px "" ', height: '30px', margin: '10px' }}
-                    key={item.ci}
+                    key={item.id}
                     onClick={this.handleClick.bind(this, item.id, item.nm)}
                 >
                     {item.nm}

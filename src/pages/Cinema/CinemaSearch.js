@@ -51,7 +51,6 @@ class CinemaSearch extends Component {
         })
     }
     handleTagClick(cinemaId){
-        console.log(cinemaId,3434)
         let {history} = this.props
         history.push(`/address?cinemaId=${cinemaId}`)
     }
