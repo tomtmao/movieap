@@ -75,7 +75,7 @@ class Hot extends React.Component {
       fontSize: '13px',
       color: "#666"
     };
-   console.log(this.state)
+  //  console.log(this.state)
     // 购票
     const sell = <div style={{
       width: "47px", lineHeight: "27px", textAlign: "center", boxSizing: "border-box",

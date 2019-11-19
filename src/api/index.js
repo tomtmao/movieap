@@ -50,5 +50,10 @@ export const searchMsg = (params) => axios({
     }
 })
 
-
+//影院详情(获取该影院上映的电影)
+export const mvRooms = (params) => axios({
+    method:'get',
+    url:'/api/ajax/cinemaDetail',
+    params
+})
 

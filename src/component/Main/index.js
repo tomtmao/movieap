@@ -80,7 +80,7 @@ class Main extends React.Component {
               }}
               data-seed="logId"
             >
-              <Top>猫眼电影</Top>
+              <Top>龙猫电影</Top>
               <Route path="/home" component={Container}></Route>
               <Redirect from="/" to="/home/hot" ></Redirect>
               <Redirect from="/home" to="/home/hot" ></Redirect>
