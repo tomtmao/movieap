@@ -7,7 +7,8 @@ import MoveDay from "pages/Movie/MovieDay"
 //评论组件
 //import Comment from "@/pages/Comment"
 //antd测试组件，暂时别删
-import Test from './pages/测试Antd'
+//import Test from './pages/测试Antd'
+import Test from 'component/CinemaSnack'
 //影院详情
 import MvRoom from "./pages/MovieRoom"
 
