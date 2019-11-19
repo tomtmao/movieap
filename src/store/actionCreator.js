@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { getHot, mostExpected, comingList, searchMsg, mvRooms } from "../api"
-=======
-import { getHot ,mostExpected,getMoveDay, comingList, searchMsg,getCinemaByCityId,getMovieMsg} from "../api"
->>>>>>> ffd529aaccc2a4f3039b272c143b804cbe8f4bca
+import { getHot ,mostExpected,getMoveDay, comingList, searchMsg,getCinemaByCityId,getMovieMsg,mvRooms} from "../api"
 
 
 const actionCreator = (type, payload) => ({ type, payload })
@@ -61,7 +57,6 @@ export const imgComingLists = params => dispatch => {
 export const searchCinema = (params) => dispatch => {
     searchMsg(params).then(val => {
         //let data = JSON.parse(JSON.stringify(val.data.cinemas)) 
-<<<<<<< HEAD
         let data = {...val.data.cinemas}
         dispatch(actionCreator('GET_CINEMAS_LIST',data.list))
     })
@@ -71,13 +66,7 @@ export const searchCinema = (params) => dispatch => {
 export const movieRoom = (params) => dispatch => {
     mvRooms(params).then(val=>{
         // console.log(val)
-        let mvlists = val.data 
-        let mvshow = {...val.data.showData}
-        console.log(mvshow)
-        dispatch(actionCreator('GET_MVROOM_LIST',mvshow))
-=======
-        let data = { ...val.data.cinemas }
-        dispatch(actionCreator('GET_CINEMAS_LIST', data.list))
+        dispatch(actionCreator('GET_MVROOM_LIST',val.data))
     })
 }
 
@@ -119,6 +108,5 @@ export const getMovie =params=>dispatch=>{
     .then(res=>{
         // console.log(res.data.detailMovie)
         dispatch(actionCreator("movieMsg",res.data.detailMovie))
->>>>>>> ffd529aaccc2a4f3039b272c143b804cbe8f4bca
     })
 }

@@ -19,8 +19,7 @@ class Login extends Component {
   }
   jump = () => {
     let { history } = this.props;
-    console.log(history, 1111);
-    history.push('/')
+    history.push('/home/hot')
   }
   render() {
     return (

@@ -1,7 +1,9 @@
 import React from "react"
 import { movieRoom } from "../../store/actionCreator"
 import { connect } from "react-redux"
-import MvSw from "./MovieSwiper"
+import ShowDate from "./ShowDate"
+
+// import MvSw from "./MovieSwiper"
 const mapStateToProps = state => {
     return {
         movieRoom: state.MvRoomInfo
@@ -27,13 +29,24 @@ class MvRoomList extends React.Component {
         }
         this.props.getMvRoomList(roominfo)
     }
+    getId(id){
+        this.id=id
+    }
     render() {
-        console.log(this.props.movieRoom)
-        return (
-            <div className="body-wrap">
-                <MvSw />
-            </div>
-        )
+        if(this.props.movieRoom.channelId){
+            this.id=this.props.movieRoom.showData.movies[0].id     
+            // console.log(this.props)
+            // this.getId(342773)
+            return (
+                <div className="body-wrap">
+                    {/* <MvSw getId=this.getId.bind(this)/> */}
+                    <ShowDate {...this.props.movieRoom.showData} id={this.id}></ShowDate>
+                    {/* <CinemaSnack {...this.props}/> */}
+                </div>
+            )
+        }else{
+            return null
+        }
     }
 }
 

@@ -23,15 +23,10 @@ class App extends React.Component {
            {/* // 测试评论组件 */}
            <Route path="/comment" component={<div>hahaha</div>}></Route>
           <Route path="/test" component={Test}></Route>
-<<<<<<< HEAD
           {/* 暂测影院详情 */}
           <Route path="/mvroom" component={MvRoom}></Route>
-          <Route path="/" exac component={Main}></Route> 
-=======
           <Route path="/home/hot/movieday/:id" component={MoveDay}></Route>
-          <Route path="/" component={Main}></Route>
-        
->>>>>>> ffd529aaccc2a4f3039b272c143b804cbe8f4bca
+          <Route path="/" exac component={Main}></Route> 
         </Switch>
       </Router>
     );

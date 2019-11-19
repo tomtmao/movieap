@@ -2,10 +2,8 @@ const defaultState = []
 export default (state = defaultState, action) => {
     switch (action.type) {
         case 'GET_CINEMAS_LIST':
-            console.log(action.payload,1111);
-            let result = action.payload?action.payload:[]
-            return result
+            return {...action.payload}
         default:
-            return state
+            return {...state}
     }
 }
