@@ -1,4 +1,4 @@
-import { getHot, mostExpected, comingList, searchMsg } from "../api"
+import { getHot, mostExpected, comingList, searchMsg, getComment,getDetail} from "../api"
 
 
 const actionCreator = (type, payload) => ({ type, payload })
@@ -7,7 +7,6 @@ const actionCreator = (type, payload) => ({ type, payload })
 export const addHot = params => dispatch => {
       getHot(params)
         .then(res => {
-            console.log(params,"sakdxk")
             res.data.movieList = res.data.movieList.map(item => {
                 item.img=item.img.replace('w.h', '300.240')
                 return item
@@ -59,3 +58,20 @@ export const searchCinema = (params) => dispatch => {
 }
 
 
+
+//获取评论
+export const getComments = params => dispatch => {
+    getComment(params)
+      .then(res => {
+        //   console.log(res.data.data.hotComments)
+          dispatch(actionCreator("addCommets", res.data.data.hotComments))
+      })
+}
+
+//获取电影详情页
+export const getDeatil = (params) => dispatch => {
+    getDetail(params).then(res=>{
+        console.log(res.data.detailMovie,"123448")
+        dispatch(actionCreator('addDetail',res.data.detailMovie))
+    })
+}

@@ -36,7 +36,7 @@ export const comingList = () => axios({
 //评论
 export const getComment = (movieId) => axios({
     method:'get',
-    url:"/apiv/comments",
+    url:"http://59.110.231.183:3001/comments",
     params:{
         movieId
     }
@@ -51,6 +51,19 @@ export const searchMsg = (params) => axios({
         cityId:params.cityId,
         stype:-1
     }
+})
+
+//电影详情
+export const getDetail = (movieId) => axios({
+    method:'get',
+    url:"/api/ajax/detailmovie",
+    params:{
+        movieId
+    },
+    headers:{
+        "User-Agent":'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+        "Referer":`http://m.maoyan.com/cinema/movie/${movieId}?$from=canary`
+    }  
 })
 
 

@@ -17,10 +17,9 @@ class App extends React.Component {
           <Route path="/cinemasearch" component={CinemaSearch}></Route>
           <Route path="/address" component={Address}></Route>
            {/* // 测试评论组件 */}
-           <Route path="/comment" component={<div>hahaha</div>}></Route>
+           <Route path="/comment" component={Comment}></Route>
           <Route path="/test" component={Test}></Route>
-          <Route path="/" component={Main}></Route>
-        
+          <Route path="/" component={Main}></Route>   
         </Switch>
       </Router>
     );
