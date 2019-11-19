@@ -1,6 +1,6 @@
 import React, { Component,Fragment } from 'react';
-import cities from '../../utils/city.json'
-import '../../assets/styles/Address/CityList.css'
+import cities from '@/utils/city.json'
+import '@/assets/styles/Address/CityList.css'
 import IndexCity from './IndexCity.js';
 
 //对城市列表进行排序

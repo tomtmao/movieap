@@ -16,15 +16,6 @@ class CinemaMenu extends Component {
         contents[index].style.display = contents[index].style.display == 'block' ?
             contents[index].style.display = 'none' :
             contents[index].style.display = "block"
-        // for (let i = 0; i <= 2; i++) {
-        //     if (i === index) {
-        //         contents[i].style.display = contents[i].style.display == 'block' ?
-        //             contents[i].style.display = 'none' :
-        //             contents[i].style.display = "block"
-        //     } else {
-        //         contents[i].style.display = "none"
-        //     }
-        // }
     }
     handleTag(tag) {
         this.setState({

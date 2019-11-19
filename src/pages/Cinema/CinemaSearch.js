@@ -34,9 +34,7 @@ class CinemaSearch extends Component {
     state = {
         value: '',
     };
-    // componentDidMount() {
-    //     this.props.getCinemaList('七', 1)
-    // }
+
     handleClick() {
         this.props.history.push('/cinema')
     }
