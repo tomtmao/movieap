@@ -41,12 +41,8 @@ class Hot extends React.Component {
     fetchIndex = fetchIndex + 1
   };
   componentDidMount() {
-    console.log(store.getState())
     let {city} = store.getState()
     this.props.getList(city.ci) // 触发请求函数,请求后台数据,并将城市id发过去
-  }
-  componentWillReceiveProps(){
-    this.setState({})
   }
   componentWillUnmount(){
     propsUpdate = false
@@ -75,7 +71,7 @@ class Hot extends React.Component {
       fontSize: '13px',
       color: "#666"
     };
-   console.log(this.state)
+
     // 购票
     const sell = <div style={{
       width: "47px", lineHeight: "27px", textAlign: "center", boxSizing: "border-box",
@@ -101,7 +97,7 @@ class Hot extends React.Component {
           >
             {this.state.items.map((item, index) => (
               <div style={style} key={item.id} onClick={this.jump.bind(this,item.id)}>
-                <div style={{ marginTop: "12px" }}><img src={item.img} style={{ width: "64px", height: "90px" }} /></div>
+                <div style={{ marginTop: "12px" }}><img alt="" src={item.img} style={{ width: "64px", height: "90px" }} /></div>
                 <div style={{ marginLeft: "9px", padding: "12px 0", position: "relative", borderBottom: "1px solid #DDD", width: "270px" }}>
                   <div style={{ marginBottom: '7px', fontSize: '17px', fontWeight: 'bold', color: "#333" }}>{item.nm}</div>
                   {/* 观众评分 */}

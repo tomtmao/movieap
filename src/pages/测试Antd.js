@@ -1,7 +1,7 @@
 import React from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { connect } from 'react-redux'
-import Main from '../component/Main';
+
 
 const createAction = (type, payload) => ({ type, payload })
 const style = {

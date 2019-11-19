@@ -9,12 +9,8 @@ const tabs = [
 
 
 class Login extends Component {
-  constructor() {
-    super()
-  }
   jump=()=>{
     let {history}=this.props;
-    console.log(history,1111);
     history.push('/')
   }
   render() {
@@ -26,9 +22,6 @@ class Login extends Component {
         </div>
         <Tabs tabs={tabs}
           initialPage={1}
-
-          onChange={(tab, index) => { console.log('onChange', index, tab); }}
-          onTabClick={(tab, index) => { console.log('onTabClick', index, tab); }}
         >
           <div style={{ display: 'flex', textAlign: 'left', backgroundColor: '#fff' }}>
             <div style={{ width: '100%' }}>

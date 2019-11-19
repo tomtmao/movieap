@@ -14,20 +14,6 @@ import tu31 from "../../assets/imgs/tu31.png"
 import tu32 from "../../assets/imgs/tu32.png"
 
 
-
-
-class AA extends React.Component{
-  render(){
-    // console.log(this.props)
-    return(
-      <h1>AA</h1>
-    )
-  }
-}
-
-
-
-
 @withRouter
 class Main extends React.Component {
   constructor(props) {
@@ -45,7 +31,7 @@ class Main extends React.Component {
     let qie=arr[1]
     this.setState({
       selectedTab:qie,
-      hidden:qie=="my" ? true :false
+      hidden:qie==="my" ? true :false
     })
   }
   render() {
