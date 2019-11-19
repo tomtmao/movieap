@@ -10,16 +10,14 @@ import { List } from 'antd-mobile';
 const Item = List.Item;
 
 
-const createAction = (type, payload) => ({ type, payload })
-
-const stateProps = state => {
+const mapStateProps = state => {
     return {
         city: state.city,
         CinemaList: state.CinemaList
     }
 }
 
-const dispatchProps = dispatch => {
+const mapDispatchProps = dispatch => {
     return {
         getCinemaList(params) {
             dispatch(searchCinema(params))
@@ -27,16 +25,14 @@ const dispatchProps = dispatch => {
     }
 }
 
-@connect(stateProps, dispatchProps)
+@connect(mapStateProps, mapDispatchProps)
 
 
 class CinemaSearch extends Component {
     state = {
         value: '',
     };
-    // componentDidMount() {
-    //     this.props.getCinemaList('七', 1)
-    // }
+
     handleClick() {
         this.props.history.push('/cinema')
     }

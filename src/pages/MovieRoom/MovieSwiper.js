@@ -47,7 +47,7 @@ class MvSw extends React.Component {
                             <div className="location" style={{ width: "260px", height: "18px", marginTop:"2px",fontSize: "13px", lineHeight: "18.5px",  color: "#999", textOverflow: "ellipsis", overflow: "hidden", whiteSpace: "nowrap" }}>影院的地址
                             </div>
                             <div className="location-icon" style={{ position: "absolute",right: "0",top: "50%",width: "70px",height: "31px",borderLeft: "1px solid #d8d8d8",textAlign: "center",transform: "translateY(-50%)"}}>
-                                <img src="../../public/locationlogo.png" style={{display: "inline-block",width: "19px",height: "22px",marginTop: "5px"}}/>
+                                <img alt="" src="../../public/locationlogo.png" style={{display: "inline-block",width: "19px",height: "22px",marginTop: "5px"}}/>
                             </div>
                         </div>
                     </div>

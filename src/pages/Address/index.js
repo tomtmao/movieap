@@ -6,7 +6,7 @@ import CityList from './CityList';
 import { connect } from 'react-redux'
 import RecentCity from './RecentCity';
 
-const actionCreate = (type,payload)=>({type,payload})
+//const actionCreate = (type,payload)=>({type,payload})
 
 const mapStateToProps = state => {
     return {

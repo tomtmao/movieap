@@ -14,9 +14,6 @@ const btnStyle = {
 const fnStyle = { fontSize: "16px", fontFamily: "楷体", fontWeight: "100px" }
 
 class Login extends Component {
-  constructor() {
-    super()
-  }
   jump = () => {
     let { history } = this.props;
     history.push('/home/hot')
@@ -30,9 +27,6 @@ class Login extends Component {
         </div>
         <Tabs tabs={tabs}
           initialPage={1}
-
-          onChange={(tab, index) => { console.log('onChange', index, tab); }}
-          onTabClick={(tab, index) => { console.log('onTabClick', index, tab); }}
         >
           <div style={{ display: 'flex', textAlign: 'left', backgroundColor: '#fff' }}>
             <div style={{ width: '100%' }}>

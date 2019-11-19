@@ -69,7 +69,6 @@ export const mvRooms = (params) => axios({
 
 //电影详情页-放映时间
 export const getMoveDay = (data) => {
-    console.log(data)
     return axios({
         method: "post",
         url: "/api/ajax/movie",

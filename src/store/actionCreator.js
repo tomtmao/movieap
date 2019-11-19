@@ -7,7 +7,6 @@ const actionCreator = (type, payload) => ({ type, payload })
 export const addHot = params => dispatch => {
     getHot(params)
         .then(res => {
-            console.log(params, "sakdxk")
             res.data.movieList = res.data.movieList.map(item => {
                 item.img = item.img.replace('w.h', '300.240')
                 return item
@@ -75,20 +74,13 @@ export const searchMovie =(params)=>dispatch=>{
     searchMsg(params).then(val=>{
        // console.log(val.data.movies.list,'进入了searchMovie')
        let data = {...val.data.movies}
-    //    val.data.movies = val.data.movies.map(item => item.img = item.img.replace("w.h","120.100"))
-       console.log(data.list,"1234")
+
        let action = {
         type:'GET_MOVIE_LIST',
         payload:data.list
         }
         dispatch(action)
 
-        // let action = {
-        //     type:'GET_MOVIE_LIST',
-        //     payload:val.data.movies.list
-        // }
-        // dispatch(action)
-       
     })
 }
 

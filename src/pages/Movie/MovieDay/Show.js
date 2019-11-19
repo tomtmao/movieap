@@ -29,10 +29,10 @@ class Show extends React.Component {
         this.props.history.push("/home/hot")
     }
     jump() {
-        console.log(44444444)
+        //console.log(44444444)
     }
     render() {
-        console.log(this.props.moviemsg)
+        
         if (this.props.moviemsg.cat) {
             return (
                 <Fragment>
@@ -69,7 +69,7 @@ class Show extends React.Component {
                             padding: "19px 30px 19px 15px",
                         }}>
                             <div style={{ display: "flex" }}>
-                                {<img src={this.props.moviemsg.img.replace("w.h", "148.208")} style={{ width: "110px", height: "150px", boxSizing: "border-box" }}></img>}
+                                {<img alt="" src={this.props.moviemsg.img.replace("w.h", "148.208")} style={{ width: "110px", height: "150px", boxSizing: "border-box" }}></img>}
                                 <div style={{ marginLeft: "12.5px" }}>
                                     <div style={{
                                         fontSize: "20px",

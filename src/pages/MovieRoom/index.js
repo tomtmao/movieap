@@ -1,5 +1,5 @@
 import React from "react"
-import { movieRoom } from "../../store/actionCreator"
+import { movieRoom } from "@/store/actionCreator"
 import { connect } from "react-redux"
 import ShowDate from "./ShowDate"
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-const actionCreate = (type, payload) => ({ type, payload })
+//const actionCreate = (type, payload) => ({ type, payload })
 
 class IndexCity extends Component {
     clickTitle(position, index) {
