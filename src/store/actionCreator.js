@@ -1,4 +1,4 @@
-import { getHot, mostExpected, comingList, searchMsg, getCinemaByCityId } from "../api"
+import { getHot ,mostExpected,getMoveDay, comingList, searchMsg,getCinemaByCityId} from "../api"
 
 
 const actionCreator = (type, payload) => ({ type, payload })
@@ -31,6 +31,13 @@ export const imgLists = params => dispatch => {
         })
 }
 
+export const gtMovieDay=params=>dispatch=>{
+    getMoveDay(params)
+    .then(res=>{
+        // console.log(res)
+        dispatch(actionCreator("MovieDay",res.data))
+    })
+}
 //即将上映电影
 export const imgComingLists = params => dispatch => {
     comingList(params)//调用api下面的方法开始发送请求
@@ -54,6 +61,29 @@ export const searchCinema = (params) => dispatch => {
         dispatch(actionCreator('GET_CINEMAS_LIST', data.list))
     })
 }
+
+//电影查询
+export const searchMovie =(params)=>dispatch=>{
+    searchMsg(params).then(val=>{
+       // console.log(val.data.movies.list,'进入了searchMovie')
+       let data = {...val.data.movies}
+    //    val.data.movies = val.data.movies.map(item => item.img = item.img.replace("w.h","120.100"))
+       console.log(data.list,"1234")
+       let action = {
+        type:'GET_MOVIE_LIST',
+        payload:data.list
+        }
+        dispatch(action)
+
+        // let action = {
+        //     type:'GET_MOVIE_LIST',
+        //     payload:val.data.movies.list
+        // }
+        // dispatch(action)
+       
+    })
+}
+
 
 //影院展示
 export const fetchCinemaShowList = (params) => dispatch => {
