@@ -23,10 +23,10 @@ class Show extends React.Component {
         this.props.getmmsg(id)
     }
     jump() {
-        console.log(44444444)
+        //console.log(44444444)
     }
     render() {
-        console.log(this.props.moviemsg)
+        
         if (this.props.moviemsg.cat) {
             return (
                 <Fragment>
