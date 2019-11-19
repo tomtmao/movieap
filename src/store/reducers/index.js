@@ -7,6 +7,7 @@ import RecentList from './RecentList'
 import CinemaList from './cinemaList'
 import CinemaShowList from './cinemaShowList'
 import MovieCheck from './movie'
+import MvRoomInfo from './mvRoomInfo'
 import MovieMsg from "./MovieMsg"
 import MoviesLists from './moviesList'
 
@@ -18,8 +19,9 @@ export default combineReducers({
     MovieDay,
     RecentList,
     CinemaList,
+    MovieCheck,
+    MvRoomInfo,
     MoviesLists,
     CinemaShowList,
-    MovieCheck,
     MovieMsg
 })

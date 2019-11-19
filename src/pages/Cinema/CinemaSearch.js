@@ -65,7 +65,7 @@ class CinemaSearch extends Component {
             <div>
                 <Top >
                     <Icon className='icon-return' type="left" onClick={this.handleClick.bind(this)} />
-                    猫眼电影
+                    龙猫电影
                 </Top>
                 <SearchBar placeholder="搜索影院" ref={ref => this.autoFocusInst = ref} value={this.state.value} onChange={this.handleValChange.bind(this)} />
                 <List renderHeader={() => '搜索结果'} className="my-list">
