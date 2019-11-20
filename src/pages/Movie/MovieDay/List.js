@@ -18,10 +18,10 @@ class App111 extends React.Component {
         })
     }
     jump(item) {
-        console.log("跳转")
-        console.log("电影id " + this.props.movieId)
-        console.log("电影院id " + item.id)
-        console.log(this.props,'props');
+        // console.log("跳转")
+        // console.log("电影id " + this.props.movieId)
+        // console.log("电影院id " + item.id)
+        // console.log(this.props,'props');
         let {history} = this.props
         //mvroom?cinemaId=2598
         history.push('/mvroom?cinemaId='+item.id)

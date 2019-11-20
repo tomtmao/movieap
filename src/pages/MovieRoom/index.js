@@ -57,15 +57,11 @@ class MvRoomList extends React.Component {
     // }
     render() {
         // console.log(this.id,'状态');
-
         if (this.props.movieRoom.channelId) {
-        
             //this.id = this.props.movieRoom.showData.movies[0].id
             // console.log(this.props)
             //this.getId()
-
             this.id = this.props.MovieCheck ? this.props.MovieCheck : this.props.movieRoom.showData.movies[0].id
-
             return (
                 <div className="body-wrap">
                     <MvSw getId={this.getId.bind(this)} />

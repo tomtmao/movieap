@@ -1,0 +1,16 @@
+.text{
+    height: 230px;
+    display: flex;
+    justify-content:space-between;
+    padding-left: 30px;
+    font-size: 26px;
+    color: #666
+}
+.space{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 25px;
+     padding: 12px 0;
+     border-bottom: 1px solid #DDD;
+     width: 90% 
+}

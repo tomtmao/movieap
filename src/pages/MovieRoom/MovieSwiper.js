@@ -4,7 +4,9 @@ import "../../assets/styles/mvRoomSw.css"
 import { connect } from 'react-redux'
 import { nonsense } from "antd-mobile/lib/picker";
 import ShowDate from "./ShowDate";
-// import from "../../../public/locationlogo.png"
+
+
+
 let timer = ''
 
 const mapStateToProps = state => {
@@ -54,9 +56,11 @@ class MvSw extends React.Component {
                     <div className="cinema-wrap">
                         <div className="cinema-block">
                             <div className="cinema-info" style={{ width: "260px", height: "44px", padding: "15px 100px 15px 15px" }}>
-                                <div className="title" style={{ width: "260px", height: "24px", fontSize: "17px", lineHeight: "24px", fontWeight: "700", color: "#333", textOverflow: "ellipsis", overflow: "hidden", whiteSpace: "nowrap" }}>{this.props.MvRoomInfo.cinemaName}
+                                <div className="title" style={{ width: "260px", height: "24px", fontSize: "17px", lineHeight: "24px", fontWeight: "700", color: "#333", textOverflow: "ellipsis", overflow: "hidden", whiteSpace: "nowrap" }}>
+                                    {this.props.MvRoomInfo.cinemaName}
                                 </div>
-                                <div className="location" style={{ width: "260px", height: "18px", marginTop: "2px", fontSize: "13px", lineHeight: "18.5px", color: "#999", textOverflow: "ellipsis", overflow: "hidden", whiteSpace: "nowrap" }}>{this.props.Address}
+                                <div className="location" style={{ width: "260px", height: "18px", marginTop: "2px", fontSize: "13px", lineHeight: "18.5px", color: "#999", textOverflow: "ellipsis", overflow: "hidden", whiteSpace: "nowrap" }}>
+                                    {this.props.Address}
                             </div>
                                 <div className="location-icon" style={{ position: "absolute", right: "0", marginTop: "-20px", width: "70px", height: "31px", borderLeft: "1px solid #d8d8d8", textAlign: "center", transform: "translateY(-50%)" }}>
                                     <img src={require("../../assets/imgs/locationlogo.png")} style={{ display: "inline-block", width: "19px", height: "22px", marginTop: "5px" }}>

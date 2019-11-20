@@ -32,7 +32,7 @@ class Recent extends React.Component {
     render() {
         // console.log(this.props)
         return (
-            <div style={{backgroundColor:"#f5f5f5" ,width:"716px"}}>
+            <div style={{backgroundColor:"#f5f5f5",overflowX:"hidden"}}>
                 <Swiper />
                 <MovieList />
             </div>
