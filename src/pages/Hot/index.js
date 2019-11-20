@@ -49,7 +49,13 @@ class Hot extends React.Component {
   }
   jump(_id){   // 调转路由
     let {url}=this.props.match
-    this.props.history.push(`${url}/movieday/${_id}`)
+    
+    if(url === '/'){
+      this.props.history.push(`home/hot/movieday/${_id}`)
+    }else{
+      this.props.history.push(`${url}/movieday/${_id}`)
+    }
+    
   }
   componentWillReceiveProps(props) {
     if (!propsUpdate) {
