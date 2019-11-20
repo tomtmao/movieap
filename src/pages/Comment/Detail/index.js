@@ -66,13 +66,11 @@ class Deatil extends React.Component {
             img2:require("assets/imgs/star2.png") 
             
         })
-        console.log(111)
     }
     fairy(){ // 仙女变色
         this.setState({
             img1:require("assets/imgs/heart2.png") 
         })
-        console.log(111)
     }
     componentDidMount() {
         this.props.getList(this.props.id)
