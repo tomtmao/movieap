@@ -1,6 +1,8 @@
 import React, { Fragment } from "react"
 import { connect } from "react-redux"
 import { getMovie } from "../../../store/actionCreator"
+import Top from "../../../component/Main/Top"
+import {withRouter} from "react-router-dom"
 
 const mapStateToProps = state => {
     return {
@@ -16,20 +18,25 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
+@withRouter
 @connect(mapStateToProps, mapDispatchToProps)
 class Show extends React.Component {
     componentDidMount() {
         let id = this.props.id
         this.props.getmmsg(id)
     }
+    re(){
+        this.props.history.push("/home/hot")
+    }
     jump() {
-        console.log(44444444)
+        this.props.history.push("/comment/"+this.props.id)
     }
     render() {
-        console.log(this.props.moviemsg)
+        
         if (this.props.moviemsg.cat) {
             return (
                 <Fragment>
+                    <Top>{this.props.moviemsg.nm}</Top>
                     <div style={{
                         backgroundColor: "#333",
                         width: "100%",
@@ -53,7 +60,7 @@ class Show extends React.Component {
                         </div>
                     </div>
                     <div onClick={this.jump.bind(this)} style={{
-                        position:"relative"
+                        position: "relative"
                     }}>
                         <div style={{
                             color: "#fff",
@@ -62,7 +69,7 @@ class Show extends React.Component {
                             padding: "19px 30px 19px 15px",
                         }}>
                             <div style={{ display: "flex" }}>
-                                {<img src={this.props.moviemsg.img.replace("w.h", "148.208")} style={{ width: "110px", height: "150px", boxSizing: "border-box" }}></img>}
+                                {<img alt="" src={this.props.moviemsg.img.replace("w.h", "148.208")} style={{ width: "110px", height: "150px", boxSizing: "border-box" }}></img>}
                                 <div style={{ marginLeft: "12.5px" }}>
                                     <div style={{
                                         fontSize: "20px",
@@ -158,6 +165,13 @@ class Show extends React.Component {
                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAWCAYAAAAfD8YZAAAAAXNSR0IArs4c6QAAAS5JREFUOBGVkktuwkAMhpOoJ+hhSouE2HbDgiVCNCAOVtQHnINHhbgMJ6g6/f9gR848kmDJeOzxZ3scskzEOfcKXUMLjXXZByYQhJlqMvz3PM//1E9Z7fJoEp5wXvWZoILRZQtg7xVYdhXQzuR2XoEB/NYCOSkVdKI/g441BnuBbmI7aMAE7ilgxyaboYOD4RMO9EWiTwhgJksBLtEvUNolRmGvwJG+yDNsXSB4s2aplR3M4Y80BnuGfiQ7m0Q2qP6JJvaLc/VpTKx5lPe9IfpibviMb+4lOXYXyGLRsRPgSTsSpASdW8Av+YQ3Er+NzgIuELdvZMcAZIUaBsgpCA55IZIEeV+NLSC32hskXCTAH9xFRyWkUsgSrhqAJfjpL8fch0dMMIGWMkmYEIn8Az5Wgp5LHlhmAAAAAElFTkSuQmCC" alt="" />
                         </div>
                     </div >
+                    <div onClick={this.re.bind(this)} style={{
+                        position: "absolute",
+                        fontSize: "37px",
+                        color:"#fff",
+                        top:"0px",
+                        left:"7px"
+                    }}>{"<"}</div>
                 </Fragment>
             )
         } else {

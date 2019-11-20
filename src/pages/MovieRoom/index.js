@@ -59,7 +59,7 @@ class MvRoomList extends React.Component {
         // console.log(this.id,'状态');
 
         if (this.props.movieRoom.channelId) {
-
+        
             //this.id = this.props.movieRoom.showData.movies[0].id
             // console.log(this.props)
             //this.getId()

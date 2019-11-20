@@ -75,7 +75,7 @@ class MovieDay extends React.Component {
     render() {
         if (this.state.arrday) {
             let obj = this.state.arrday
-            console.log(obj)
+            
             return (
                 <Fragment>
                     <Show id={this.state.option.movieId}></Show>

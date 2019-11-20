@@ -1,6 +1,9 @@
 import React, { Fragment } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import s from "../../../assets/styles/List.module.css"
+import {withRouter} from 'react-router-dom'
+
+@withRouter
 
 class App111 extends React.Component {
     constructor(props) {
@@ -18,6 +21,10 @@ class App111 extends React.Component {
         console.log("跳转")
         console.log("电影id " + this.props.movieId)
         console.log("电影院id " + item.id)
+        console.log(this.props,'props');
+        let {history} = this.props
+        //mvroom?cinemaId=2598
+        history.push('/mvroom?cinemaId='+item.id)
     }
     render() {
         if (this.state.items.length) {

@@ -14,13 +14,9 @@ const btnStyle = {
 const fnStyle = { fontSize: "16px", fontFamily: "楷体", fontWeight: "100px" }
 
 class Login extends Component {
-  constructor() {
-    super()
-  }
   jump = () => {
     let { history } = this.props;
-    console.log(history, 1111);
-    history.push('/')
+    history.push('/home/hot')
   }
   render() {
     return (
@@ -30,10 +26,7 @@ class Login extends Component {
           龙猫电影
         </div>
         <Tabs tabs={tabs}
-          initialPage={1}
-
-          onChange={(tab, index) => { console.log('onChange', index, tab); }}
-          onTabClick={(tab, index) => { console.log('onTabClick', index, tab); }}
+          initialPage={0}
         >
           <div style={{ display: 'flex', textAlign: 'left', backgroundColor: '#fff' }}>
             <div style={{ width: '100%' }}>
