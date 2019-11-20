@@ -4,7 +4,6 @@ import { getDeatil } from "../../../store/actionCreator"
 import { List, Icon, Grid } from 'antd-mobile'; // 拉开组件
 import detailStyle from "./Deatil.module.css"
 import DetailCarousel from "./DetailCarousel ";
-
 const list = ['down']
 
 
@@ -42,19 +41,38 @@ const dispatchToProps = dispatch => {
         }
     }
 }
+
 @connect(stateToProps, dispatchToProps)
+
 
 class Deatil extends React.Component {
     constructor() {
         super()
         this.state = {
-            flag: true
+            flag: true,
+            backgroundColor:"",
+            backgroundColorA:"",
+            img1:require("assets/imgs/heart1.png"),
+            img2:require("assets/imgs/star1.png")
         }
     }
     handleClick() {
         this.setState({
             flag: !this.state.flag
         })
+    }
+    fairyA(){ // 仙女变色
+        this.setState({
+            img2:require("assets/imgs/star2.png") 
+            
+        })
+        console.log(111)
+    }
+    fairy(){ // 仙女变色
+        this.setState({
+            img1:require("assets/imgs/heart2.png") 
+        })
+        console.log(111)
     }
     componentDidMount() {
         this.props.getList(this.props.id)
@@ -85,17 +103,11 @@ class Deatil extends React.Component {
                             whiteSpace: "nowrap", overflow: "hidden", lineHeight: "18px"
                         }}>{this.props.movieDetail.star}</div>
                         <div style={{ lineHeight: "25px" }}>{this.props.movieDetail.pubDesc}&nbsp;/<span style={{ paddingLeft: "3px" }}>{this.props.movieDetail.dur}分钟></span></div>
-                        <div style={{ paddingTop: "5px" }}>
-                            <button style={{
-                                width: "100px", height: "30px", boxShadow: "0 .02rem .08rem 0 rgba(0,0,0,.1)", background: "hsla(0,0%,100%,.35)", borderRadius: "3px",
-                                fontSize: "14px", color: "#fff"
-                            }}><img src="//s0.meituan.net/bs/?f=myfe/canary:/asgard/images/movie/want-to-watch.png"
-                                style={{ width: "14px", height: "14px ", paddingRight: "6px" }}></img>想看</button>
-                            <button style={{
-                                width: "100px", height: "30px", boxShadow: "0 .02rem .08rem 0 rgba(0,0,0,.1)", background: "hsla(0,0%,100%,.35)", borderRadius: "3px",
-                                fontSize: "14px", color: "#fff", marginLeft: "12px"
-                            }}><img src="//s0.meituan.net/bs/?f=myfe/canary:/asgard/images/movie/star.png"
-                                style={{ width: "14px", height: "14px ", paddingRight: "6px" }}></img>看过</button>
+                        <div className={detailStyle.heart}>
+                            <div className={detailStyle.star}  onClick={ this.fairy.bind(this)}><img src={this.state.img1}
+                                style={{ width: "14px", height: "14px ", paddingRight: "4px",background:this.state.backgroundColor}} ></img>想看</div>
+                            <div className={detailStyle.star} onClick={ this.fairyA.bind(this)}><img src={this.state.img2}
+                                style={{ width: "14px", height: "14px ",paddingRight: "4px",background:this.state.backgroundColorA}} ></img>看过</div>
                         </div>
                     </div>
                 </div>
@@ -109,7 +121,7 @@ class Deatil extends React.Component {
                     </div>
                     <div className={detailStyle.score}>
                         <div>
-                            <div className={detailStyle.grad}>{this.props.movieDetail.sc}</div>
+                            <div className={detailStyle.grad}>{this.props.movieDetail.sc?this.props.movieDetail.sc:"暂无评分"}</div>
                             <div>{this.props.movieDetail.snum}人评</div>
                         </div>
                         <div>
