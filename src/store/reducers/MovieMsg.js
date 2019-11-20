@@ -1,4 +1,4 @@
-let defaultStatus = []
+let defaultStatus = {}
 const mmsg = (state = defaultStatus, action) => {
     switch (action.type) {
         case "movieMsg":

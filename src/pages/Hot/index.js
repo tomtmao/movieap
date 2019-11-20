@@ -3,7 +3,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import { addHot } from "../../store/actionCreator"  //引入addHot方法请求数据
 import { connect } from "react-redux"
 import store from "../../store/index"
-
+import HotStyle from "./Hot.module.css"
 
 let fetchIndex = 8
 //控制componentWillReceive只在最开始解决一次
@@ -63,6 +63,7 @@ class Hot extends React.Component {
   }
 
   render() {
+    console.log(store.getState())
     const style = { 
       height: 115,
       display: "flex",
@@ -76,14 +77,14 @@ class Hot extends React.Component {
     const sell = <div style={{
       width: "47px", lineHeight: "27px", textAlign: "center", boxSizing: "border-box",
       backgroundColor: "#f03d37", color: "#fff", bordeRadius: "4px", whiteSpace: "nowrap", fontSize: "12px",
-      cursor: "pointer", position: "absolute", left: "226px", top: "45px", borderRadius: "8px"
+      cursor: "pointer", borderRadius: "8px",margin:"30px 30px 0 0"
     }}><span>购票</span></div>
 
     //  预售
     const presell = <div style={{
       width: "47px", lineHeight: "27px", textAlign: "center", boxSizing: "border-box",
       backgroundColor: "#3c9fe6", color: "#fff", bordeRadius: "4px", whiteSpace: "nowrap", fontSize: "12px",
-      cursor: "pointer", position: "absolute", left: "226px", top: "45px", borderRadius: "8px"
+      cursor: "pointer",borderRadius: "8px",margin:"30px 30px 0 0"
     }}><span>预售</span></div>
     return (
       <div >
@@ -97,16 +98,16 @@ class Hot extends React.Component {
           >
             {this.state.items.map((item, index) => (
               <div style={style} key={item.id} onClick={this.jump.bind(this,item.id)}>
-                <div style={{ marginTop: "12px" }}><img alt="" src={item.img} style={{ width: "64px", height: "90px" }} /></div>
-                <div style={{ marginLeft: "9px", padding: "12px 0", position: "relative", borderBottom: "1px solid #DDD", width: "270px" }}>
-                  <div style={{ marginBottom: '7px', fontSize: '17px', fontWeight: 'bold', color: "#333" }}>{item.nm}</div>
+                <div style={{ marginTop: "12px" }}><img src={item.img} style={{ width: "64px", height: "90px" }} /></div>
+                <div className={HotStyle.space}>
+                  <div> <div style={{ marginBottom: '7px', fontSize: '17px', fontWeight: 'bold', color: "#333" }}>{item.nm}</div>
                   {/* 观众评分 */}
-                  <div><span></span>{item.sc ? <span><span>观众评</span><span style={{ color: "#faaf00", fontSize: "17px", fontWeight: "700", marginLeft: "2px" }}>{item.sc}</span></span> :
+                  <div><span></span>{item.sc ? <span><span>观众评</span><span style={{ color: "#faaf00", fontSize: "17px", fontWeight: "700", marginLeft: "2px" }}>{item.sc}</span></span>:
                     <span><span style={{ color: "#faaf00", fontSize: "17px" }}>{item.wish}</span><span>人想看</span></span>}
                   </div>
                   <div style={{ color: "#777", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", marginTop: "6px", width: "219px" }}>主演:{item.star}</div>
-                  <div style={{ color: "#777", marginTop: "6px" }}>{item.showInfo}</div>
-                  {item.sc ? sell : presell}
+                  <div style={{ color: "#777", marginTop: "6px" }}>{item.showInfo}</div></div>
+                 <div>{item.sc ? sell : presell}</div>
                 </div>
               </div>
             ))}

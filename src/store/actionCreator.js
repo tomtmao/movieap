@@ -1,4 +1,7 @@
-import { getHot ,mostExpected,getMoveDay, comingList, searchMsg,getCinemaByCityId,getMovieMsg,mvRooms} from "../api"
+import { getComment,getDetail,getHot ,
+    mostExpected,getMoveDay, comingList, 
+    searchMsg,getCinemaByCityId,getMovieMsg,
+    mvRooms} from "../api"
 
 
 const actionCreator = (type, payload) => ({ type, payload })
@@ -64,7 +67,6 @@ export const searchCinema = (params) => dispatch => {
 //影院详情(获取该影院上映的电影)
 export const movieRoom = (params) => dispatch => {
     mvRooms(params).then(val=>{
-        // console.log(val)
         dispatch(actionCreator('GET_MVROOM_LIST',val.data))
     })
 }
@@ -85,6 +87,25 @@ export const searchMovie =(params)=>dispatch=>{
 }
 
 
+
+//获取评论
+export const getComments = params => dispatch => {
+    // console.log(params)
+    getComment(params)
+      .then(res => {
+        //   console.log(res.data.data.hotComments)
+        console.log(res)
+          dispatch(actionCreator("addCommets", res.data.data.hotComments))
+      })
+}
+
+//获取电影详情页
+export const getDeatil = (params) => dispatch => {
+    getDetail(params).then(res=>{
+        console.log(res.data.detailMovie,"123448")
+        dispatch(actionCreator('addDetail',res.data.detailMovie))
+    })
+}
 //影院展示
 export const fetchCinemaShowList = (params) => dispatch => {
     getCinemaByCityId(params).then(

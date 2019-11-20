@@ -13,7 +13,7 @@ let timer = function(){}
 class Swiper extends React.Component {
     
     componentDidMount() {
-        //实现页面加载完成，图片自动切换3s一次；鼠标移入图片上停止自动切换，移除时自动切换开始。
+        //实现页面加载完成，图片自动切换2s一次；
          timer = setInterval(function(){
             // console.log("timer")
             this.hide();
@@ -26,11 +26,11 @@ class Swiper extends React.Component {
         // };
         // //鼠标移出继续播放
         // this.$('.container').onmouseleave = function(){
-        //     timer = setInterval(function(){
+        //     setInterval(function(){
         //     this.hide();
         //     this.checkIndex('+');
         //     this.show();
-        //     }.bind(this),3000);
+        //     }.bind(this),1000);
         // };
 
     }
@@ -41,15 +41,15 @@ class Swiper extends React.Component {
 
     $(ele){ return document.querySelector(ele)}
     //实现下一张的功能   
-    a(){
+    next(){
         this.hide();
-        this.checkIndex('+');
+        this.checkIndex('-');
         this.show();
     }; 
     //实现上一张的功能
-    b(){
+    before(){
         this.hide();
-        this.checkIndex('-');
+        this.checkIndex('+');
         this.show();
     };
 
@@ -106,8 +106,8 @@ class Swiper extends React.Component {
                 
                     {/* 左右按钮  */}
                     <div className="btn-box">
-                        <div className="btn-left" onClick={this.a.bind(this)}><span className="bl">{"<"}</span></div>
-                        <div className="btn-right" onClick={this.b.bind(this)}><span className="br">{">"}</span></div>
+                        <div className="btn-left" onClick={this.next.bind(this)}><span className="bl">{"<"}</span></div>
+                        <div className="btn-right" onClick={this.before.bind(this)}><span className="br">{">"}</span></div>
                     </div>
                 </div>
             </div>

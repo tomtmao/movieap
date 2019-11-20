@@ -48,7 +48,7 @@ class SearchShow extends React.Component {
     }
     handleUserEnter(movieId){
         let {history} = this.props
-        history.push(`/movieDetails?movieId=${movieId}`)
+        history.push(`hot/movieday/${movieId}`)
     }
     render() {
         this.props.moVies.img = this.props.moVies.map(item => item.img = item.img.replace("w.h", "150.150"))

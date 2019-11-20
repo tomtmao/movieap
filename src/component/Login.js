@@ -26,7 +26,7 @@ class Login extends Component {
           龙猫电影
         </div>
         <Tabs tabs={tabs}
-          initialPage={1}
+          initialPage={0}
         >
           <div style={{ display: 'flex', textAlign: 'left', backgroundColor: '#fff' }}>
             <div style={{ width: '100%' }}>

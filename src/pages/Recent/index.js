@@ -30,11 +30,11 @@ class Recent extends React.Component {
         this.props.getComingList()
     }
     render() {
-        // console.log(this.props)
+        console.log(this.props,123)
         return (
-            <div style={{backgroundColor:"#f5f5f5"}}>
+            <div style={{backgroundColor:"#f5f5f5",overflowX:"hidden"}}>
                 <Swiper />
-                <MovieList />
+                <MovieList history={this.props.history}/>
             </div>
         )
     }

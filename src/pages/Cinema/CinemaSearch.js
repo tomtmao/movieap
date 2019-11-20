@@ -48,7 +48,7 @@ class CinemaSearch extends Component {
     }
     handleTagClick(cinemaId){
         let {history} = this.props
-        history.push(`/address?cinemaId=${cinemaId}`)
+        history.push(`/mvroom?cinemaId=${cinemaId}`)
     }
     render() {
         let list = this.props.CinemaList.map(item => <Item wrap key={item.id} onClick={this.handleTagClick.bind(this,item.id)}>{item.nm}</Item>)

@@ -3,28 +3,8 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import { connect } from 'react-redux'
 import { imgComingLists } from "../../store/actionCreator"
 
-const style = {
-    height: 115,
-    display: "flex",
-    margin: 0,
-    paddingLeft: '15px',
-    fontSize: '13px',
-    color: "#666",
-};
 
-// 想看
-const sell = <div style={{
-    width: "47px", lineHeight: "27px", textAlign: "center", boxSizing: "border-box",
-    backgroundColor: "#faaf00", color: "#fff", bordeRadius: "4px", whiteSpace: "nowrap", fontSize: "12px",
-    cursor: "pointer", position: "absolute", left: "226px", top: "45px", borderRadius: "8px"
-}}><span>想看</span></div>
 
-//  预售
-const presell = <div style={{
-    width: "47px", lineHeight: "27px", textAlign: "center", boxSizing: "border-box",
-    backgroundColor: "#3c9fe6", color: "#fff", bordeRadius: "4px", whiteSpace: "nowrap", fontSize: "12px",
-    cursor: "pointer", position: "absolute", left: "226px", top: "45px", borderRadius: "8px"
-}}><span>预售</span></div>
 
 //控制预先展示的条数
 let fetchIndex = 7
@@ -68,16 +48,7 @@ class MovieList extends React.Component {
         }
         this.props.comingList(obj)
     }
-    // componentWillReceiveProps(props) {
-    //     if (!propsUpdate) {
-    //         this.setState({
-    //             items: props.items.slice(0, fetchIndex)
-    //         })
-    //         setTimeout(() => {
-    //             propsUpdate = true
-    //         }, 1000);
-    //     }
-    // }
+
     static getDerivedStateFromProps(props) {
         if (!propsUpdate) {
             setTimeout(() => {
@@ -136,8 +107,9 @@ class MovieList extends React.Component {
     }
     //实现跳转
     jump(_id) {   // 调转路由
-        // let {url}=this.props.match
-        // this.props.history.push(`${url}?${_id}`)
+        // console.log(this.props,"1234567");
+        
+        this.props.history.push(`/comment/${_id}`)
     }
     componentDidUpdate() {
         this.RecentList = this.props.items
@@ -146,9 +118,56 @@ class MovieList extends React.Component {
         // console.log(this.RecentListDate)
     }
     render() {
+        const style = {
+            height: 115,
+            display: "flex",
+            justifyContent: "space-between",
+            margin: 0,
+            paddingLeft: '15px',
+            fontSize: '13px',
+            color: "#666"
+        };
+        // 想看
+        const sell = <div style={{
+            width: "47px", 
+            lineHeight: "27px", 
+            textAlign: "center", 
+            boxSizing: "border-box",
+            backgroundColor: "orange", 
+            color: "#fff", 
+            bordeRadius: "4px", 
+            whiteSpace: "nowrap",
+            fontSize: "12px",
+            cursor: "pointer",
+            position: "absolute",
+            right: "30px", top: "0",
+            borderRadius: "8px"
+        }}>
+            <span>预售</span>
+        </div>
+
+        //  预售
+        const presell = <div style={{
+            width: "47px",
+            lineHeight: "27px",
+            textAlign: "center",
+            boxSizing: "border-box",
+            backgroundColor: "#3c9fe6",
+            color: "#fff",
+            bordeRadius: "4px",
+            whiteSpace: "nowrap",
+            fontSize: "12px",
+            cursor: "pointer",
+            position: "absolute",
+            right: "30px", top: "0",
+            borderRadius: "8px"
+        }}>
+            <span>预售</span>
+        </div>
+
         if (this.RecentListDate) {
             return (
-                <div style={{width:"100%"}}>
+                <div>
                     <div id="scrollableDiv" style={{ height: 800, overflow: "auto", backgroundColor: "#fff" }}>
                         <InfiniteScroll
                             dataLength={this.state.items.length}
@@ -166,17 +185,22 @@ class MovieList extends React.Component {
                                                 <span style={{ fontSize: "14px" }}>{this.arrday[index]}</span></p>
                                             {item.map((val, i) => {
                                                 return (
-                                                    <div style={{display:"flex",justifyContent:"space-around"}} key={val.id} onClick={this.jump.bind(this, val.id)}>
-                                                        <div style={{ marginTop: "12px" }}><img src={val.img} style={{ width: "64px", height: "90px" }} alt=""/></div>
-                                                        <div style={{ marginLeft: "9px", padding: "12px 0", position: "relative", borderBottom: "1px solid #DDD", width: "270px" }}>
-                                                            <div style={{ marginBottom: '7px', fontSize: '17px', fontWeight: 'bold', color: "#333" }}>{val.nm}</div>
-                                                            {/* 多少人想看 */}
-                                                            <div>
-                                                                <span style={{ color: "#faaf00", fontSize: "17px" }}>{val.wish}</span><span>人想看</span>
+                                                    <div style={style} key={val.id} onClick={this.jump.bind(this, val.id)}>
+                                                        <div style={{ marginTop: "12px" }}><img src={val.img} style={{ width: "64px", height: "90px" }} alt="" /></div>
+                                                        <div style={{ display: "flex", justifyContent: "space-between", marginLeft: "25px", padding: "12px 0", borderBottom: "1px solid #DDD", width: "90%" }}>
+                                                            <div >
+                                                                <div style={{ marginBottom: '7px', fontSize: '17px', fontWeight: 'bold', color: "#333" }}>{val.nm}</div>
+                                                                {/* 多少人想看 */}
+                                                                <div>
+                                                                    <span style={{ color: "#faaf00", fontSize: "17px" }}>{val.wish}</span><span>人想看</span>
+                                                                </div>
+                                                                <div style={{ color: "#777", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", marginTop: "6px", width: "219px" }}>主演:{val.star}</div>
+                                                                <div style={{ color: "#777", marginTop: "6px" }}>{val.rt}<span>上映</span></div>
                                                             </div>
-                                                            <div style={{ color: "#777", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", marginTop: "6px", width: "219px" }}>主演:{val.star}</div>
-                                                            <div style={{ color: "#777", marginTop: "6px" }}>{val.rt}<span>上映</span></div>
-                                                            {val.preShow ? sell : presell}
+                                                            <div style={{ width: "30px", position:'relative'}}>
+                                                                {val.preShow ? sell : presell}
+                                                         
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 )
