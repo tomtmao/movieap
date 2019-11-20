@@ -29,7 +29,7 @@ export const imgLists = params => dispatch => {
             dispatch(actionCreator("MOST_EXPECTED", res.data.coming))
         })
         .catch(err => {
-            console.log(err)
+            //console.log(err)
         })
 }
 //影院列表
@@ -94,7 +94,7 @@ export const getComments = params => dispatch => {
     getComment(params)
       .then(res => {
         //   console.log(res.data.data.hotComments)
-        console.log(res)
+        //console.log(res)
           dispatch(actionCreator("addCommets", res.data.data.hotComments))
       })
 }

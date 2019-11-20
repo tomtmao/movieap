@@ -17,7 +17,7 @@ class ShowDate extends React.Component {
         let { id, movies } = this.state
 
         let movie = movies.find(item => {
-            return item.id == id
+            return item.id === id
         })
 
         //拿出场次
@@ -65,8 +65,9 @@ class ShowDate extends React.Component {
         let { movies } = this.state
 
         let movie = movies.find(item => {
-            return item.id == nextprops.id
+            return item.id === nextprops.id
         })
+        movie = movie?movie:{}
         if (movie.shows) {
             //拿出场次
             let shows = movie.shows
@@ -89,11 +90,11 @@ class ShowDate extends React.Component {
         let list = this.state.list
         if (tabs) {
             return (
-                <Fragment>
+                <Fragment >
                     <div>
                         {this.Title(tabs)}
                     </div>
-                    <div className={s.box}>
+                    <div className={s.box} >
                         {list.length ? list.map(item => {
                             return (
                                 <Fragment>
@@ -136,7 +137,7 @@ class ShowDate extends React.Component {
                                     </div>
                                 </Fragment>
                             )
-                        }) : <h1>今日无放映场次</h1>}
+                        }) : <h1 style={{background:'white',margin:0,padding:"50px 0 100px 0",textAlign:'center',font:'24px/30px ""',color:'black'}} >今日无放映场次</h1>}
                     </div>
                 </Fragment>
             )

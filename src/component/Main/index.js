@@ -1,6 +1,6 @@
 import React, { Fragment } from "react"
 import { TabBar } from 'antd-mobile';
-import {Route,Redirect,withRouter} from "react-router-dom"
+import {Route,withRouter} from "react-router-dom"
 import "../../assets/styles/Main.css"
 import  Container from "../../pages/Home-container"
 import Login from "../Login"

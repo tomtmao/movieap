@@ -8,8 +8,7 @@ class CinemaSnack extends Component {
     }
     componentWillReceiveProps(nextProps) {
         let cinemaId = nextProps.movieRoom.cinemaId
-        console.log(cinemaId);
-        
+
         fetch("api/ajax/cinemaDetail?cinemaId="+cinemaId, {
             headers: {
                 "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1",
@@ -24,16 +23,10 @@ class CinemaSnack extends Component {
                     })
                 )
 
-                // let arr= val.dealList.dealList.map(item=> {
-                //     item.imageUrl.replace('w.h','92.92')
-                //     return item
-                // }
-                //  )
 
                 this.setState({
                     list: arr
                 })
-                console.log(this.state.list);
 
             })
     }
@@ -70,7 +63,6 @@ class CinemaSnack extends Component {
                         justifyContent: 'space-between',
                         display: 'flex',
                         flexDirection: 'column',
-                        justifyContent: 'space-between'
                     }}>
                         <p >
                             <span style={{
@@ -105,8 +97,7 @@ class CinemaSnack extends Component {
             return (
                 <div style={{ background: 'white', padding: '15px' }}>
                     <p style={{ font: '16px/30px ""', height: '30px', borderBottom: '1px solid #C9C9C9' }}>影院超值套餐</p>
-                    {list}
-                    <span class="stonefont">&#xe8f1;&#xe855;</span>
+                    {list?list:'今日暂无'}
                 </div>
             );
         }
@@ -115,17 +106,3 @@ class CinemaSnack extends Component {
 }
 
 export default CinemaSnack;
-
-//21:12
-//126min
-// function timeChange(time, separator = ":", addMins) {
-//     time = time.split(separator)
-
-//     let sumMins = +time[0] * 60 + +time[1] + addMins;
-//     let mins = sumMins % 60
-//     let hours = (sumMins - mins) / 60
-//     hours = hours >= 24 ? hours - 24 : hours
-//     hours = hours < 10 ? '0' + hours : hours
-//     mins = mins < 10 ? "0" + mins : mins
-//     return `${hours}:${mins}`
-// }

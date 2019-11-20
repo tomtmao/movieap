@@ -1,5 +1,5 @@
 import React from "react"
-import { Carousel, WingBlank } from 'antd-mobile';
+import { Carousel } from 'antd-mobile';
 import "../../assets/styles/mvRoomSw.css"
 import { connect } from 'react-redux'
 
@@ -61,7 +61,7 @@ class MvSw extends React.Component {
                                     {this.props.Address}
                             </div>
                                 <div className="location-icon" style={{ position: "absolute", right: "0", marginTop: "-20px", width: "70px", height: "31px", borderLeft: "1px solid #d8d8d8", textAlign: "center", transform: "translateY(-50%)" }}>
-                                    <img src={require("../../assets/imgs/locationlogo.png")} style={{ display: "inline-block", width: "19px", height: "22px", marginTop: "5px" }}>
+                                    <img  alt="" src={require("../../assets/imgs/locationlogo.png")} style={{ display: "inline-block", width: "19px", height: "22px", marginTop: "5px" }}>
                                     </img>
                                 </div>
                             </div>

@@ -63,7 +63,6 @@ class Hot extends React.Component {
   }
 
   render() {
-    console.log(store.getState())
     const style = { 
       height: 115,
       display: "flex",
@@ -98,7 +97,7 @@ class Hot extends React.Component {
           >
             {this.state.items.map((item, index) => (
               <div style={style} key={item.id} onClick={this.jump.bind(this,item.id)}>
-                <div style={{ marginTop: "12px" }}><img src={item.img} style={{ width: "64px", height: "90px" }} /></div>
+                <div style={{ marginTop: "12px" }}><img alt="" src={item.img} style={{ width: "64px", height: "90px" }} /></div>
                 <div className={HotStyle.space}>
                   <div> <div style={{ marginBottom: '7px', fontSize: '17px', fontWeight: 'bold', color: "#333" }}>{item.nm}</div>
                   {/* 观众评分 */}

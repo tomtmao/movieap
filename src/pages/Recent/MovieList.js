@@ -113,7 +113,7 @@ class MovieList extends React.Component {
     }
     componentDidUpdate() {
         this.RecentList = this.props.items
-        console.log(this.RecentList)
+
         this.RecentListDate = this.sortArr(this.RecentList, 'comingTitle');
         // console.log(this.RecentListDate)
     }

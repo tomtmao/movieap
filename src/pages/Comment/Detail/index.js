@@ -1,11 +1,10 @@
 import React from "react"
 import { connect } from "react-redux"
 import { getDeatil } from "../../../store/actionCreator"
-import { List, Icon, Grid } from 'antd-mobile'; // 拉开组件
+import { List } from 'antd-mobile'; // 拉开组件
 import detailStyle from "./Deatil.module.css"
 import DetailCarousel from "./DetailCarousel ";
 import {Link} from 'react-router-dom'
-const list = ['down']
 
 
 //下拉文本组件
@@ -68,17 +67,13 @@ class Deatil extends React.Component {
             img2:require("assets/imgs/star2.png") 
             
         })
-        console.log(111)
     }
     fairy(){ // 仙女变色
         this.setState({
             img1:require("assets/imgs/heart2.png") 
         })
-        console.log(111)
     }
-    back(){
-        console.log(this.props,"gagagag")
-    }
+    
     componentDidMount() {
         this.props.getList(this.props.id)
     }
@@ -96,9 +91,9 @@ class Deatil extends React.Component {
             <div style={{ backgroundColor: this.props.movieDetail.backgroundColor, color: "#999", fontSize: "12px" }}>
                 <div style={{paddingLeft:"16px",paddingTop:"6px",position:"relative"}}>
                     {/* back */}
-                    <Link to="/"><img src={img} onClick={this.back.bind(this)} style={{width:"18px",height:"18px",position:"absolute",top:"15px",right:"30px"}}/></Link></div>
+                    <Link to="/"><img  alt=""  src={img} style={{width:"18px",height:"18px",position:"absolute",top:"15px",right:"30px"}}/></Link></div>
                 <div style={{ display: "flex", height: "138px", padding: "15px 16px" }}>
-                    {<img src={a} style={{ width: "100px", height: "138px" }}></img>}
+                    {<img  alt=""  src={a} style={{ width: "100px", height: "138px" }}></img>}
 
                     <div style={{ marginLeft: "12px" }}>
                         <div style={{ fontSize: "20px", fontWeight: "700", marginBottom: "4px", color: "#fff" }}>{this.props.movieDetail.nm}</div>
@@ -113,9 +108,9 @@ class Deatil extends React.Component {
                         }}>{this.props.movieDetail.star}</div>
                         <div style={{ lineHeight: "25px" }}>{this.props.movieDetail.pubDesc}&nbsp;/<span style={{ paddingLeft: "3px" }}>{this.props.movieDetail.dur}分钟></span></div>
                         <div className={detailStyle.heart}>
-                            <div className={detailStyle.star}  onClick={ this.fairy.bind(this)}><img src={this.state.img1}
+                            <div className={detailStyle.star}  onClick={ this.fairy.bind(this)}><img  alt="" src={this.state.img1}
                                 style={{ width: "14px", height: "14px ", paddingRight: "4px",background:this.state.backgroundColor}} ></img>想看</div>
-                            <div className={detailStyle.star} onClick={ this.fairyA.bind(this)}><img src={this.state.img2}
+                            <div className={detailStyle.star} onClick={ this.fairyA.bind(this)}><img alt=""  src={this.state.img2}
                                 style={{ width: "14px", height: "14px ",paddingRight: "4px",background:this.state.backgroundColorA}} ></img>看过</div>
                         </div>
                     </div>
@@ -124,7 +119,7 @@ class Deatil extends React.Component {
                 <div className={detailStyle.time}>
                     <div className={detailStyle.top}>
                         <div>
-                            <img src="//s0.meituan.net/bs/?f=myfe/canary:/asgard/images/movie/logo.png" style={{ width: "14px", height: "14px" }} />
+                            <img alt=""  src="//s0.meituan.net/bs/?f=myfe/canary:/asgard/images/movie/logo.png" style={{ width: "14px", height: "14px" }} />
                             &nbsp;&nbsp;<span style={{ color: "#fff" }}>实时口碑</span>
                         </div>
                     </div>

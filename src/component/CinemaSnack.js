@@ -15,25 +15,14 @@ class CinemaSnack extends Component {
         })
             .then(body => body.json())
             .then(val => {
-                console.log(val,11111);
-                
                 let arr = val.dealList.dealList.map(item =>
                     Object.assign({}, item, {
                         imageUrl: item.imageUrl.replace('w.h', '92.92')
                     })
                 )
-
-                // let arr= val.dealList.dealList.map(item=> {
-                //     item.imageUrl.replace('w.h','92.92')
-                //     return item
-                // }
-                //  )
-
                 this.setState({
                     list: arr
                 })
-                console.log(this.state.list);
-
             })
     }
     checkPerson(num) {
@@ -52,13 +41,13 @@ class CinemaSnack extends Component {
         return str
     }
     render() {
-        if (!this.state.list) {
+        if (!this.state.list.length) {
             return (
                 <Fragment></Fragment>
             )
         } else {
-            let list = this.state.list.map(item => (
-                <div style={{ display: 'flex', padding: '20px 10px', borderBottom: '1px solid #ccc' }}>
+            let list = this.state.list.map((item, index) => (
+                <div key={index} style={{ display: 'flex', padding: '20px 10px', borderBottom: '1px solid #ccc' }}>
                     <img src={item.imageUrl} alt="" style={{ marginRight: '10px' }} />
                     <div style={{
                         flex: '1',
@@ -69,41 +58,42 @@ class CinemaSnack extends Component {
                     }}>
                         <p >
                             <span style={{
-                            background:"orange",
-                            color:'white',
-                            borderRadius:'3px',
-                            padding:'2px',
-                            textAlign:'center',
-                            marginRight:'3px',
-                            display:"inline-block"}}>{this.checkPerson(item.recommendPersonNum)}人</span> 
+                                background: "orange",
+                                color: 'white',
+                                borderRadius: '3px',
+                                padding: '2px',
+                                textAlign: 'center',
+                                marginRight: '3px',
+                                display: "inline-block"
+                            }}>{this.checkPerson(item.recommendPersonNum)}人</span>
                             {item.title}
                         </p>
                         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                             <div style={{ color: 'red', font: '16px/20px ""', paddingTop: '20px' }}>￥{item.price}</div>
                             <div>
                                 <p style={{ font: "10px/20px ''", color: 'gray' }}>{item.curNumberDesc}</p>
-                                <div style={{ 
-                                    background: 'red', 
-                                    textAlign: 'center', 
-                                    height: '20px', 
-                                    width: '40px', 
-                                    color: 'white', 
-                                    borderRadius: '3px', 
+                                <div style={{
+                                    background: 'red',
+                                    textAlign: 'center',
+                                    height: '20px',
+                                    width: '40px',
+                                    color: 'white',
+                                    borderRadius: '3px',
                                     font: "12px/20px '' "
-                                    }}>去购买</div>
+                                }}>去购买</div>
                             </div>
                         </div>
                     </div>
                 </div>
             ))
-
             return (
                 <div style={{ background: 'white', padding: '15px' }}>
                     <p style={{ font: '16px/30px ""', height: '30px', borderBottom: '1px solid #C9C9C9' }}>影院超值套餐</p>
                     {list}
-                    <span class="stonefont">&#xe8f1;&#xe855;</span>111111111
+
                 </div>
             );
+
         }
 
     }

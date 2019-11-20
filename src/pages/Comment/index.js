@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 import { getComments } from "../../store/actionCreator"
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Detail from "./Detail"
-import Top from "@/component/Main/Top.js"
+
 let fetchIndex = 6
 //控制componentWillReceive只在最开始解决一次
 let propsUpdate = false
@@ -86,7 +86,7 @@ class Comment extends React.Component {
                         <div style={{ padding: "13px 16px 10px 13px", fontSize: "14px" }}>讨论</div>
                         {this.state.items.map((item) => (
                             <div key={item.id} style={style}>
-                                <div><img src={item.avatarUrl} style={{ width: "34px", height: "34px", borderRadius: "17px" }
+                                <div><img alt="" src={item.avatarUrl} style={{ width: "34px", height: "34px", borderRadius: "17px" }
                                 } /></div>
                                 <div style={{ paddingLeft: "10px" }}>
                                     <div style={{ position: "relative" }}><span style={{ fontSize: "14px", lineHeight: "18px" }}>{item.nick}</span><span style={{
@@ -99,10 +99,10 @@ class Comment extends React.Component {
 
                                         <div style={{ width: "100%", marginTop: "25px", overflow: "hidden",height:"20px",}}>
                                             <div style={{ float: "right", paddingRight: "50px" }}><span style={{ display: "inlineBox", height: "20px", }}>
-                                                <div style={{ width: "36px", height: "100%", float: "left" }}><img src="//s0.meituan.net/bs/?f=myfe/canary:/asgard/images/movie/thumb-up-comment.png"
+                                                <div style={{ width: "36px", height: "100%", float: "left" }}><img alt=""  src="//s0.meituan.net/bs/?f=myfe/canary:/asgard/images/movie/thumb-up-comment.png"
                                                     style={{ width: "10px", height: "10px" }}></img><span style={{ fontSize: "12px", marginLeft: "2px" }}>{item.upCount}</span></div>
                                                 <div style={{ width: "40px", border: "1px solid #ccc", marginLeft: "5px", float: "right", borderRadius: "20px", display: 'flex', justifyContent: "center", lineHight: "20px" }}>
-                                                    <img src="//s0.meituan.net/bs/?f=myfe/canary:/asgard/images/movie/discussion-comment.png"
+                                                    <img alt=""  src="//s0.meituan.net/bs/?f=myfe/canary:/asgard/images/movie/discussion-comment.png"
                                                         style={{ width: "10px", height: "10px", marginTop: "3px" }}></img><span style={{ fontSize: "12px", marginLeft: "2px" }}>{item.replyCount}</span>
                                                 </div>
                                             </span></div>
