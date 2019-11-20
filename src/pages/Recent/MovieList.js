@@ -68,15 +68,26 @@ class MovieList extends React.Component {
         }
         this.props.comingList(obj)
     }
-    componentWillReceiveProps(props) {
+    // componentWillReceiveProps(props) {
+    //     if (!propsUpdate) {
+    //         this.setState({
+    //             items: props.items.slice(0, fetchIndex)
+    //         })
+    //         setTimeout(() => {
+    //             propsUpdate = true
+    //         }, 1000);
+    //     }
+    // }
+    static getDerivedStateFromProps(props) {
         if (!propsUpdate) {
-            this.setState({
-                items: props.items.slice(0, fetchIndex)
-            })
             setTimeout(() => {
                 propsUpdate = true
             }, 1000);
+            return {
+                items: props.items.slice(0, fetchIndex)
+            }
         }
+        return null
     }
     componentWillUnmount() {
         propsUpdate = false
@@ -124,10 +135,10 @@ class MovieList extends React.Component {
         return _arr;
     }
     //实现跳转
-    jump(_id){   // 调转路由
+    jump(_id) {   // 调转路由
         // let {url}=this.props.match
         // this.props.history.push(`${url}?${_id}`)
-      }
+    }
     componentDidUpdate() {
         this.RecentList = this.props.items
         // console.log(this.RecentList)
@@ -136,48 +147,48 @@ class MovieList extends React.Component {
     }
     render() {
         if (this.RecentListDate) {
-         return (
-            <div >
-                <div id="scrollableDiv" style={{ height: 800, overflow: "auto",backgroundColor:"#fff" }}>
-                    <InfiniteScroll
-                        dataLength={this.state.items.length}
-                        next={this.fetchMoreData}
-                        hasMore={true}
-                        loader={<h4>Loading...</h4>}
-                        scrollableTarget="scrollableDiv"
-                    >
+            return (
+                <div >
+                    <div id="scrollableDiv" style={{ height: 800, overflow: "auto", backgroundColor: "#fff" }}>
+                        <InfiniteScroll
+                            dataLength={this.state.items.length}
+                            next={this.fetchMoreData}
+                            hasMore={true}
+                            loader={<h4>Loading...</h4>}
+                            scrollableTarget="scrollableDiv"
+                        >
 
-            {
-                this.RecentListDate.map((item, index) => {
-                    return (
-                        <div key={index}>
-                            <p style={{ padding: "12px 15px 0" }}>
-                                <span style={{ fontSize: "14px" }}>{this.arrday[index]}</span></p>
-                            {item.map((val, i) => {
-                                return (
-                                    <div style={style} key={val.id} onClick={this.jump.bind(this, val.id)}>
-                                        <div style={{ marginTop: "12px" }}><img src={val.img} style={{ width: "64px", height: "90px" }} /></div>
-                                        <div style={{ marginLeft: "9px", padding: "12px 0", position: "relative", borderBottom: "1px solid #DDD", width: "270px" }}>
-                                            <div style={{ marginBottom: '7px', fontSize: '17px', fontWeight: 'bold', color: "#333" }}>{val.nm}</div>
-                                            {/* 多少人想看 */}
-                                            <div>
-                                            <span style={{ color: "#faaf00", fontSize: "17px" }}>{val.wish}</span><span>人想看</span>
-                                            </div>
-                                            <div style={{ color: "#777", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", marginTop: "6px", width: "219px" }}>主演:{val.star}</div>
-                                            <div style={{ color: "#777", marginTop: "6px" }}>{val.rt}<span>上映</span></div>
-                                            {val.preShow ? sell : presell}
+                            {
+                                this.RecentListDate.map((item, index) => {
+                                    return (
+                                        <div key={index}>
+                                            <p style={{ padding: "12px 15px 0" }}>
+                                                <span style={{ fontSize: "14px" }}>{this.arrday[index]}</span></p>
+                                            {item.map((val, i) => {
+                                                return (
+                                                    <div style={style} key={val.id} onClick={this.jump.bind(this, val.id)}>
+                                                        <div style={{ marginTop: "12px" }}><img src={val.img} style={{ width: "64px", height: "90px" }} alt=""/></div>
+                                                        <div style={{ marginLeft: "9px", padding: "12px 0", position: "relative", borderBottom: "1px solid #DDD", width: "270px" }}>
+                                                            <div style={{ marginBottom: '7px', fontSize: '17px', fontWeight: 'bold', color: "#333" }}>{val.nm}</div>
+                                                            {/* 多少人想看 */}
+                                                            <div>
+                                                                <span style={{ color: "#faaf00", fontSize: "17px" }}>{val.wish}</span><span>人想看</span>
+                                                            </div>
+                                                            <div style={{ color: "#777", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", marginTop: "6px", width: "219px" }}>主演:{val.star}</div>
+                                                            <div style={{ color: "#777", marginTop: "6px" }}>{val.rt}<span>上映</span></div>
+                                                            {val.preShow ? sell : presell}
+                                                        </div>
+                                                    </div>
+                                                )
+                                            })}
+
                                         </div>
-                                    </div>
-                                )
-                            })}
-
-                        </div>
-                    )
-                })
-            }
-        </InfiniteScroll>
-    </div>
-            </div>
+                                    )
+                                })
+                            }
+                        </InfiniteScroll>
+                    </div>
+                </div>
             );
         } else {
             return null

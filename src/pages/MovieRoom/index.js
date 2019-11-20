@@ -5,8 +5,6 @@ import ShowDate from "./ShowDate"
 import MvSw from "./MovieSwiper"
 import CinemaSnack from "./CinemaSnack"
 
-
-// import MvSw from "./MovieSwiper"
 const mapStateToProps = state => {
     return {
         movieRoom: state.MvRoomInfo,
@@ -43,29 +41,11 @@ class MvRoomList extends React.Component {
         this.props.getMvRoomList(roominfo)
     }
     getId(id = '') {
-        //this.id = id;
-        // this.setState({})
         this.props.checkMovieId(id)
-        //this.id = this.props.MovieCheck
-
-
     }
-    // componentWillReceiveProps() {
-    //     this.id = this.props.MovieCheck
-    //     console.log(this.id, 'id改变');
-    //     this.setState({})
-    // }
     render() {
-        // console.log(this.id,'状态');
-
         if (this.props.movieRoom.channelId) {
-
-            //this.id = this.props.movieRoom.showData.movies[0].id
-            // console.log(this.props)
-            //this.getId()
-
             this.id = this.props.MovieCheck ? this.props.MovieCheck : this.props.movieRoom.showData.movies[0].id
-
             return (
                 <div className="body-wrap">
                     <MvSw getId={this.getId.bind(this)} />

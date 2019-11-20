@@ -14,26 +14,13 @@ import tu31 from "../../assets/imgs/tu31.png"
 import tu32 from "../../assets/imgs/tu32.png"
 
 
-
-
-class AA extends React.Component{
-  render(){
-    // console.log(this.props)
-    return(
-      <h1>AA</h1>
-    )
-  }
-}
-
-
-
-
 @withRouter
 class Main extends React.Component {
   constructor(props) {
     super(props);
+    let tabName = props.location.pathname.slice(1)
     this.state = {
-      selectedTab: 'home',
+      selectedTab: tabName,
       hidden: false,
       fullScreen: true,
     };
@@ -45,7 +32,7 @@ class Main extends React.Component {
     let qie=arr[1]
     this.setState({
       selectedTab:qie,
-      hidden:qie=="my" ? true :false
+      hidden:qie==="my" ? true :false
     })
   }
   render() {
@@ -71,7 +58,7 @@ class Main extends React.Component {
                   <img src={tu12} alt="" className="tupian" />
                 </div>
               }
-              selected={this.state.selectedTab === 'home'}
+              selected={this.state.selectedTab === 'home' || this.state.selectedTab === ''}
               onPress={() => {
                 this.props.history.push("/home/hot")
                 this.setState({
@@ -81,9 +68,7 @@ class Main extends React.Component {
               data-seed="logId"
             >
               <Top>龙猫电影</Top>
-              <Route path="/home" component={Container}></Route>
-              <Redirect from="/" to="/home/hot" ></Redirect>
-              <Redirect from="/home" to="/home/hot" ></Redirect>
+              <Container/>
             </TabBar.Item>
             <TabBar.Item
               icon={

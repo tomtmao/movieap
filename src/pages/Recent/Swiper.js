@@ -1,4 +1,4 @@
-import React, {Fragment}from "react"
+import React from "react"
 import store from "../../store"
 import  "../../assets/styles/BannerSwiper.css"
 
@@ -92,9 +92,9 @@ class Swiper extends React.Component {
                      <div className="slide-wrapper">
                         {SwiperArr.map((val, index) => (
                             <div className="silder" key={val.id}>
-                                <a href="#" className="img-a">
+                                <span  className="img-a">
                                 <img src={val.img} alt="" className="movie-img"/>
-                                </a>
+                                </span>
                                 <div className="banner-right">
                                     <h4>{val.nm}</h4>
                                     <p className="neirong"><span style={{color:"#faaf00"}}>{val.wish}</span><span>想看</span></p>

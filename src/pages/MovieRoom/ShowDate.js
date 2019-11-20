@@ -29,7 +29,6 @@ class ShowDate extends React.Component {
             tabs: tabs,
             list: tabs[0].list
         })
-        console.log(tabs[0].list,111)
     }
     cut(list) {
         this.setState({
@@ -60,12 +59,6 @@ class ShowDate extends React.Component {
         return `${hours}:${mins}`
     }
     componentWillReceiveProps(nextprops,nextstate){
-        console.log(nextprops.id,'showData1')
-
-        // this.setState({
-        //     id:this.props.id
-        // })
-        
         let { movies } = this.state
         
         let movie = movies.find(item => {

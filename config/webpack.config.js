@@ -306,6 +306,12 @@ module.exports = function (webpackEnv) {
         // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
         'react-native': 'react-native-web',
         '@': path.join(__dirname,'../src'),
+        'component': path.join(__dirname,'../src/component'),
+        'pages': path.join(__dirname,'../src/pages'),
+        'assets': path.join(__dirname,'../src/assets'),
+        'store': path.join(__dirname,'../src/store'),
+        'utils': path.join(__dirname,'../src/utils'),
+        'api': path.join(__dirname,'../src/api'),
         // Allows for better profiling with ReactDevTools
         ...(isEnvProductionProfile && {
           'react-dom$': 'react-dom/profiling',

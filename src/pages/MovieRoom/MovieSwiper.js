@@ -1,10 +1,8 @@
 import React from "react"
 import { Carousel, WingBlank } from 'antd-mobile';
-import "./mvRoomSw.css"
+import "../../assets/styles/mvRoomSw.css"
 import { connect } from 'react-redux'
-import { nonsense } from "antd-mobile/lib/picker";
-import ShowDate from "./ShowDate";
-// import from "../../../public/locationlogo.png"
+
 let timer = ''
 
 const mapStateToProps = state => {

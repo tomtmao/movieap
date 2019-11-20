@@ -13,35 +13,23 @@ class CinemaMenu extends Component {
     }
     handleTabClick(tab, index) {
         let contents = document.getElementsByClassName('content')
-        contents[index].style.display = contents[index].style.display == 'block' ?
+        contents[index].style.display = contents[index].style.display === 'block' ?
             contents[index].style.display = 'none' :
             contents[index].style.display = "block"
-        // for (let i = 0; i <= 2; i++) {
-        //     if (i === index) {
-        //         contents[i].style.display = contents[i].style.display == 'block' ?
-        //             contents[i].style.display = 'none' :
-        //             contents[i].style.display = "block"
-        //     } else {
-        //         contents[i].style.display = "none"
-        //     }
-        // }
     }
     handleTag(tag) {
         this.setState({
             tag
         })
         let contents = document.getElementsByClassName('content')
-        contents[0].style.display = contents[0].style.display == 'block' ?
+        contents[0].style.display = contents[0].style.display === 'block' ?
             contents[0].style.display = 'none' :
             contents[0].style.display = "block"
     }
     handleCinemaClick(cinemaId){
-        console.log('cinemaId=',cinemaId);
         //跳转影院详情页面
         let {history} = this.props
         history.push(`/mvroom?cinemaId=${cinemaId}`)
-        
-
     }
     render() {
         let list = this.props.CinemaShowList
@@ -128,22 +116,3 @@ class CinemaMenu extends Component {
         }
         
         export default CinemaMenu;
-        // 0:
-        // addr: "朝阳区朝阳公园路6号蓝色港湾国际商区SA-42（朝阳公园西北角）"
-        // distance: "904.7km"
-        // id: 132
-        // mark: 0
-        // nm: "珠影耳东传奇影城"
-// promotion: {cardPromotionTag: "开卡特惠，首单2张最高立减4元"}
-                // sellPrice: "4"
-                // tag:
-                // allowRefund: 0
-                // buyout: 0
-                // cityCardTag: 0
-                // deal: 0
-                // endorse: 1
-                // hallType: (2) ["4K厅", "巨幕厅"]
-// hallTypeVOList: (2) [{…}, {…}]
-                // sell: 1
-                // snack: 1
-// vipTag: "折扣卡"
