@@ -141,14 +141,14 @@ class MovieList extends React.Component {
     }
     componentDidUpdate() {
         this.RecentList = this.props.items
-        // console.log(this.RecentList)
+        console.log(this.RecentList)
         this.RecentListDate = this.sortArr(this.RecentList, 'comingTitle');
         // console.log(this.RecentListDate)
     }
     render() {
         if (this.RecentListDate) {
             return (
-                <div >
+                <div style={{width:"100%"}}>
                     <div id="scrollableDiv" style={{ height: 800, overflow: "auto", backgroundColor: "#fff" }}>
                         <InfiniteScroll
                             dataLength={this.state.items.length}
@@ -166,7 +166,7 @@ class MovieList extends React.Component {
                                                 <span style={{ fontSize: "14px" }}>{this.arrday[index]}</span></p>
                                             {item.map((val, i) => {
                                                 return (
-                                                    <div style={style} key={val.id} onClick={this.jump.bind(this, val.id)}>
+                                                    <div style={{display:"flex",justifyContent:"space-around"}} key={val.id} onClick={this.jump.bind(this, val.id)}>
                                                         <div style={{ marginTop: "12px" }}><img src={val.img} style={{ width: "64px", height: "90px" }} alt=""/></div>
                                                         <div style={{ marginLeft: "9px", padding: "12px 0", position: "relative", borderBottom: "1px solid #DDD", width: "270px" }}>
                                                             <div style={{ marginBottom: '7px', fontSize: '17px', fontWeight: 'bold', color: "#333" }}>{val.nm}</div>
