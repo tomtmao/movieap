@@ -8,7 +8,8 @@ import dS from "../../../assets/styles/MovieDay.module.css"
 
 const mapStateToProps = state => {
     return {
-        movieday: state.MovieDay
+        movieday: state.MovieDay,
+        cityid:state.city.ci
     }
 }
 
@@ -28,7 +29,7 @@ class MovieDay extends React.Component {
             arrday: "",
             option: {
                 movieId: this.props.match.params.id,
-                cityId: 1,
+                cityId: this.props.cityid,
                 day: this.getTime(0)
             },
         }

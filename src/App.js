@@ -21,7 +21,8 @@ class App extends React.Component {
           <Route path="/address" component={Address}></Route>
           <Route path="/mvroom" component={MvRoom}></Route>
           <Route path="/home" component={Main}></Route>
-          <Redirect from="/" to="/home/hot"></Redirect>
+          <Route path="/" component={Main}></Route>
+          {/* <Redirect from="/" to="/home/hot" component={Main}></Redirect> */}
         </Switch>
       </Router>
     );

@@ -53,7 +53,7 @@ class RecentCity extends Component {
         }
 
         //跳转首页
-        history.push('/')
+        history.push('/home/hot')
     }
     render() {
         let list =[]

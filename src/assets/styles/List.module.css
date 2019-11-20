@@ -108,7 +108,11 @@
     font-size: 24px;
 }
 .wu{
-    color: #999;
-    margin: 50px auto;
-    font-size: 60px;
+    background: #fff;
+    color: #000;
+    /* margin: 50px auto; */
+    font-size: 40px;
+    display:block;
+    text-align: center;
+    padding:100px 0 900px 0;
 }
