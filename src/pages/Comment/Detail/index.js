@@ -57,6 +57,7 @@ class Deatil extends React.Component {
         })
     }
     componentDidMount() {
+        console.log(this.props,"12443")
         this.props.getList("1292")
     }
     render() {

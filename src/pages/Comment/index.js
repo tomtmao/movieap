@@ -16,8 +16,8 @@ const stateProps = state => {
 
 const dispatchProps = dispatch => {
     return {
-        getList() {
-            dispatch(getComments("1292"))
+        getList(id) {
+            dispatch(getComments(id))
         }
     }
 }
@@ -40,7 +40,8 @@ class Comment extends React.Component {
         fetchIndex = fetchIndex + 1
     };
     componentDidMount() {
-        this.props.getList()  // 触发发送请求方法
+        let id=this.props.match.params.id
+        this.props.getList(id)  // 触发发送请求方法
     }
     componentWillUnmount() {
         propsUpdate = false
@@ -67,7 +68,7 @@ class Comment extends React.Component {
             <div>
 
                 {/* 空白处后期删除 */}
-                <Detail />
+                <Detail id={this.props.match.params.id}/>
                 <div id="scrollableDiv" style={{
                     width: "100%",
                     height: 800, overflow: "auto", borderTop: "1px solid #ccc",
