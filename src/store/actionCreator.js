@@ -3,6 +3,7 @@ import { getComment,getDetail,getHot ,
     searchMsg,getCinemaByCityId,getMovieMsg,
     mvRooms} from "../api"
 
+
 const actionCreator = (type, payload) => ({ type, payload })
 
 //正在热映

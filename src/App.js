@@ -19,7 +19,6 @@ class App extends React.Component {
           <Route path="/comment/:id" component={Comment}></Route>
           <Route path="/cinemasearch" component={CinemaSearch}></Route>
           <Route path="/address" component={Address}></Route>
-          {/* 暂测影院详情 */}
           <Route path="/mvroom" component={MvRoom}></Route>
           <Route path="/" component={Main}></Route>
         </Switch>

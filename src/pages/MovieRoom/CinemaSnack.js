@@ -60,7 +60,11 @@ class CinemaSnack extends Component {
         } else {
             let list = this.state.list.map(item => (
                 <div style={{ display: 'flex', padding: '20px 10px', borderBottom: '1px solid #ccc' }}>
-                    <img src={item.imageUrl} alt="" style={{ marginRight: '10px' }} />
+                    <img src={item.imageUrl} alt="" style={{ 
+                        marginRight: '10px',
+                        width:'92px',
+                        height:'92px'
+                        }} />
                     <div style={{
                         flex: '1',
                         justifyContent: 'space-between',

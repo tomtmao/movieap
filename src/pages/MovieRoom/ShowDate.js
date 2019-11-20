@@ -19,8 +19,10 @@ class ShowDate extends React.Component {
         let movie = movies.find(item => {
             return item.id == id
         })
+
         //拿出场次
         let shows = movie.shows
+
         //拿出需要的数据
         let tabs = shows.map(item => {
             return { title: item.dateShow, list: item.plist }
@@ -29,6 +31,7 @@ class ShowDate extends React.Component {
             tabs: tabs,
             list: tabs[0].list
         })
+
     }
     cut(list) {
         this.setState({
@@ -60,23 +63,26 @@ class ShowDate extends React.Component {
     }
     componentWillReceiveProps(nextprops,nextstate){
         let { movies } = this.state
-        
+
         let movie = movies.find(item => {
             return item.id == nextprops.id
         })
-        //拿出场次
-        let shows = movie.shows
-        
-        //拿出需要的数据
-        let tabs = shows.map(item => {
-            return { title: item.dateShow, list: item.plist }
-        })
-        
-        this.setState({
-            tabs: tabs,
-            list: tabs[0].list
-        })
-        
+        if (movie.shows) {
+            //拿出场次
+            let shows = movie.shows
+
+            //拿出需要的数据
+            let tabs = shows.map(item => {
+                return { title: item.dateShow, list: item.plist }
+            })
+
+            this.setState({
+                tabs: tabs,
+                list: tabs[0].list
+            })
+        }
+
+
     }
     render() {
         let tabs = this.state.tabs
@@ -130,7 +136,7 @@ class ShowDate extends React.Component {
                                     </div>
                                 </Fragment>
                             )
-                        }) :<h1>今日无放映场次</h1>}
+                        }) : <h1>今日无放映场次</h1>}
                     </div>
                 </Fragment>
             )
