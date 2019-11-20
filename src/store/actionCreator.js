@@ -88,9 +88,11 @@ export const searchMovie =(params)=>dispatch=>{
 
 //获取评论
 export const getComments = params => dispatch => {
+    // console.log(params)
     getComment(params)
       .then(res => {
         //   console.log(res.data.data.hotComments)
+        console.log(res)
           dispatch(actionCreator("addCommets", res.data.data.hotComments))
       })
 }

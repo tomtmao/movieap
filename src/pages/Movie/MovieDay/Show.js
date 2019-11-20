@@ -29,7 +29,7 @@ class Show extends React.Component {
         this.props.history.push("/home/hot")
     }
     jump() {
-        //console.log(44444444)
+        this.props.history.push("/comment/"+this.props.id)
     }
     render() {
         
