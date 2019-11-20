@@ -16,9 +16,9 @@ class DetailCarousel extends React.Component {
   }
   render() { 
     return (
-      <div style={{height:'100%',paddingBottom:"10px"}}>
+      <div style={{height:"100%",paddingBottom:"10px"}}>
         <Carousel 
-          style={{height:''}}
+          style={{height:'100%'}}
           infinite
           dots={false}
           cellSpacing={10}
@@ -33,7 +33,7 @@ class DetailCarousel extends React.Component {
               <img
                 src={val}
                 alt=""
-                style={{ width: '100%', verticalAlign: 'top' ,display:'block',height:"100%"}}
+                style={{ width: '100%', verticalAlign: 'top' ,display:'block',height:"220px"}}
                 onLoad={() => {
                   window.dispatchEvent(new Event('resize'));
                   this.setState({ imgHeight: 'auto' });
