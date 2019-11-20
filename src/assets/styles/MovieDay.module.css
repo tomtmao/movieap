@@ -1,8 +1,8 @@
 .title{
     background: #fff;
     margin: 0;
-    height: 84px;
-    border-bottom: 4px solid #e8e8e8;
+    height: 80px;
+    /* border-bottom: 4px solid #e8e8e8; */
     position: sticky;
     top: 0px;
     z-index: 20;
