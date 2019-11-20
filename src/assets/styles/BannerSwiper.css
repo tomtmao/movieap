@@ -1,0 +1,77 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.img-banner{
+    width: 750px;
+    height:384px;
+    padding:24px 0 24px 30px;
+    margin-bottom:20px;
+    background-color: #fff;
+}
+
+.container{
+    width: 652px;
+    height: 322px;
+    /* border: 1px solid black; */
+    margin: 20px auto;
+    position: relative;
+}
+.p-title{
+    width: 686px;
+    height: 38px;
+    margin-bottom: 24px;
+    font-size:28px;
+}
+.slide-wrapper{
+    width: 652px;
+    height: 322px;
+    display: flex;
+    padding-left:60px;
+    /* justify-content: center; */
+    
+    /* position: relative; */
+}
+.silder{
+    width: 652px;
+    height: 322px;
+    position: absolute;
+    opacity: 0;
+    /* transition: all 1s;所有的1s中过度效果。 */
+    display: flex;
+}
+.img-a{
+    display: inline-block;
+    width:50%;
+    height: 280px;
+}
+.movie-img{
+    width:100%;
+    height: 100%;
+}
+.banner-right{
+    padding:50px 10px 24px 10px;
+}
+.banner-right .neirong{
+    margin-top:20px;
+}
+.show{
+    opacity: 1;
+}
+.btn-box{
+    position: absolute;
+    width: 100%;
+    /* height: 50px; */
+    top: 120px;
+    /* background-color: azure; */
+    display: flex;
+    justify-content: space-between;
+}
+.btn-left,.btn-right{
+    width: 50px;
+    height: 50px;
+    background-color: rgba(209, 195, 195, 0.5);
+    font-size: 30px;
+    color:black;
+    text-align: center;
+}

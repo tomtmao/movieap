@@ -1,12 +1,12 @@
 import React from "react"
 import { imgLists ,imgComingLists } from "../../store/actionCreator"
 import { connect } from "react-redux"
-import Banner from "./Banner"
-import MovieListView from "./MovieListView"
-
+import MovieList from "./MovieList"
+import Swiper from "./Swiper"
 const mapStateToProps = state => {
     return {
-        imglists: state.Recent
+        imglists: state.Recent,
+        imgComingLists: state.RecentList
     }
 }
 
@@ -27,14 +27,14 @@ const mapDispatchToProps = dispatch => {
 class Recent extends React.Component {
     componentDidMount() {
         this.props.getImgList()
+        this.props.getComingList()
     }
     render() {
-        console.log(this.props)
-
+        // console.log(this.props)
         return (
-            <div>
-                <Banner />
-                <MovieListView />
+            <div style={{backgroundColor:"#f5f5f5" ,width:"716px"}}>
+                <Swiper />
+                <MovieList />
             </div>
         )
     }

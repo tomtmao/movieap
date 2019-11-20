@@ -1,6 +1,6 @@
 import React, { Component,Fragment } from 'react';
-import cities from '../../utils/city.json'
-import '../../assets/styles/Address/CityList.css'
+import cities from '@/utils/city.json'
+import '@/assets/styles/Address/CityList.css'
 import IndexCity from './IndexCity.js';
 
 //对城市列表进行排序
@@ -40,7 +40,7 @@ class City extends Component {
         let flag = true
             //判断数组是否有这个记录
         for(let item of arr){
-            if(item.id == obj.id){
+            if(item.id === obj.id){
                 flag=false;
                 //return
             }
@@ -61,7 +61,8 @@ class City extends Component {
     }
     render() {
         let { item } = this.props;
-        let newCityArr =cityArr.filter(i=>i.py[0] === 'a')
+        //匹配标题和城市列表
+        let newCityArr =cityArr.filter(i=>i.py[0] === item)
         let lis = newCityArr.map(item => <li 
             key={item.id}
             onClick={this.handleClick.bind(this,item.id,item.nm)}

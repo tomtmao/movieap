@@ -41,19 +41,15 @@ class Hot extends React.Component {
     fetchIndex = fetchIndex + 1
   };
   componentDidMount() {
-    console.log(store.getState())
     let {city} = store.getState()
     this.props.getList(city.ci) // 触发请求函数,请求后台数据,并将城市id发过去
-  }
-  componentWillReceiveProps(){
-    this.setState({})
   }
   componentWillUnmount(){
     propsUpdate = false
   }
   jump(_id){   // 调转路由
     let {url}=this.props.match
-    this.props.history.push(`${url}/${_id}`)
+    this.props.history.push(`${url}/movieday/${_id}`)
   }
   componentWillReceiveProps(props) {
     if (!propsUpdate) {
@@ -76,7 +72,7 @@ class Hot extends React.Component {
       fontSize: '13px',
       color: "#666"
     };
-   console.log(this.state)
+
     // 购票
     const sell = <div style={{
       width: "47px", lineHeight: "27px", textAlign: "center", boxSizing: "border-box",

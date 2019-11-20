@@ -1,25 +1,23 @@
 import React, { Component } from 'react';
-import Top from '../component/Main/Top';
+import Top from '@/component/Main/Top';
 import { Icon } from 'antd-mobile'
-import "../assets/styles/Cinema/CinemaSearch.css"
+import "@/assets/styles/Cinema/CinemaSearch.css"
 import { connect } from 'react-redux'
-import { SearchBar, Button, WhiteSpace, WingBlank } from 'antd-mobile';
-import { searchCinema } from '../store/actionCreator'
+import { SearchBar } from 'antd-mobile';
+import { searchCinema } from '@/store/actionCreator'
 
 import { List } from 'antd-mobile';
 const Item = List.Item;
-const Brief = Item.Brief;
 
-const createAction = (type, payload) => ({ type, payload })
 
-const stateProps = state => {
+const mapStateProps = state => {
     return {
         city: state.city,
         CinemaList: state.CinemaList
     }
 }
 
-const dispatchProps = dispatch => {
+const mapDispatchProps = dispatch => {
     return {
         getCinemaList(params) {
             dispatch(searchCinema(params))
@@ -27,16 +25,14 @@ const dispatchProps = dispatch => {
     }
 }
 
-@connect(stateProps, dispatchProps)
+@connect(mapStateProps, mapDispatchProps)
 
 
 class CinemaSearch extends Component {
     state = {
         value: '',
     };
-    componentDidMount() {
-        this.props.getCinemaList('七', 1)
-    }
+
     handleClick() {
         this.props.history.push('/cinema')
     }
@@ -51,7 +47,6 @@ class CinemaSearch extends Component {
         })
     }
     handleTagClick(cinemaId){
-        console.log(cinemaId,3434)
         let {history} = this.props
         history.push(`/address?cinemaId=${cinemaId}`)
     }
@@ -70,7 +65,7 @@ class CinemaSearch extends Component {
             <div>
                 <Top >
                     <Icon className='icon-return' type="left" onClick={this.handleClick.bind(this)} />
-                    猫眼电影
+                    龙猫电影
                 </Top>
                 <SearchBar placeholder="搜索影院" ref={ref => this.autoFocusInst = ref} value={this.state.value} onChange={this.handleValChange.bind(this)} />
                 <List renderHeader={() => '搜索结果'} className="my-list">
