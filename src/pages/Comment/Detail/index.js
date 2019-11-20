@@ -57,12 +57,13 @@ class Deatil extends React.Component {
         })
     }
     componentDidMount() {
-        console.log(this.props,"12443")
-        this.props.getList("1292")
+        this.props.getList(this.props.id)
     }
     render() {
         let list = []  // 剧照图片
+        let a = ""
         try {
+            a = this.props.movieDetail.img.replace("w.h", "320.200")
             list = [...this.props.movieDetail.photos]  // 复杂数据类型的数据需要解构赋值
             list = list.map(item => item = item.replace("w.h", '320.200'))
         }
@@ -70,7 +71,7 @@ class Deatil extends React.Component {
         return (
             <div style={{ backgroundColor: this.props.movieDetail.backgroundColor, color: "#999", fontSize: "12px" }}>
                 <div style={{ display: "flex", height: "138px", padding: "20px 16px" }}>
-                    {<img src={this.props.movieDetail.albumImg} style={{ width: "100px", height: "138px" }}></img>}
+                    {<img src={a} style={{ width: "100px", height: "138px" }}></img>}
 
                     <div style={{ marginLeft: "12px" }}>
                         <div style={{ fontSize: "20px", fontWeight: "700", marginBottom: "4px", color: "#fff" }}>{this.props.movieDetail.nm}</div>
@@ -119,9 +120,9 @@ class Deatil extends React.Component {
                     <span className={detailStyle.comment}>观众评论超过91%</span>
                 </div>
                 {/* 文本拉取 */}
-                <div style={{position:"relative"}}>
+                <div style={{ position: "relative" }}>
                     <List renderHeader={() => <div className={detailStyle.into}><span>简介</span><span onClick={this.handleClick.bind(this)} className={detailStyle.extend}>展开&nbsp;▼</span>
-                        </div>} >
+                    </div>} >
                         <div style={{ backgroundColor: this.props.movieDetail.backgroundColor, color: "#999", fontSize: "12px" }}>
                             {/* 上面的组件 */}
                             <Type flag={this.state.flag} text={this.props.movieDetail.dra}

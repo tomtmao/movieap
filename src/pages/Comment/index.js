@@ -64,11 +64,12 @@ class Comment extends React.Component {
             width: "100%",
             height: "166px"
         }
+        console.log(this.props)
         return (
             <div>
 
                 {/* 空白处后期删除 */}
-                <Detail id={this.props.match.params.id}/>
+                <Detail id={this.props.match.params.id} />
                 <div id="scrollableDiv" style={{
                     width: "100%",
                     height: 800, overflow: "auto", borderTop: "1px solid #ccc",
