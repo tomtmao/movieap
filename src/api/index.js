@@ -60,7 +60,6 @@ export const searchMovie = (params) => axios({
     }
 })
 
-<<<<<<< HEAD
 //影院详情(获取该影院上映的电影)
 export const mvRooms = (params) => axios({
     method:'get',
@@ -68,7 +67,6 @@ export const mvRooms = (params) => axios({
     params
 })
 
-=======
 //电影详情页-放映时间
 export const getMoveDay = (data) => {
     console.log(data)
@@ -91,4 +89,3 @@ export const getMovieMsg = (id) => axios({
         movieId:id
     }
 })
->>>>>>> ffd529aaccc2a4f3039b272c143b804cbe8f4bca
