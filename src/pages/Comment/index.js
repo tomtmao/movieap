@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 import { getComments } from "../../store/actionCreator"
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Detail from "./Detail"
-
+import Top from "@/component/Main/Top.js"
 let fetchIndex = 6
 //控制componentWillReceive只在最开始解决一次
 let propsUpdate = false
@@ -64,10 +64,9 @@ class Comment extends React.Component {
             width: "100%",
             height: "166px"
         }
-        console.log(this.props)
+
         return (
             <div>
-
                 {/* 空白处后期删除 */}
                 <Detail id={this.props.match.params.id} />
                 <div id="scrollableDiv" style={{

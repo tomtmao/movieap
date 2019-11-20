@@ -102,7 +102,6 @@ export const getComments = params => dispatch => {
 //获取电影详情页
 export const getDeatil = (params) => dispatch => {
     getDetail(params).then(res=>{
-        console.log(params,"123784732")
         dispatch(actionCreator('addDetail',res.data.detailMovie))
     })
 }

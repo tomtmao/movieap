@@ -4,11 +4,13 @@ import { getDeatil } from "../../../store/actionCreator"
 import { List, Icon, Grid } from 'antd-mobile'; // 拉开组件
 import detailStyle from "./Deatil.module.css"
 import DetailCarousel from "./DetailCarousel ";
+import {Link} from 'react-router-dom'
 const list = ['down']
 
 
 //下拉文本组件
 const Item = List.Item;
+
 
 class Type extends React.Component {
     render() {
@@ -74,6 +76,9 @@ class Deatil extends React.Component {
         })
         console.log(111)
     }
+    back(){
+        console.log(this.props,"gagagag")
+    }
     componentDidMount() {
         this.props.getList(this.props.id)
     }
@@ -86,9 +91,13 @@ class Deatil extends React.Component {
             list = list.map(item => item = item.replace("w.h", '320.200'))
         }
         catch (err) { }
+        const img = require("assets/imgs/back.png")
         return (
             <div style={{ backgroundColor: this.props.movieDetail.backgroundColor, color: "#999", fontSize: "12px" }}>
-                <div style={{ display: "flex", height: "138px", padding: "20px 16px" }}>
+                <div style={{paddingLeft:"16px",paddingTop:"6px",position:"relative"}}>
+                    {/* back */}
+                    <Link to="/"><img src={img} onClick={this.back.bind(this)} style={{width:"18px",height:"18px",position:"absolute",top:"15px",right:"30px"}}/></Link></div>
+                <div style={{ display: "flex", height: "138px", padding: "15px 16px" }}>
                     {<img src={a} style={{ width: "100px", height: "138px" }}></img>}
 
                     <div style={{ marginLeft: "12px" }}>
@@ -152,4 +161,4 @@ class Deatil extends React.Component {
         )
     }
 }
-export default Deatil
+export default  Deatil
