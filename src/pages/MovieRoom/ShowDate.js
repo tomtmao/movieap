@@ -15,11 +15,14 @@ class ShowDate extends React.Component {
     componentDidMount() {
         //筛选数据
         let { id, movies } = this.state
+
         let movie = movies.find(item => {
             return item.id == id
         })
+
         //拿出场次
         let shows = movie.shows
+
         //拿出需要的数据
         let tabs = shows.map(item => {
             return { title: item.dateShow, list: item.plist }
@@ -28,7 +31,7 @@ class ShowDate extends React.Component {
             tabs: tabs,
             list: tabs[0].list
         })
-        // console.log(tabs[0].list)
+
     }
     cut(list) {
         this.setState({
@@ -58,17 +61,33 @@ class ShowDate extends React.Component {
         mins = mins < 10 ? "0" + mins : mins
         return `${hours}:${mins}`
     }
-    // componentWillReceiveProps(nextprops,nextstate){
-    //     // console.log(this.props)
-    //     console.log(nextprops)
-    // }
+    componentWillReceiveProps(nextprops,nextstate){
+        let { movies } = this.state
+
+        let movie = movies.find(item => {
+            return item.id == nextprops.id
+        })
+        if (movie.shows) {
+            //拿出场次
+            let shows = movie.shows
+
+            //拿出需要的数据
+            let tabs = shows.map(item => {
+                return { title: item.dateShow, list: item.plist }
+            })
+
+            this.setState({
+                tabs: tabs,
+                list: tabs[0].list
+            })
+        }
+
+
+    }
     render() {
         let tabs = this.state.tabs
         let list = this.state.list
         if (tabs) {
-            // console.log(this.props)
-            // console.log(list)
-            // console.log(tabs)
             return (
                 <Fragment>
                     <div>
@@ -117,7 +136,7 @@ class ShowDate extends React.Component {
                                     </div>
                                 </Fragment>
                             )
-                        }) :<h1>今日无放映场次</h1>}
+                        }) : <h1>今日无放映场次</h1>}
                     </div>
                 </Fragment>
             )

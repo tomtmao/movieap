@@ -29,7 +29,7 @@ class CinemaMenu extends Component {
     handleCinemaClick(cinemaId){
         //跳转影院详情页面
         let {history} = this.props
-        history.push(`/cinemaDetails?cinemaId=${cinemaId}`)
+        history.push(`/mvroom?cinemaId=${cinemaId}`)
     }
     render() {
         let list = this.props.CinemaShowList

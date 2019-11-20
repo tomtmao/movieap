@@ -1,13 +1,13 @@
 import { combineReducers } from 'redux'
 import city from './city'
-import HotArr from './HotArr'
-import Recent from './Recent'
-import MovieDay from "./MovieDay"
-import RecentList from './RecentList'
+import comments from "./comments"
 import CinemaList from './cinemaList'
 import CinemaShowList from './cinemaShowList'
+import HotArr from './HotArr'
+import Recent from './Recent'
+import RecentList from './RecentList'
+import MovieDay from "./MovieDay"
 import MovieCheck from './movie'
-import comments from "./comments"
 import movieDeail from "./movieDeail"
 import MvRoomInfo from './mvRoomInfo'
 import MovieMsg from "./MovieMsg"
@@ -15,17 +15,17 @@ import MoviesLists from './moviesList'
 
 
 export default combineReducers({
+    comments,
     city,
+    CinemaList,
+    CinemaShowList,
     HotArr,
     Recent,
-    MovieDay,
     RecentList,
-    CinemaList,
+    MovieDay,
     MovieCheck,
-    comments,
     movieDeail,
     MvRoomInfo,
     MoviesLists,
-    CinemaShowList,
     MovieMsg
 })

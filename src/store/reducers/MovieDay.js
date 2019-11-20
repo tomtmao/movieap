@@ -1,4 +1,4 @@
-let defaultStatus = []
+let defaultStatus = {}
 const md = (state = defaultStatus, action) => {
     switch (action.type) {
         case "MovieDay":

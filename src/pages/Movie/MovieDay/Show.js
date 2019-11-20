@@ -153,7 +153,7 @@ class Show extends React.Component {
                                         textOverflow: "ellipsis",
                                         whiteSpace: "nowrap",
                                         width: "206px"
-                                    }}>{this.props.moviemsg.pubDesc}</div>
+                                    }}>{new Date().getFullYear()+"年"+(new Date().getMonth()+1)+"月 上映"}</div>
                                 </div>
                             </div>
                         </div>
