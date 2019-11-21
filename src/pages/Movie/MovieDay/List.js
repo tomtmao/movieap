@@ -9,7 +9,7 @@ class App111 extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            items: this.props.cinemas
+            items: this.props.cinemas?this.props.cinemas:[]
         }
     }
     componentWillReceiveProps(nextprops){
