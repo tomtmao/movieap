@@ -28,8 +28,8 @@ class Location extends Component {
                         longitude: location.coords.longitude,//经度
                         latitude: location.coords.latitude,//纬度
                     });
-                    console.log(this.state.longitude);
-                    console.log(this.state.latitude);
+                    //console.log(this.state.longitude);
+                    //console.log(this.state.latitude);
 
                     //通过调用高德地图逆地理接口，传入经纬度获取位置信息
                     fetch(`https://restapi.amap.com/v3/geocode/regeo?key=29b597393d4036804a8106642fd4baf3&location=${this.state.longitude},${this.state.latitude}&radius=1000&extensions=all&batch=false&roadlevel=0`, {
@@ -41,7 +41,7 @@ class Location extends Component {
                     })
                         .then((response) => response.json())
                         .then((jsonData) => {
-                            console.log(jsonData, 121212)
+                            //console.log(jsonData, 121212)
                             try {
                                 this.setState({
                                     city: jsonData.regeocode.addressComponent.city,
