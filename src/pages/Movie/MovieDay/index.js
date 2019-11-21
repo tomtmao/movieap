@@ -47,10 +47,15 @@ class MovieDay extends React.Component {
         this.props.getmd(op)
     }
     Title() {
-        let date = new Date()
-        let td = `今天${date.getMonth()+1}月${date.getDate()}日`
-        let md = `明天${date.getMonth()+1}月${date.getDate() + 1}日`
-        let hd = `后天${date.getMonth()+1}月${date.getDate() + 2}日`
+
+        let Today = new Date()
+        let Tomorrow = new Date(Today.getTime() + 24*60*60*1000);
+        let AfterDay = new Date(Today.getTime() + 48*60*60*1000);
+
+        let td = `今天${Today.getMonth()+1}月${Today.getDate()}日`
+        let md = `明天${Tomorrow.getMonth()+1}月${Tomorrow.getDate()}日`
+        let hd = `后天${AfterDay.getMonth()+1}月${AfterDay.getDate()}日`
+        
         let tabs = [
             { title: td, d: this.getTime(0) },
             { title: md, d: this.getTime(1) },
