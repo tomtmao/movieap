@@ -83,7 +83,7 @@ class Swiper extends React.Component {
                                             <span className="img-a" style={{flex:2,height:"100%"}}>
                                                 <img src={val.img} alt="" style={{height:"100%"}} className="movie-img" />
                                             </span>
-                                            <div className="banner-right" style={{ background: "-webkit-linear-gradient(left,rgb(56, 157, 175),rgb(42, 52, 97));", width: "100px",flex:'1' }}>
+                                            <div className="banner-right" style={{ background: "linear-gradient(left,rgb(56, 157, 175),rgb(42, 52, 97))", width: "100px",flex:'1' }}>
                                                 <h4>{val.nm}</h4>
                                                 <p className="neirong"><span style={{ color: "#faaf00" }}>{val.wish}</span><span>想看</span></p>
                                                 <p className="neirong"><span>{val.comingTitle}</span></p>
@@ -99,7 +99,7 @@ class Swiper extends React.Component {
                                             <span className="img-a" style={{flex:2,height:"100%"}}>
                                                 <img src={val.img} alt="" style={{height:"100%"}} className="movie-img" />
                                             </span>
-                                            <div className="banner-right" style={{ background: "-webkit-linear-gradient(left,rgb(56, 157, 175),rgb(42, 52, 97));", width: "100px",flex:'1' }}>
+                                            <div className="banner-right" style={{ background: "linear-gradient(left,rgb(56, 157, 175),rgb(42, 52, 97))", width: "100px",flex:'1' }}>
                                                 <h4>{val.nm}</h4>
                                                 <p className="neirong"><span style={{ color: "#faaf00" }}>{val.wish}</span><span>想看</span></p>
                                                 <p className="neirong"><span>{val.comingTitle}</span></p>
