@@ -23,7 +23,7 @@ class Address extends Component {
             <div className={detailStyle.container}>
                 <div>
                     <p className={detailStyle.title} >定位城市</p>
-                    <Location />
+                    <Location  props={this.props}/>
                 </div>
                 <div>
                     <p className={detailStyle.title} >最近访问城市</p>
