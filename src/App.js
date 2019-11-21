@@ -1,6 +1,6 @@
 import React from 'react';
 import Main from "component/Main"
-import { HashRouter as Router, Route, Switch,Redirect } from 'react-router-dom'
+import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import Address from 'pages/Address'
 import CinemaSearch from 'pages/Cinema/CinemaSearch'
 import MoveDay from "pages/Movie/MovieDay"
@@ -22,7 +22,7 @@ class App extends React.Component {
           <Route path="/mvroom" component={MvRoom}></Route>
           <Route path="/home" component={Main}></Route>
           <Route path="/" component={Main}></Route>
-          <Redirect from="/" to="/home/hot" component={Main}></Redirect>
+          {/* <Redirect from="/" to="/home/hot" component={Main}></Redirect> */}
         </Switch>
       </Router>
     );

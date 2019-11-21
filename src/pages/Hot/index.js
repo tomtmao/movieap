@@ -26,10 +26,10 @@ const dispatchProps = dispatch => {
 @connect(stateProps, dispatchProps)
 
 class Hot extends React.Component {
-  constructor() {
+  constructor(props) {
     super()
     this.state = {
-      items: []
+      items: props.items.slice(0, fetchIndex-1)
     }
   }
   fetchMoreData = () => {
