@@ -8,6 +8,7 @@ import MoveDay from "pages/Movie/MovieDay"
 import Comment from "@/pages/Comment"
 //影院详情
 import MvRoom from "./pages/MovieRoom"
+import Movie from "@/pages/Comment/Detail/movie.js"
 
 
 class App extends React.Component {
@@ -17,6 +18,7 @@ class App extends React.Component {
         <Switch>
           <Route path="/home/hot/movieday/:id" component={MoveDay}></Route>
           <Route path="/comment/:id" component={Comment}></Route>
+          <Route path="/audio/:id" component={Movie}></Route>
           <Route path="/cinemasearch" component={CinemaSearch}></Route>
           <Route path="/address" component={Address}></Route>
           <Route path="/mvroom" component={MvRoom}></Route>

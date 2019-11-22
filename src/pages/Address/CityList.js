@@ -4,9 +4,11 @@ import '@/assets/styles/Address/CityList.css'
 import IndexCity from './IndexCity.js';
 
 //对城市列表进行排序
+
 let cityArr = cities.cts.sort((a, b) => a.py.charCodeAt(0) - b.py.charCodeAt(0));
 const actionCreate = (type,payload)=>({type,payload})
 //获取地区标题
+
 function Title(arr, str) {
     let list = [...arr]
     let newArr = []
