@@ -70,7 +70,7 @@ class Show extends React.Component {
                             padding: "19px 30px 19px 15px",
                         }}>
                             <div style={{ display: "flex" }}>
-                                {<img alt="" src={this.props.moviemsg.img.replace("w.h", "148.208")} style={{ width: "110px", height: "150px", boxSizing: "border-box" }}></img>}
+                                {<img alt="" src={this.props.moviemsg.img.replace("w.h", "148.208")} style={{ width: "110px", height: "150px", boxSizing: "border-box"}}></img>}
                                 <div style={{ marginLeft: "12.5px" }}>
                                     <div style={{
                                         fontSize: "20px",
@@ -175,7 +175,8 @@ class Show extends React.Component {
                     }}>
                         <img style={{
                             width:"26px",
-                            height:"26px"
+                            height:"26px",
+                            marginTop:'20px'
                         }} src={tututu} alt=""/>
                     </div>
                 </Fragment>
