@@ -91,7 +91,7 @@ class Deatil extends React.Component {
             <div style={{ backgroundColor: this.props.movieDetail.backgroundColor, color: "#999", fontSize: "12px" }}>
                 <div style={{paddingLeft:"16px",paddingTop:"6px",position:"relative"}}>
                     {/* back */}
-                    <Link to="/"><img  alt=""  src={img} style={{width:"18px",height:"18px",position:"absolute",top:"15px",right:"30px"}}/></Link></div>
+                    <Link to="/"><img  alt=""  src={img} style={{width:"24px",height:"24px",position:"absolute",top:"20px",right:"30px"}}/></Link></div>
                 <div style={{ display: "flex", height: "138px", padding: "15px 16px" }}>
                     {<img  alt=""  src={a} style={{ width: "100px", height: "138px" }}></img>}
 

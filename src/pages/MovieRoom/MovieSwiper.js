@@ -65,7 +65,7 @@ class MvSw extends React.Component {
                                     {this.props.Address}
                             </div>
                                 <div className="location-icon" style={{ position: "absolute", right: "0", marginTop: "-20px", width: "70px", height: "31px", borderLeft: "1px solid #d8d8d8", textAlign: "center", transform: "translateY(-50%)" }}>
-                                    <img onClick={this.back.bind(this)}  alt="" src={require("../../assets/imgs/222.png")} style={{ display: "inline-block", width: "19px", height: "22px", marginTop: "5px" }}>
+                                    <img onClick={this.back.bind(this)}  alt="" src={require("../../assets/imgs/222.png")} style={{ display: "inline-block", width: "25px", height: "25px", marginTop: "5px" }}>
                                     </img>
                                 </div>
                             </div>

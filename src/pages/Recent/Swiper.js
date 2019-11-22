@@ -116,8 +116,12 @@ class Swiper extends React.Component {
 
                     {/* 左右按钮  */}
                     <div className="btn-box">
-                        <div className="btn-left" onClick={this.next.bind(this)}><span className="bl">{"<"}</span></div>
-                        <div className="btn-right" onClick={this.before.bind(this)}><span className="br">{">"}</span></div>
+                        <div className="btn-left" onClick={this.next.bind(this)} style={{background:'none'}}><span className="bl"><img
+                        style={{width:'24px',height:'24px'}}
+                        alt="" src={require("../../assets/imgs/arrow1.png")}/></span></div>
+                        <div className="btn-right" onClick={this.next.bind(this)} style={{background:'none'}}><span className="bl"><img
+                        style={{width:'24px',height:'24px',marginLeft:'-30px'}}
+                        alt="" src={require("../../assets/imgs/arrow2.png")}/></span></div>
                     </div>
                 </div>
             </div>

@@ -105,6 +105,9 @@ class Location extends Component {
         //跳转首页
         history.push('/home/hot')
     }
+    reset(){
+        this.getPositions();
+    }
     render() {
         if (this.state.city) {
             let city = this.state.city.slice(0, this.state.city.slice.length)
@@ -129,7 +132,7 @@ class Location extends Component {
         } else {
             return (
                 <div className={detailStyle.box}>
-                    <Button style={{ width: '175px', height: '30px', font: '12px/30px ""', marginLeft: '10px' }}>定位失败，请点击重试</Button>
+                    <Button style={{ width: '175px', height: '30px', font: '12px/30px ""', marginLeft: '10px' }} onClick={this.reset.bind(this)}>定位失败，请点击重试</Button>
                     {/* <div >经度：{this.state.longitude}</div>
                     <div >纬度：{this.state.latitude}</div>
                     <div >城市：{this.state.city}</div>
