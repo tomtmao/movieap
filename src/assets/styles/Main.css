@@ -5,11 +5,13 @@
 .maintop{
     background: #e54847;
     border-bottom: 1px solid #e54847;
-    height: 101px;
+    padding: 20px;
+    height: 121px;
     color: #fff;
-    font-size: 36px;
+    font-size: 40px;
+    font-weight: bold;
     text-align: center;
-    line-height: 100px;
+    line-height: 120px;
 }
 
 .tupian{

@@ -6297,7 +6297,11 @@ lodash.templatesettings@^4.0.0:
 
 lodash.throttle@^4.1.1:
   version "4.1.1"
+<<<<<<< HEAD
   resolved "https://registry.yarnpkg.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
+=======
+  resolved "https://registry.npm.taobao.org/lodash.throttle/download/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
+>>>>>>> 8fce024cc52ee892caf4d622b9462c35dd80472c
   integrity sha1-wj6RtxAkKscMN/HhzaknTMOb8vQ=
 
 lodash.unescape@4.0.1:
@@ -10534,8 +10538,13 @@ verror@1.10.0:
 
 video-react@^0.14.1:
   version "0.14.1"
+<<<<<<< HEAD
   resolved "https://registry.yarnpkg.com/video-react/-/video-react-0.14.1.tgz#49ac7b19f1d039c0b3ebec82f81224bc2fa8bdf1"
   integrity sha512-R5ClJo58iJcQLS+bGNmuAMc/fx9/xcJ6oLrAlbuu7MGI49Jh7b7o79aUdQMZvzuynT1NvhVmD4N/fTOEmWNDlg==
+=======
+  resolved "https://registry.npm.taobao.org/video-react/download/video-react-0.14.1.tgz#49ac7b19f1d039c0b3ebec82f81224bc2fa8bdf1"
+  integrity sha1-Sax7GfHQOcCz6+yC+BIkvC+ovfE=
+>>>>>>> 8fce024cc52ee892caf4d622b9462c35dd80472c
   dependencies:
     "@babel/runtime" "^7.4.5"
     classnames "^2.2.6"

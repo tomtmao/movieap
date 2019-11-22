@@ -10,11 +10,13 @@ import Comment from "@/pages/Comment"
 import MvRoom from "./pages/MovieRoom"
 import Movie from "@/pages/Comment/Detail/movie.js"
 
+import ToTo from "./utils/toto"
 
 class App extends React.Component {
   render() {
     return (
       <Router>
+        <ToTo></ToTo>
         <Switch>
           <Route path="/home/hot/movieday/:id" component={MoveDay}></Route>
           <Route path="/comment/:id" component={Comment}></Route>

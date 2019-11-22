@@ -1,12 +1,13 @@
-import React, { Component,Fragment } from 'react';
+import React, { Component, Fragment } from 'react';
 import cities from '@/utils/city.json'
 import '@/assets/styles/Address/CityList.css'
 import IndexCity from './IndexCity.js';
+import { Button } from 'antd-mobile'
 
 //对城市列表进行排序
 
 let cityArr = cities.cts.sort((a, b) => a.py.charCodeAt(0) - b.py.charCodeAt(0));
-const actionCreate = (type,payload)=>({type,payload})
+const actionCreate = (type, payload) => ({ type, payload })
 //获取地区标题
 
 function Title(arr, str) {
@@ -24,37 +25,37 @@ let cityTitles = Title(cities.cts, 'py')
 
 
 class City extends Component {
-    handleClick(id,city){ 
-        let {dispatch,history} = this.props 
+    handleClick(id, city) {
+        let { dispatch, history } = this.props
         //修改state
-        dispatch(actionCreate('CHANGE_CI',{
-            ci:id,
-            nm:city
+        dispatch(actionCreate('CHANGE_CI', {
+            ci: id,
+            nm: city
         }))
 
         //将点击记录保存在本地储存上
         let arr = JSON.parse(localStorage.getItem('RecentCity'))
-        
+
         let obj = {
-            id:id,
-            nm:city
+            id: id,
+            nm: city
         }
         let flag = true
-            //判断数组是否有这个记录
-        for(let item of arr){
-            if(item.id === obj.id){
-                flag=false;
+        //判断数组是否有这个记录
+        for (let item of arr) {
+            if (item.id === obj.id) {
+                flag = false;
                 //return
             }
         }
-        if(flag){
+        if (flag) {
             arr.unshift(obj)
 
             if (arr.length > 5) {
                 arr = arr.slice(0, 5)
             }
 
-            localStorage.setItem('RecentCity',JSON.stringify(arr))
+            localStorage.setItem('RecentCity', JSON.stringify(arr))
         }
 
 
@@ -64,14 +65,15 @@ class City extends Component {
     render() {
         let { item } = this.props;
         //匹配标题和城市列表
-        let newCityArr =cityArr.filter(i=>i.py[0] === item)
-        let lis = newCityArr.map(item => <li 
+        let newCityArr = cityArr.filter(i => i.py[0] === item)
+        let lis = newCityArr.map(item => <Button 
+            style={{background:'#f5f5f5',textAlign:'left'}}
             key={item.id}
-            onClick={this.handleClick.bind(this,item.id,item.nm)}
+            onClick={this.handleClick.bind(this, item.id, item.nm)}
         >
             {item.nm}
-        </li>)
-        
+        </Button>)
+
         return (
             <Fragment>
                 {lis}
@@ -100,7 +102,7 @@ class CityList extends Component {
                     </ul>
                     <div /* onClick={this.handleClick.bind(this)} */ className="indexlist-indicator" id="indicator">
                         {/* 导航框 */}
-                        <IndexCity cityTitles={cityTitles}/>
+                        <IndexCity cityTitles={cityTitles} />
                     </div>
                 </div>
             </div>

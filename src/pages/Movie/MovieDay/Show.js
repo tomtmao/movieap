@@ -3,6 +3,7 @@ import { connect } from "react-redux"
 import { getMovie } from "../../../store/actionCreator"
 import Top from "../../../component/Main/Top"
 import {withRouter} from "react-router-dom"
+import tututu from "../../../assets/imgs/111.png"
 
 const mapStateToProps = state => {
     return {
@@ -69,7 +70,7 @@ class Show extends React.Component {
                             padding: "19px 30px 19px 15px",
                         }}>
                             <div style={{ display: "flex" }}>
-                                {<img alt="" src={this.props.moviemsg.img.replace("w.h", "148.208")} style={{ width: "110px", height: "150px", boxSizing: "border-box" }}></img>}
+                                {<img alt="" src={this.props.moviemsg.img.replace("w.h", "148.208")} style={{ width: "110px", height: "150px", boxSizing: "border-box"}}></img>}
                                 <div style={{ marginLeft: "12.5px" }}>
                                     <div style={{
                                         fontSize: "20px",
@@ -167,11 +168,17 @@ class Show extends React.Component {
                     </div >
                     <div onClick={this.re.bind(this)} style={{
                         position: "absolute",
-                        fontSize: "37px",
-                        color:"#fff",
-                        top:"0px",
-                        left:"7px"
-                    }}>{"<"}</div>
+                        // fontSize: "37px",
+                        // color:"#fff",
+                        top:"28px",
+                        left:"10px"
+                    }}>
+                        <img style={{
+                            width:"26px",
+                            height:"26px",
+                            marginTop:'20px'
+                        }} src={tututu} alt=""/>
+                    </div>
                 </Fragment>
             )
         } else {
