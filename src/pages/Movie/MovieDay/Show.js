@@ -170,7 +170,7 @@ class Show extends React.Component {
                         position: "absolute",
                         // fontSize: "37px",
                         // color:"#fff",
-                        top:"12px",
+                        top:"28px",
                         left:"10px"
                     }}>
                         <img style={{
