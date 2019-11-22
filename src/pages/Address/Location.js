@@ -33,7 +33,7 @@ class Location extends Component {
 
                     //通过调用高德地图逆地理接口，传入经纬度获取位置信息
                     fetch(`https://restapi.amap.com/v3/geocode/regeo?key=29b597393d4036804a8106642fd4baf3&location=${this.state.longitude},${this.state.latitude}&radius=1000&extensions=all&batch=false&roadlevel=0`, {
-                        method: "POST",
+                        method: "get",
                         headers: {
                             "Content-Type": "application/x-www-form-urlencoded"
                         },

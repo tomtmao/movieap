@@ -3,6 +3,7 @@ import { connect } from "react-redux"
 import { getMovie } from "../../../store/actionCreator"
 import Top from "../../../component/Main/Top"
 import {withRouter} from "react-router-dom"
+import tututu from "../../../assets/imgs/111.png"
 
 const mapStateToProps = state => {
     return {
@@ -167,11 +168,16 @@ class Show extends React.Component {
                     </div >
                     <div onClick={this.re.bind(this)} style={{
                         position: "absolute",
-                        fontSize: "37px",
-                        color:"#fff",
-                        top:"0px",
-                        left:"7px"
-                    }}>{"<"}</div>
+                        // fontSize: "37px",
+                        // color:"#fff",
+                        top:"12px",
+                        left:"10px"
+                    }}>
+                        <img style={{
+                            width:"26px",
+                            height:"26px"
+                        }} src={tututu} alt=""/>
+                    </div>
                 </Fragment>
             )
         } else {

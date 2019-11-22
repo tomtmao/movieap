@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import '../assets/styles/login.css'
 import { InputItem, WhiteSpace, Button, } from 'antd-mobile';
 import { Tabs, Badge } from 'antd-mobile';
+import aaa from "../assets/imgs/111.png"
 const tabs = [
   { title: <Badge>美团账号登录</Badge> },
   { title: <Badge >手机验证登录</Badge> },
@@ -22,7 +23,12 @@ class Login extends Component {
     return (
       <div>
         <div className='movie' >
-          <button className='row' onClick={this.jump}>&lt;</button>
+          <button className='row' onClick={this.jump}>
+          <img style={{
+                            width:"26px",
+                            height:"26px"
+                        }} src={aaa} alt=""/>
+          </button>
           龙猫电影
         </div>
         <Tabs tabs={tabs}
