@@ -9,7 +9,6 @@ import Comment from "@/pages/Comment"
 //影院详情
 import MvRoom from "./pages/MovieRoom"
 
-
 class App extends React.Component {
   render() {
     return (

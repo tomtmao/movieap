@@ -92,14 +92,15 @@ class Hot extends React.Component {
       cursor: "pointer",borderRadius: "8px",margin:"30px 30px 0 0"
     }}><span>预售</span></div>
     return (
-      <div >
-        <div id="scrollableDiv" style={{ height: 800, overflow: "auto" }}>
+      <div style={{overflowX:"hidden"}} >
+        <div id="scrollableDiv" style={{ height: 800, overflowX: "hidden" ,overflowX:"hidden"}}>
           <InfiniteScroll
             dataLength={this.state.items.length}
             next={this.fetchMoreData}
             hasMore={true}
             loader={<h4>Loading...</h4>}
             scrollableTarget="scrollableDiv"
+            style={{overflowX:"hidden"}}
           >
             {this.state.items.map((item, index) => (
               <div style={style} key={item.id} onClick={this.jump.bind(this,item.id)}>

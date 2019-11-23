@@ -1,10 +1,10 @@
 import React from "react"
+import { Carousel } from 'antd-mobile';
 import defaultStyle from "../../assets/styles/RecentBanner.module.css"
-import Slider from "react-slick";
 
 let timer = ""
 
-class Swiper extends React.Component {
+class MvBanner extends React.Component {
     state = {
         data: [],
         length:"",
@@ -38,27 +38,24 @@ class Swiper extends React.Component {
     })
 }
     render() {
-        //为Slider设置属性
-        var settings = {
-            dots: false,
-            infinite: true,
-            speed: 500,
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            autoplay:true,
-            autoplaySpeed:1000,
-            touchMove:true
-        };
+
         if (this.state.data.length) {
             return (
                 <div className={defaultStyle.mostExpected}>
                     <p className={defaultStyle.ptitle}>近期最受欢迎</p>
-                    <div className={defaultStyle.container}>
-                        {/* 与上面的对应 */}
-                        <Slider {...settings}>
+                    <div className={defaultStyle.mainbox}>
+                        <Carousel
+                            autoplay={true}
+                            infinite={false}
+                            dots={false}
+                            frameOverflow="hidden"
+                            cellSpacing={0}
+                            slideWidth="100px"
+                            beforeChange={this.add.bind(this)}
+                        >
                             {this.state.data.map((val,index) => (
                                 <div className={defaultStyle.expectedItem} key={val.id} onClick={this.jump.bind(this,val.id)}>
-                                <div
+                                <a
                                     className={defaultStyle.aimg}
                                 >
                                     <img
@@ -73,7 +70,7 @@ class Swiper extends React.Component {
                                     />
                                     {/* 多少人想看 */}
                                     <span className={defaultStyle.wish}>{val.wish}想看</span>
-                                </div>
+                                </a>
                                 {/* 爱心图片 */}
                                 <div className={defaultStyle.aixin} >
                                     <img src={ this.state.aixinimg } style={{width:"100%"}}>
@@ -84,7 +81,7 @@ class Swiper extends React.Component {
                                 <p className={defaultStyle.mvdata}>{val.comingTitle}</p>
                                 </div>
                             ))}
-                        </Slider>
+                        </Carousel>
                     </div>
                 </div>
             );
@@ -97,4 +94,4 @@ class Swiper extends React.Component {
     }
 }
 
-export default Swiper
+export default MvBanner

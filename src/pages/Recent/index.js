@@ -3,6 +3,8 @@ import { imgLists ,imgComingLists } from "../../store/actionCreator"
 import { connect } from "react-redux"
 import MovieList from "./MovieList"
 import Swiper from "./Swiper"
+import MvBanner from "./Banner"
+
 const mapStateToProps = state => {
     return {
         imglists: state.Recent,
@@ -30,9 +32,12 @@ class Recent extends React.Component {
         this.props.getComingList()
     }
     render() {
+        // console.log(this.props)
+        // console.log(this.props.imglists)
         return (
             <div style={{backgroundColor:"#f5f5f5",overflowX:"hidden"}}>
-                <Swiper />
+                <Swiper imglists={this.props.imglists} history={this.props.history}/>
+                {/* <MvBanner imglists={this.props.imglists} history={this.props.history}/> */}
                 <MovieList history={this.props.history}/>
             </div>
         )

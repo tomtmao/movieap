@@ -4,6 +4,8 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import "./assets/styles/common.css"
 import 'antd-mobile/dist/antd-mobile.css';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import "lib-flexible"
 import store from './store'
 import { Provider } from 'react-redux'
