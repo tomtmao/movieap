@@ -63,7 +63,7 @@ class IndexCity extends Component {
                                 key={index}
                                 onClick={this.clickTitle.bind(this, "", index)}
                                 /* onTouchStart={this.handleTouch.bind(this, "", index)} */
-                            >
+                            > 
                                 {item}
                             </div>
                         )

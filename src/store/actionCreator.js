@@ -93,9 +93,10 @@ export const getComments = params => dispatch => {
     // console.log(params)
     getComment(params)
       .then(res => {
-        //   console.log(res.data.data.hotComments)
-        //console.log(res)
-          dispatch(actionCreator("addCommets", res.data.data.hotComments))
+          if(res){
+            console.log(res.data.data.hotComments,"12345678ss")
+            dispatch(actionCreator("addCommets", res.data.data.hotComments))
+          } 
       })
 }
 

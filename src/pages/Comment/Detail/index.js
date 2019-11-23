@@ -73,9 +73,15 @@ class Deatil extends React.Component {
             img1:require("assets/imgs/heart2.png") 
         })
     }
+    movie(){
+        let id = this.props.movieDetail.id
+        this.props.history.push(`/audio/${this.props.movieDetail.id}`)
+        window.localStorage.setItem("audio",id)
+        console.log(this.props,"lalaaalla")
+    }
     
     componentDidMount() {
-        this.props.getList(this.props.id)
+        this.props.getList(this.props.match.params.id)
     }
     render() {
         let list = []  // 剧照图片
@@ -91,10 +97,28 @@ class Deatil extends React.Component {
             <div style={{ backgroundColor: this.props.movieDetail.backgroundColor, color: "#999", fontSize: "12px" }}>
                 <div style={{paddingLeft:"16px",paddingTop:"6px",position:"relative"}}>
                     {/* back */}
+<<<<<<< HEAD
+                    <Link to=
+                    {"/home/hot/movieday/"+this.props.movieDetail.id}
+                    style={{display:'block',
+                    background:'url('+img+') 100% /cover',
+                    width:"18px",
+                    height:"18px",
+                    position:"absolute",
+                    zIndex:'10',
+                    top:"20px",
+                    right:"30px"
+                }}
+                    >
+                        </Link>
+                        </div>
+                <div style={{ display: "flex", height: "138px", padding: "15px 16px",position:"relative"}}>
+=======
                     <Link to="/"><img  alt=""  src={img} style={{width:"24px",height:"24px",position:"absolute",top:"20px",right:"30px"}}/></Link></div>
                 <div style={{ display: "flex", height: "138px", padding: "15px 16px" }}>
+>>>>>>> 8fce024cc52ee892caf4d622b9462c35dd80472c
                     {<img  alt=""  src={a} style={{ width: "100px", height: "138px" }}></img>}
-
+                   <img src="//s0.meituan.net/bs/?f=myfe/canary:/asgard/images/movie/poster-play.png" onClick ={this.movie.bind(this)} alt="" style={{width:"14px",height:"14px",position:"absolute",bottom:"20px",left:"20px"}}/>
                     <div style={{ marginLeft: "12px" }}>
                         <div style={{ fontSize: "20px", fontWeight: "700", marginBottom: "4px", color: "#fff" }}>{this.props.movieDetail.nm}</div>
                         <div style={{

@@ -1,8 +1,8 @@
 import React, { Fragment } from "react"
 import { TabBar } from 'antd-mobile';
-import {Route,withRouter} from "react-router-dom"
+import { Route, withRouter } from "react-router-dom"
 import "../../assets/styles/Main.css"
-import  Container from "../../pages/Home-container"
+import Container from "../../pages/Home-container"
 import Login from "../Login"
 import Top from "./Top"
 import Cinema from '../../pages/Cinema'
@@ -13,6 +13,7 @@ import tu22 from "../../assets/imgs/tu22.png"
 import tu31 from "../../assets/imgs/tu31.png"
 import tu32 from "../../assets/imgs/tu32.png"
 
+import ToTo from "../../utils/toto"
 
 @withRouter
 class Main extends React.Component {
@@ -26,13 +27,13 @@ class Main extends React.Component {
     };
   }
 
-  componentWillReceiveProps(nextprops){
-    const pathname =nextprops.location.pathname
-    let arr=pathname.split("/")
-    let qie=arr[1]
+  componentWillReceiveProps(nextprops) {
+    const pathname = nextprops.location.pathname
+    let arr = pathname.split("/")
+    let qie = arr[1]
     this.setState({
-      selectedTab:qie,
-      hidden:qie==="my" ? true :false
+      selectedTab: qie,
+      hidden: qie === "my" ? true : false
     })
   }
   render() {
@@ -67,8 +68,9 @@ class Main extends React.Component {
               }}
               data-seed="logId"
             >
+              <ToTo></ToTo>
               <Top>龙猫电影</Top>
-              <Container/>
+              <Container />
             </TabBar.Item>
             <TabBar.Item
               icon={
@@ -92,6 +94,7 @@ class Main extends React.Component {
               }}
               data-seed="logId1"
             >
+              <ToTo></ToTo>
               <Top>影院</Top>
               <Route path="/cinema" component={Cinema}></Route>
             </TabBar.Item>
@@ -116,6 +119,7 @@ class Main extends React.Component {
                 });
               }}
             >
+              <ToTo></ToTo>
               <Route path="/my" component={Login}></Route>
             </TabBar.Item>
           </TabBar>
