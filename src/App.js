@@ -10,11 +10,8 @@ import Comment from "@/pages/Comment"
 import MvRoom from "./pages/MovieRoom"
 import Movie from "@/pages/Comment/Detail/movie.js"
 
-<<<<<<< HEAD
-=======
 import ToTo from "./utils/toto"
 
->>>>>>> afc464ccbbeaa3466283b7254e1012e1af2b150c
 class App extends React.Component {
   render() {
     return (
