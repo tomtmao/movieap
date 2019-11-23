@@ -76,7 +76,7 @@ class Cinema extends React.Component {
                     <Link to="/address" style={{ color: '#777' }}>{this.props.city.nm}▽</Link>
                     <Link to="/cinemasearch">
                         <div className='searchbox'>
-                            <Icon className='icon-search' type="search" /> <span style={{ color: '#777' }}>  搜索影院</span>
+                             <div style={{ color: '#777' }}><Icon className='icon-search' type="search" />  搜索影院</div>
                         </div>
                     </Link>
                 </div>

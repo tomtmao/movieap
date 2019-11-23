@@ -143,7 +143,7 @@ class MovieList extends React.Component {
             right: "30px", top: "0",
             borderRadius: "8px"
         }}>
-            <span>预售</span>
+            <span>想看</span>
         </div>
 
         //  预售
