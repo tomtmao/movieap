@@ -48,7 +48,10 @@ class Cinema extends React.Component {
 
         return `${year}-${months}-${days}`
     }
-
+    toSearch() {
+        let { history } = this.props
+        history.push('/cinemasearch')
+    }
     render() {
         let areaArr = []
         try {
@@ -72,13 +75,17 @@ class Cinema extends React.Component {
 
         return (
             <Fragment>
-                <div className={defaultStyle.container}>
-                    <Link to="/address" style={{ color: '#777' }}>{this.props.city.nm}▽</Link>
-                    <Link to="/cinemasearch">
-                        <div className='searchbox'>
-                             <div style={{ color: '#777' }}><Icon className='icon-search' type="search" />  搜索影院</div>
-                        </div>
-                    </Link>
+                <div className={defaultStyle.container} style={{ display: 'flex'}}>
+                    <div>
+                        <Link style={{ display: 'block' }} to="/address" style={{ color: '#777' }}>{this.props.city.nm}▽</Link>
+                    </div>
+
+                    {/* <Link to="/cinemasearch"> */}
+                    <div className='searchbox'>
+                        <div style={{ color: '#777' ,height:'36px',font:'12px/24px ""'}} onClick={this.toSearch.bind(this)}><Icon className='icon-search' type="search" />  搜索影院</div>
+                    </div>
+
+                    {/* </Link> */}
                 </div>
                 <CinemaMenu areaArr={areaArr} history={this.props.history} CinemaShowList={this.props.CinemaShowList} />
             </Fragment>

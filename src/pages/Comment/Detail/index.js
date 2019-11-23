@@ -113,7 +113,7 @@ class Deatil extends React.Component {
                         </div>
                 <div style={{ display: "flex", height: "138px", padding: "15px 16px",position:"relative"}}>
                     {<img  alt=""  src={a} style={{ width: "100px", height: "138px" }}></img>}
-                   <img src="//s0.meituan.net/bs/?f=myfe/canary:/asgard/images/movie/poster-play.png" onClick ={this.movie.bind(this)} alt="" style={{width:"14px",height:"14px",position:"absolute",bottom:"20px",left:"20px"}}/>
+                   <img src="//s0.meituan.net/bs/?f=myfe/canary:/asgard/images/movie/poster-play.png" onClick ={this.movie.bind(this)} alt="" style={{width:"30px",height:"30px",position:"absolute",bottom:"18px",left:"18px",zIndex:10}}/>
                     <div style={{ marginLeft: "12px" }}>
                         <div style={{ fontSize: "20px", fontWeight: "700", marginBottom: "4px", color: "#fff" }}>{this.props.movieDetail.nm}</div>
                         <div style={{

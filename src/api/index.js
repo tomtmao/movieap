@@ -4,7 +4,7 @@ import axios from "axios"
 // 热映
 export const getHot = (ci=1) => axios({
     method:'get',
-    url:"/aaa/ajax/movieOnInfoList",
+    url:"http://106.13.168.95:8888/777/ajax/movieOnInfoList",
     params:{
         ci,
         token:""
@@ -15,7 +15,7 @@ export const getHot = (ci=1) => axios({
 // 最受期待的电影
 export const mostExpected = () => axios({
     method: 'get',
-    url: "/api/ajax/mostExpected",
+    url: "http://m.maoyan.com/ajax/mostExpected",
     params: {
         ci: 1,
         token: ""
@@ -26,7 +26,7 @@ export const mostExpected = () => axios({
 // 即将上映的电影
 export const comingList = (params) => axios({
     method:'get',
-    url:"/api/ajax/comingList",
+    url:"http://m.maoyan.com/ajax/comingList",
     params
 })
 
@@ -63,7 +63,7 @@ export const searchMovie = (params) => axios({
 //电影详情
 export const getDetail = (movieId) => axios({
     method:'get',
-    url:"/api/ajax/detailmovie",
+    url:"http://m.maoyan.com/ajax/detailmovie",
     params:{
         movieId
     },
@@ -76,7 +76,7 @@ export const getDetail = (movieId) => axios({
 //影院详情(获取该影院上映的电影)
 export const mvRooms = (params) => axios({
     method:'get',
-    url:'/api/ajax/cinemaDetail',
+    url:'http://m.maoyan.com/ajax/cinemaDetail',
     params
 })
 
@@ -84,19 +84,19 @@ export const mvRooms = (params) => axios({
 export const getMoveDay = (data) => {
     return axios({
         method: "post",
-        url: "/api/ajax/movie",
+        url: "http://m.maoyan.com/ajax/movie",
         data
     })
 }
 //查询地区影院列表
 export const getCinemaByCityId = (params) => axios({
     method:'get',
-    url:'/api/ajax/cinemaList',
+    url:'http://m.maoyan.com/ajax/cinemaList',
     params
 })
 //单个电影详情
 export const getMovieMsg = (id) => axios({
-    url:'/api/ajax/detailmovie',
+    url:'http://m.maoyan.com/ajax/detailmovie',
     params:{
         movieId:id
     }
